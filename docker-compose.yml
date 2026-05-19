@@ -1,0 +1,53 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Drug Interaction AI — Docker Compose
+# ─────────────────────────────────────────────────────────────────────────────
+# Usage:
+#   docker compose up --build          # start everything
+#   docker compose up --build backend  # backend only (skip redis)
+#
+# The data/ folder is bind-mounted so the FAISS index built on the host
+# is available inside the container. Build it first:
+#   python build_index.py --all-seed
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: drug-interaction-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data          # Mount data dir (vectorstore, raw, processed)
+    env_file:
+      - .env                      # Load from .env (create from .env.example)
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - VECTOR_STORE_PATH=data/vectorstore
+    depends_on:
+      redis:
+        condition: service_started
+        required: false           # App works fine without Redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s           # Embedding model takes time to load
+
+  redis:
+    image: redis:7-alpine
+    container_name: drug-interaction-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    profiles:
+      - with-redis                # Only starts with: docker compose --profile with-redis up
+
+volumes:
+  redis-data:

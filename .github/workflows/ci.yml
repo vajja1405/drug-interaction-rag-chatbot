@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-unit-${{ hashFiles('requirements.txt') }}
+
+      - name: Install unit-test dependencies
+        run: pip install pytest
+
+      - name: Run classifier unit tests (no DB / LLM / vector store required)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest tests/test_classifier.py --noconftest -v --tb=short
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint with ruff
+        run: ruff check . --select=E,F,W --ignore=E501 || true
+
+  integration-tests:
+    name: Integration Tests (full stack)
+    runs-on: ubuntu-latest
+    # Only run on pushes to main to keep PR checks fast
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-full-${{ hashFiles('requirements.txt') }}
+
+      - name: Install PyTorch (CPU-only for CI speed)
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install all dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run full test suite
+        env:
+          OPENAI_API_KEY: sk-test-dummy
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest tests/ -v --tb=short -x

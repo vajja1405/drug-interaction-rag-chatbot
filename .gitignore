@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+.venv/
+venv/
+env/
+.env
+
+# Data (large files — fetch with build_index.py)
+data/raw/
+data/processed/
+data/vectorstore/
+
+# Models (serialized — regenerate with build_index.py)
+models/saved/
+*.pkl
+*.faiss
+*.joblib
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Evaluation outputs (regenerate with python -m evaluation.run_eval)
+evaluation/results.json
+
+# Logs
+*.log

@@ -1,0 +1,371 @@
+[
+    {
+        "drug_a": "warfarin",
+        "drug_b": "aspirin",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "platelet",
+            "protein binding",
+            "bleeding"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "INR",
+            "monitor"
+        ],
+        "expected_source": "curated",
+        "description": "Classic anticoagulant-antiplatelet interaction"
+    },
+    {
+        "drug_a": "warfarin",
+        "drug_b": "ibuprofen",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "COX",
+            "platelet",
+            "albumin"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "INR",
+            "acetaminophen"
+        ],
+        "expected_source": "curated",
+        "description": "NSAID-anticoagulant GI bleeding risk"
+    },
+    {
+        "drug_a": "warfarin",
+        "drug_b": "metformin",
+        "expected_severity": "Low",
+        "expected_mechanism_keywords": [
+            "no significant",
+            "CYP2C9"
+        ],
+        "expected_management_keywords": [
+            "routine",
+            "INR"
+        ],
+        "expected_source": "curated",
+        "description": "Minimal interaction"
+    },
+    {
+        "drug_a": "warfarin",
+        "drug_b": "amiodarone",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "CYP2C9",
+            "CYP3A4",
+            "metabolism"
+        ],
+        "expected_management_keywords": [
+            "reduce",
+            "warfarin",
+            "INR"
+        ],
+        "expected_source": "curated",
+        "description": "Amiodarone inhibits warfarin metabolism"
+    },
+    {
+        "drug_a": "warfarin",
+        "drug_b": "fluconazole",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "CYP2C9",
+            "clearance"
+        ],
+        "expected_management_keywords": [
+            "reduce",
+            "INR"
+        ],
+        "expected_source": "curated",
+        "description": "Potent CYP2C9 inhibition"
+    },
+    {
+        "drug_a": "warfarin",
+        "drug_b": "rifampin",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "inducer",
+            "CYP2C9",
+            "metabolism"
+        ],
+        "expected_management_keywords": [
+            "increase",
+            "INR"
+        ],
+        "expected_source": "curated",
+        "description": "Potent CYP enzyme induction"
+    },
+    {
+        "drug_a": "simvastatin",
+        "drug_b": "amiodarone",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "CYP3A4",
+            "rhabdomyolysis",
+            "myopathy"
+        ],
+        "expected_management_keywords": [
+            "limit",
+            "20 mg"
+        ],
+        "expected_source": "curated",
+        "description": "Statin-amiodarone CYP3A4 inhibition"
+    },
+    {
+        "drug_a": "atorvastatin",
+        "drug_b": "clarithromycin",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "CYP3A4",
+            "rhabdomyolysis"
+        ],
+        "expected_management_keywords": [
+            "azithromycin",
+            "hold"
+        ],
+        "expected_source": "curated",
+        "description": "Macrolide-statin CYP3A4 inhibition"
+    },
+    {
+        "drug_a": "ibuprofen",
+        "drug_b": "metformin",
+        "expected_severity": "Moderate",
+        "expected_mechanism_keywords": [
+            "renal",
+            "prostaglandin",
+            "clearance"
+        ],
+        "expected_management_keywords": [
+            "renal function",
+            "creatinine"
+        ],
+        "expected_source": "curated",
+        "description": "NSAID-metformin renal interaction"
+    },
+    {
+        "drug_a": "methotrexate",
+        "drug_b": "ibuprofen",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "renal",
+            "clearance",
+            "tubular",
+            "toxicity"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "renal function",
+            "CBC"
+        ],
+        "expected_source": "curated",
+        "description": "NSAID reduces MTX clearance"
+    },
+    {
+        "drug_a": "fluoxetine",
+        "drug_b": "tramadol",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "serotonin",
+            "reuptake",
+            "CYP2D6"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "serotonin syndrome"
+        ],
+        "expected_source": "curated",
+        "description": "Serotonergic interaction"
+    },
+    {
+        "drug_a": "lisinopril",
+        "drug_b": "potassium chloride",
+        "expected_severity": "Moderate",
+        "expected_mechanism_keywords": [
+            "potassium",
+            "aldosterone",
+            "hyperkalemia"
+        ],
+        "expected_management_keywords": [
+            "monitor",
+            "potassium"
+        ],
+        "expected_source": "curated",
+        "description": "ACE inhibitor + potassium"
+    },
+    {
+        "drug_a": "digoxin",
+        "drug_b": "amiodarone",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "P-glycoprotein",
+            "clearance",
+            "toxicity"
+        ],
+        "expected_management_keywords": [
+            "reduce",
+            "dose",
+            "50%"
+        ],
+        "expected_source": "curated",
+        "description": "Amiodarone increases digoxin levels"
+    },
+    {
+        "drug_a": "lithium",
+        "drug_b": "ibuprofen",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "renal",
+            "clearance",
+            "lithium"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "lithium level"
+        ],
+        "expected_source": "curated",
+        "description": "NSAID reduces lithium clearance"
+    },
+    {
+        "drug_a": "clopidogrel",
+        "drug_b": "omeprazole",
+        "expected_severity": "Moderate",
+        "expected_mechanism_keywords": [
+            "CYP2C19",
+            "active metabolite",
+            "prodrug"
+        ],
+        "expected_management_keywords": [
+            "pantoprazole",
+            "alternative"
+        ],
+        "expected_source": "curated",
+        "description": "PPI reduces clopidogrel efficacy"
+    },
+    {
+        "drug_a": "aspirin",
+        "drug_b": "clopidogrel",
+        "expected_severity": "Moderate",
+        "expected_mechanism_keywords": [
+            "platelet",
+            "antiplatelet"
+        ],
+        "expected_management_keywords": [
+            "monitor",
+            "bleeding"
+        ],
+        "expected_source": "curated",
+        "description": "Dual antiplatelet therapy"
+    },
+    {
+        "drug_a": "sildenafil",
+        "drug_b": "nitroglycerin",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "vasodilation",
+            "cGMP",
+            "nitric oxide"
+        ],
+        "expected_management_keywords": [
+            "contraindicated",
+            "24 hours"
+        ],
+        "expected_source": "curated",
+        "description": "PDE5 inhibitor + nitrate"
+    },
+    {
+        "drug_a": "oxycodone",
+        "drug_b": "benzodiazepine",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "CNS",
+            "respiratory",
+            "depression"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "naloxone"
+        ],
+        "expected_source": "curated",
+        "description": "Opioid-benzo FDA Black Box"
+    },
+    {
+        "drug_a": "phenytoin",
+        "drug_b": "valproic acid",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "albumin",
+            "free fraction",
+            "metabolism"
+        ],
+        "expected_management_keywords": [
+            "free phenytoin",
+            "levels"
+        ],
+        "expected_source": "curated",
+        "description": "Complex bidirectional interaction"
+    },
+    {
+        "drug_a": "allopurinol",
+        "drug_b": "azathioprine",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "xanthine oxidase",
+            "6-mercaptopurine"
+        ],
+        "expected_management_keywords": [
+            "reduce",
+            "25"
+        ],
+        "expected_source": "curated",
+        "description": "Block 6-MP metabolism"
+    },
+    {
+        "drug_a": "metronidazole",
+        "drug_b": "alcohol",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "aldehyde dehydrogenase",
+            "acetaldehyde",
+            "disulfiram"
+        ],
+        "expected_management_keywords": [
+            "avoid",
+            "72 hours"
+        ],
+        "expected_source": "curated",
+        "description": "Disulfiram-like reaction"
+    },
+    {
+        "drug_a": "lisinopril",
+        "drug_b": "losartan",
+        "expected_severity": "Severe",
+        "expected_mechanism_keywords": [
+            "RAAS",
+            "hyperkalemia"
+        ],
+        "expected_management_keywords": [
+            "contraindicated"
+        ],
+        "expected_source": "curated",
+        "description": "Dual RAAS blockade"
+    },
+    {
+        "drug_a": "atorvastatin",
+        "drug_b": "warfarin",
+        "expected_severity": "Unknown",
+        "expected_mechanism_keywords": [],
+        "expected_management_keywords": [],
+        "expected_source": "",
+        "description": "Not in knowledge base — should return Unknown"
+    },
+    {
+        "drug_a": "amoxicillin",
+        "drug_b": "clavulanate",
+        "expected_severity": "Unknown",
+        "expected_mechanism_keywords": [],
+        "expected_management_keywords": [],
+        "expected_source": "",
+        "description": "Not in knowledge base — should return Unknown"
+    }
+]
