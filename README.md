@@ -84,7 +84,7 @@ Run evaluation: `python -m evaluation.run_eval --verbose`
 | RAG | `rag_pipeline/embedding_model.py` | Sentence-transformer embeddings (all-MiniLM-L6-v2) |
 | RAG | `rag_pipeline/vector_store.py` | FAISS IndexFlatIP with O(1) pair lookup |
 | RAG | `rag_pipeline/retriever.py` | Polypharmacy-aware retrieval (all C(N,2) pairs) |
-| Models | `models/interaction_classifier.py` | 3-tier severity classification (structured → keyword → unknown) |
+| Models | `models/interaction_classifier.py` | 4-tier severity classification (structured → keyword → RandomForest → LLM fallback) |
 | Chatbot | `chatbot/interaction_agent.py` | LangChain LCEL orchestration + LLM explanation |
 | API | `api/server.py` | FastAPI server with rate limiting and health checks |
 | CLI | `build_index.py` | One-shot pipeline to build the FAISS index |
@@ -96,8 +96,8 @@ Run evaluation: `python -m evaluation.run_eval --verbose`
 ### 1. Clone and install dependencies
 
 ```bash
-git clone https://github.com/rahulvajja/DrugInteractionAI.git
-cd DrugInteractionAI
+git clone https://github.com/vajja1405/drug-interaction-rag-chatbot.git
+cd drug-interaction-rag-chatbot
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -340,7 +340,7 @@ DrugInteractionAI/
 │   └── retriever.py            # Polypharmacy-aware retrieval
 ├── models/
 │   ├── __init__.py
-│   └── interaction_classifier.py   # 3-tier severity classification
+│   └── interaction_classifier.py   # 4-tier severity classification
 ├── chatbot/
 │   ├── __init__.py
 │   └── interaction_agent.py    # LangChain LCEL orchestration
@@ -384,7 +384,11 @@ DrugInteractionAI/
 **Severity Classification Hierarchy**
 1. Structured data (RxNorm/curated) → confidence 0.95
 2. Keyword-based rules on document text → confidence 0.60–0.95
-3. LLM-based reasoning (in explanation) → narrative only, not structured
+3. ML classifier — `RandomForestSeverityClassifier` (TF-IDF + engineered features,
+   wrapped in `CalibratedClassifierCV` with Platt scaling and validated via
+   `StratifiedKFold` out-of-fold predictions, so the emitted confidence is calibrated
+   rather than a raw vote share)
+4. LLM-based reasoning (in explanation) → narrative only, not structured
 
 **Why structured > LLM for severity?**
 LLMs can hallucinate severity classifications. Using structured sources (RxNorm severity codes, curated clinical data) as primary classifiers prevents hallucinated life-threatening misclassifications.
@@ -398,7 +402,7 @@ LLMs can hallucinate severity classifications. Using structured sources (RxNorm 
 
 ## RAG Evaluation Framework
 
-A comprehensive evaluation module measures retrieval and generation quality against a golden test set of 15 drug pairs. Metrics are inspired by [RAGAS](https://docs.ragas.io/), Amazon Bedrock Eval, and Anthropic's evaluation practices.
+A comprehensive evaluation module measures retrieval and generation quality against a golden test set of 24 drug pairs. Metrics are inspired by [RAGAS](https://docs.ragas.io/), Amazon Bedrock Eval, and Anthropic's evaluation practices.
 
 ### Running the evaluation
 
@@ -419,7 +423,7 @@ python -m evaluation.run_eval --verbose
 
 ### Golden test set
 
-Located at `evaluation/golden_set.json` — 15 drug pairs covering:
+Located at `evaluation/golden_set.json` — 24 drug pairs covering:
 - Known severe interactions (warfarin + aspirin, digoxin + amiodarone)
 - Known moderate interactions (ibuprofen + metformin, clopidogrel + omeprazole)
 - Known low interactions (warfarin + metformin)
