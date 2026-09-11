@@ -30,7 +30,6 @@ Rate limiting
   30 requests / minute per IP (set RATE_LIMIT_PER_MINUTE in .env).
 """
 
-from __future__ import annotations
 
 import logging
 import time
@@ -53,6 +52,7 @@ from rag_pipeline.embeddings import get_pipeline
 from rag_pipeline.retriever import DrugInteractionRetriever
 from rag_pipeline.vector_store import DrugVectorStore
 from config import settings
+from cache_identity import pair_cache_key, evidence_version
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -80,6 +80,10 @@ async def lifespan(app: FastAPI):
 
         logger.info("Loading vector store…")
         app.state.vector_store = DrugVectorStore.load(settings.vector_store_path)
+
+        app.state.evidence_version = evidence_version(
+            app.state.vector_store.doc_texts, app.state.vector_store.metadata
+        )
 
         app.state.retriever = DrugInteractionRetriever(
             vector_store=app.state.vector_store,
@@ -274,12 +278,16 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
     cache_key = None
     if len(drugs) == 2:
         sorted_pair = "+".join(sorted(drugs))
-        index_docs = request.app.state.vector_store.stats()["total_documents"]
-        cache_key = f"ddi_v1:{settings.llm_model}:{index_docs}:{sorted_pair}"
+        cache_key = pair_cache_key(drugs, request.app.state.evidence_version,
+                                   settings.llm_model, settings.llm_temperature,
+                                   settings.llm_max_tokens, include_low)
         
         cached_data = await cache.get(cache_key)
         if cached_data:
             logger.info("[%s] Cache HIT: %s", request_id, sorted_pair)
+            # Request identity and timing belong to this request, not the miss.
+            cached_data = {**cached_data, "request_id": request_id,
+                           "processing_time_ms": (time.perf_counter() - t_start) * 1000}
             return AnalyzeResponse(**cached_data)
 
     try:

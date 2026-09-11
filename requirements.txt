@@ -22,6 +22,11 @@ pandas==2.2.3
 scikit-learn==1.5.2
 torch==2.5.1
 
+# Distributed data processing (data_pipeline/spark_preprocess.py) — used to
+# scale the preprocessing stage across sharded raw corpora. Requires a Java 8/11/17
+# runtime at execution time. Optional for the single-node pandas pipeline.
+pyspark==3.5.3
+
 # HTTP clients
 aiohttp==3.11.9
 httpx==0.28.0
@@ -38,3 +43,6 @@ slowapi==0.1.9
 python-dotenv==1.0.1
 tqdm==4.67.1
 tenacity==9.0.0
+
+# Optional cache backend used when REDIS_URL is configured
+redis==5.2.1

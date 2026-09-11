@@ -4,7 +4,7 @@ import SelectedDrugs from './components/SelectedDrugs'
 import AnalyzeButton from './components/AnalyzeButton'
 import ResultsPanel from './components/ResultsPanel'
 import LoadingOverlay from './components/LoadingOverlay'
-import { analyzeInteractions } from './api'
+import { analyzeInteractions, DEMO_MODE } from './api'
 import type { AnalyzeResponse } from './api'
 
 export default function App() {
@@ -63,7 +63,7 @@ export default function App() {
                             <h1>Drug Interaction Analysis</h1>
                         </div>
                         <p className="header-sub">
-                            AI-powered clinical decision support — search drugs, analyze interactions, and review evidence-based severity classifications.
+                            {DEMO_MODE ? 'Browser evidence demo · Local fixture lookup · No account required' : 'Research prototype for interaction retrieval, classification, and explanation.'}
                         </p>
                     </div>
                 </header>
@@ -71,6 +71,12 @@ export default function App() {
                 {/* Main content */}
                 <main className="main-content">
                     <section className="input-section glass-card">
+                        {DEMO_MODE && <div className="demo-notice">
+                            <strong>Research fixtures, not clinical advice.</strong>
+                            <p>This public demo runs locally in your browser. It does not run the Python API, trained classifier, or LLM. Labels and text are unvalidated examples from the repository.</p>
+                            <button type="button" onClick={() => { setDrugs(['warfarin', 'ibuprofen']); setResult(null); setError(null); }}>Load an example pair</button>
+                            <a href="https://github.com/vajja1405/drug-interaction-rag-chatbot" target="_blank" rel="noopener noreferrer">Source & full Python system ↗</a>
+                        </div>}
                         <DrugSearch onAddDrug={addDrug} selectedDrugs={drugs} />
                         <SelectedDrugs drugs={drugs} onRemove={removeDrug} />
                         <AnalyzeButton

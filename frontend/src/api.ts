@@ -1,3 +1,7 @@
+import fixtures from './demo-data.json'
+import { searchFixtures, lookupFixtures } from './demo-core.mjs'
+export const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true'
+
 /* ── Types ──────────────────────────────────────────────────────────────────── */
 
 export interface DrugInteraction {
@@ -36,6 +40,7 @@ export interface SearchResponse {
 /* ── API Functions ─────────────────────────────────────────────────────────── */
 
 export async function searchDrugs(query: string): Promise<string[]> {
+    if (DEMO_MODE) return searchFixtures(fixtures, query);
     if (query.length < 2) return [];
     const res = await fetch(`/api/v1/drugs/search?q=${encodeURIComponent(query)}`);
     if (!res.ok) return [];
@@ -44,6 +49,11 @@ export async function searchDrugs(query: string): Promise<string[]> {
 }
 
 export async function analyzeInteractions(drugs: string[]): Promise<AnalyzeResponse> {
+    if (DEMO_MODE) {
+        const started = performance.now();
+        const result = lookupFixtures(fixtures, drugs);
+        return { ...result, processing_time_ms: performance.now() - started };
+    }
     const res = await fetch('/analyze_interaction', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

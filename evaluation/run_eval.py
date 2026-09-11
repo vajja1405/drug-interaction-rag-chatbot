@@ -3,9 +3,11 @@ evaluation/run_eval.py
 ──────────────────────
 CLI runner for the RAG evaluation framework.
 
-Loads the golden test set, runs each drug pair through the full RAG pipeline
+Loads the golden test set, runs each drug pair through the component regression pipeline
 (retriever + classifier only — does NOT call the LLM for speed), and
-computes all evaluation metrics.
+computes retrieval/classification checks. Generated-answer faithfulness is N/A.
+Generated-answer evaluation requires a separate captured-response dataset and judge;
+this runner is not an official RAGAS evaluation.
 
 Usage:
     python -m evaluation.run_eval
@@ -14,7 +16,7 @@ Usage:
 Metrics produced:
     1. Severity Accuracy   — does predicted severity match expected?
     2. Context Precision    — do retrieved docs mention the queried pair?
-    3. Faithfulness         — are LLM-ready fields grounded in context?
+    3. Faithfulness         — N/A here: generation is not executed
     4. Mechanism Coverage   — do expected keywords appear in mechanism text?
     5. Management Coverage  — do expected keywords appear in management text?
     6. Citation Accuracy    — does source match expected?
@@ -33,7 +35,6 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from evaluation.metrics import (
-    faithfulness,
     answer_relevancy,
     context_precision,
     citation_accuracy,
@@ -51,7 +52,7 @@ def load_golden_set() -> list[dict]:
 
 def run_evaluation(verbose: bool = False) -> dict:
     """
-    Execute the full evaluation pipeline.
+    Execute the retrieval/classification regression pipeline.
 
     Returns a summary dict with aggregate scores and per-pair breakdowns.
     """
@@ -61,7 +62,7 @@ def run_evaluation(verbose: bool = False) -> dict:
     from models.interaction_classifier import InteractionClassifier
 
     print("=" * 70)
-    print("  Drug Interaction AI — RAG Evaluation Framework")
+    print("  Drug Interaction AI — Component Regression")
     print("=" * 70)
     print()
 
@@ -138,12 +139,7 @@ def run_evaluation(verbose: bool = False) -> dict:
             ctx_prec = faith = mech_cov = mgmt_cov = cite_acc = None
         else:
             ctx_prec = context_precision([drug_a, drug_b], docs)
-            faith = faithfulness(
-                mechanism=top_text,
-                clinical_effects="",
-                management="",
-                retrieved_context=top_text,
-            )
+            faith = None  # No generated answer in this component-only run.
             # Use combined chunk text so chunked docs are evaluated fairly
             mech_cov = keyword_coverage(case["expected_mechanism_keywords"], combined_text)
             mgmt_cov = keyword_coverage(case["expected_management_keywords"], combined_text)
@@ -196,10 +192,14 @@ def run_evaluation(verbose: bool = False) -> dict:
     averages = {"severity_accuracy": round(totals["severity_accuracy"] / n, 4)}
     for key in retrieval_metric_keys:
         denom = retrieval_counts[key]
-        averages[key] = round(totals[key] / denom, 4) if denom else 1.0
+        averages[key] = round(totals[key] / denom, 4) if denom else None
 
     # Summary
     summary = {
+        "scope": "retriever_and_single_document_classifier_regression",
+        "llm_evaluated": False,
+        "clinical_validation": False,
+        "metric_denominators": {"severity_accuracy": n, **retrieval_counts},
         "total_cases": n,
         "elapsed_seconds": round(elapsed, 2),
         "aggregate_scores": averages,
@@ -214,6 +214,9 @@ def run_evaluation(verbose: bool = False) -> dict:
     print(f"  {'Metric':<30} {'Score':>8}")
     print(f"  {'─' * 30} {'─' * 8}")
     for metric, score in averages.items():
+        if score is None:
+            print(f"  {metric:<30}     N/A (not evaluated)")
+            continue
         bar = "█" * int(score * 20) + "░" * (20 - int(score * 20))
         print(f"  {metric:<30} {score:>7.1%}  {bar}")
     print()

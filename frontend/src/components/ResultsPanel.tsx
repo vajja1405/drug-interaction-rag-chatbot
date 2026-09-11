@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { DEMO_MODE } from '../api'
 import type { AnalyzeResponse, DrugInteraction } from '../api'
 
 interface ResultsPanelProps {
@@ -101,7 +102,7 @@ function InteractionCard({ interaction }: { interaction: DrugInteraction }) {
                     )}
                     <div className="detail-meta">
                         <span>Method: {interaction.classification_method}</span>
-                        <span>Confidence: {(interaction.confidence * 100).toFixed(0)}%</span>
+                        {!DEMO_MODE && <span>Support score: {(interaction.confidence * 100).toFixed(0)}% (not clinical certainty)</span>}
                         {interaction.interaction_type && (
                             <span>Type: {interaction.interaction_type}</span>
                         )}
@@ -126,7 +127,7 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
             }}>
                 <div className="risk-banner-content">
                     <span className="risk-level">
-                        Overall Risk: <strong>{result.overall_risk}</strong>
+                        {DEMO_MODE ? 'Highest fixture label / coverage' : 'Overall Risk'}: <strong>{result.overall_risk}</strong>
                     </span>
                     <span className="risk-meta">
                         {result.pairs_checked.length} pair{result.pairs_checked.length !== 1 ? 's' : ''} checked
@@ -144,7 +145,7 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
                 <div className="no-interactions">
                     <div className="no-interactions-icon">✅</div>
                     <h3>No interactions found</h3>
-                    <p>No clinically significant interactions were identified between the selected drugs.</p>
+                    <p>No interaction records were returned. This does not establish that the combination is safe.</p>
                 </div>
             ) : (
                 <div className="interactions-list">
@@ -157,7 +158,7 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
             {/* Narrative explanation */}
             {result.explanation && (
                 <div className="narrative-section">
-                    <h3>📖 Clinical Summary</h3>
+                    <h3>{DEMO_MODE ? '📖 Demo interpretation' : '📖 Research summary'}</h3>
                     <p>{result.explanation}</p>
                 </div>
             )}

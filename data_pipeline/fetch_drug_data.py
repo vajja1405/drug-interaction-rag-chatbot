@@ -1,12 +1,10 @@
 """
 data_pipeline/fetch_drug_data.py
 ─────────────────────────────────
-Fetches drug-drug interaction records from two public, no-auth-required APIs:
-
-  1. RxNorm / RxNav  (https://rxnav.nlm.nih.gov/REST)
-     → structured DDI pairs with severity codes
-  2. OpenFDA Drug Labels (https://api.fda.gov/drug/label.json)
-     → free-text clinical narrative for richer embeddings
+Returns curated research fixtures, with explicit provenance and validation status.
+RxNav interaction features were discontinued January 2, 2024. RxNorm helpers
+remain for terminology only; optional OpenFDA helpers fetch label narratives.
+Neither helper makes the bundled fixtures a current, validated interaction feed.
 
 Canonical document schema produced by this module:
   {
@@ -1183,56 +1181,14 @@ async def get_rxcui(session: aiohttp.ClientSession, drug_name: str) -> str | Non
 async def get_rxnorm_interactions(
     session: aiohttp.ClientSession, rxcui: str
 ) -> list[dict]:
+    """Compatibility shim: RxNav DDI was retired on 2024-01-02.
+
+    RxNorm terminology resolution remains available via get_rxcui(). An empty
+    result means this source is unavailable, not that a pair has no interaction.
+    Source: https://lhncbc.nlm.nih.gov/RxNav/information/FAQs.html
     """
-    Fetch all known drug interactions for a given RxCUI from RxNav.
-    Returns a list of raw interaction dicts using the canonical schema.
-    """
-    data = await _get_json(
-        session,
-        f"{RXNORM_BASE}/interaction/interaction.json",
-        params={"rxcui": rxcui},
-    )
-    if not data:
-        return []
-
-    interactions = []
-    try:
-        for group in data.get("interactionTypeGroup", []):
-            for itype in group.get("interactionType", []):
-                description = itype.get("comment", "")
-                for pair in itype.get("interactionPair", []):
-                    drugs = pair.get("interactionConcept", [])
-                    if len(drugs) < 2:
-                        continue
-
-                    drug_a_name = drugs[0]["minConceptItem"]["name"].lower()
-                    drug_b_name = drugs[1]["minConceptItem"]["name"].lower()
-                    rxcui_a = drugs[0]["minConceptItem"]["rxcui"]
-                    rxcui_b = drugs[1]["minConceptItem"]["rxcui"]
-
-                    # Map RxNorm severity code
-                    severity_code = str(pair.get("severity", "N/A"))
-                    severity = RXNORM_SEVERITY_MAP.get(severity_code, "Unknown")
-
-                    raw_text = pair.get("description", description)
-
-                    interactions.append({
-                        "drug_a": drug_a_name,
-                        "drug_b": drug_b_name,
-                        "rxcui_a": rxcui_a,
-                        "rxcui_b": rxcui_b,
-                        "severity": severity,
-                        "severity_source": "rxnorm",
-                        "mechanism": description,
-                        "clinical_effects": raw_text,
-                        "management": "",   # enriched in preprocessing
-                        "source": "rxnorm",
-                        "raw_text": raw_text,
-                    })
-    except Exception as exc:
-        logger.error("Error parsing RxNorm interactions for RXCUI %s: %s", rxcui, exc)
-
-    return interactions
+    logger.warning("RxNav interaction service retired; no live DDI lookup performed")
+    return []
 
 
 # ── OpenFDA helpers ───────────────────────────────────────────────────────────
@@ -1269,60 +1225,23 @@ async def get_fda_narrative(
 async def fetch_all_interactions(
     drugs: list[str], include_seed: bool = True
 ) -> list[dict]:
+    """Return curated research fixtures, optionally filtered by drug name.
+
+    No retired DDI endpoint is called. This is not a comprehensive interaction
+    knowledge base. OpenFDA narratives can be fetched separately; they must be
+    reviewed before being turned into pair-level evidence.
     """
-    Fetch drug-drug interaction data for the given drug list.
-
-    Strategy:
-      1. Start with curated SEED_INTERACTIONS (always reliable).
-      2. Resolve each drug to its RxCUI.
-      3. For each drug, fetch all known DDIs from RxNorm.
-      4. Enrich with OpenFDA narrative text.
-      5. Deduplicate by drug pair.
-    """
-    records: list[dict] = []
-    seen_pairs: set[frozenset] = set()
-
-    # Step 1 – seed data (filtered to requested drugs if list is provided)
-    if include_seed:
-        drug_set = {d.lower() for d in drugs} if drugs else None
-        for record in SEED_INTERACTIONS:
-            pair = frozenset([record["drug_a"], record["drug_b"]])
-            # Include record if either drug is in requested set or no filter
-            if drug_set is None or pair & drug_set:
-                if pair not in seen_pairs:
-                    seen_pairs.add(pair)
-                    records.append(record)
-
-    # Step 2-4 – live API fetching
-    semaphore = asyncio.Semaphore(CONCURRENCY)
-
-    async with aiohttp.ClientSession(
-        headers={"User-Agent": "DrugInteractionAI/1.0 (research; non-commercial)"}
-    ) as session:
-
-        async def fetch_drug(drug_name: str) -> list[dict]:
-            async with semaphore:
-                rxcui = await get_rxcui(session, drug_name)
-                if not rxcui:
-                    logger.warning("Skipping %s – no RxCUI resolved", drug_name)
-                    return []
-                logger.info("Fetching interactions for %s (RXCUI %s)", drug_name, rxcui)
-                return await get_rxnorm_interactions(session, rxcui)
-
-        tasks = [fetch_drug(d) for d in drugs]
-        results = await asyncio.gather(*tasks, return_exceptions=True)
-
-        for result in results:
-            if isinstance(result, Exception):
-                logger.error("Fetch task failed: %s", result)
-                continue
-            for record in result:
-                pair = frozenset([record["drug_a"], record["drug_b"]])
-                if pair not in seen_pairs:
-                    seen_pairs.add(pair)
-                    records.append(record)
-
-    logger.info("Fetched %d unique drug-pair interaction records", len(records))
+    if not include_seed:
+        logger.warning("No live DDI provider configured; returning no records")
+        return []
+    drug_set = {d.strip().lower() for d in drugs} if drugs else None
+    records, seen = [], set()
+    for record in SEED_INTERACTIONS:
+        pair = frozenset([record["drug_a"], record["drug_b"]])
+        if pair not in seen and (drug_set is None or pair & drug_set):
+            seen.add(pair)
+            records.append({**record, "evidence_status": "curated_research_fixture",
+                            "clinical_validation": "not_established"})
     return records
 
 

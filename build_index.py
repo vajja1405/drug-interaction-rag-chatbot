@@ -12,7 +12,7 @@ Steps:
 
 Usage:
   python build_index.py                            # uses seed data (offline)
-  python build_index.py --drugs warfarin aspirin   # + live RxNorm fetch
+  python build_index.py --drugs warfarin aspirin   # filter curated fixtures by drug names
   python build_index.py --all-seed                 # seed only, no API calls
   python build_index.py --processed-only           # skip fetch, reuse existing raw data
 
@@ -58,7 +58,7 @@ def main():
         "--drugs",
         nargs="+",
         default=DEFAULT_DRUGS,
-        help="Drug names to fetch live interaction data for",
+        help="Drug names to filter curated fixtures",
     )
     parser.add_argument(
         "--all-seed",

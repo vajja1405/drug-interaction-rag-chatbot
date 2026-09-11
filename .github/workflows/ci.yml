@@ -74,8 +74,18 @@ jobs:
       - name: Install PyTorch (CPU-only for CI speed)
         run: pip install torch --index-url https://download.pytorch.org/whl/cpu
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
       - name: Install all dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest pytest-asyncio
+
+      - name: Build fixture index
+        env:
+          OPENAI_API_KEY: sk-test-dummy
+        run: python build_index.py --all-seed
 
       - name: Run full test suite
         env:

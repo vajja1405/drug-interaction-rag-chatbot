@@ -1,0 +1,433 @@
+{
+  "scope": "retriever_and_single_document_classifier_regression",
+  "llm_evaluated": false,
+  "clinical_validation": false,
+  "metric_denominators": {
+    "severity_accuracy": 24,
+    "context_precision": 24,
+    "management_coverage": 24,
+    "faithfulness": 0,
+    "mechanism_coverage": 24,
+    "citation_accuracy": 24
+  },
+  "total_cases": 24,
+  "elapsed_seconds": 1.07,
+  "aggregate_scores": {
+    "severity_accuracy": 1.0,
+    "context_precision": 0.9167,
+    "management_coverage": 0.9792,
+    "faithfulness": null,
+    "mechanism_coverage": 1.0,
+    "citation_accuracy": 0.9167
+  },
+  "per_pair_results": [
+    {
+      "pair": "warfarin + aspirin",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "warfarin + ibuprofen",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "warfarin + metformin",
+      "oov": false,
+      "expected_severity": "Low",
+      "actual_severity": "Low",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 1,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "warfarin + amiodarone",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "warfarin + fluconazole",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "warfarin + rifampin",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "simvastatin + amiodarone",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "atorvastatin + clarithromycin",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "ibuprofen + metformin",
+      "oov": false,
+      "expected_severity": "Moderate",
+      "actual_severity": "Moderate",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "methotrexate + ibuprofen",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "fluoxetine + tramadol",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "lisinopril + potassium chloride",
+      "oov": false,
+      "expected_severity": "Moderate",
+      "actual_severity": "Moderate",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "digoxin + amiodarone",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "lithium + ibuprofen",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "clopidogrel + omeprazole",
+      "oov": false,
+      "expected_severity": "Moderate",
+      "actual_severity": "Moderate",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 0.5,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "aspirin + clopidogrel",
+      "oov": false,
+      "expected_severity": "Moderate",
+      "actual_severity": "Moderate",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "sildenafil + nitroglycerin",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "oxycodone + benzodiazepine",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "phenytoin + valproic acid",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "allopurinol + azathioprine",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "metronidazole + alcohol",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "lisinopril + losartan",
+      "oov": false,
+      "expected_severity": "Severe",
+      "actual_severity": "Severe",
+      "actual_confidence": 0.95,
+      "actual_method": "structured",
+      "retrieved_docs": 2,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 1.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 1.0
+      }
+    },
+    {
+      "pair": "atorvastatin + warfarin",
+      "oov": false,
+      "expected_severity": "Unknown",
+      "actual_severity": "Unknown",
+      "actual_confidence": 0.0,
+      "actual_method": "default",
+      "retrieved_docs": 0,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 0.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 0.0
+      }
+    },
+    {
+      "pair": "amoxicillin + clavulanate",
+      "oov": false,
+      "expected_severity": "Unknown",
+      "actual_severity": "Unknown",
+      "actual_confidence": 0.0,
+      "actual_method": "default",
+      "retrieved_docs": 0,
+      "metrics": {
+        "severity_accuracy": 1.0,
+        "context_precision": 0.0,
+        "faithfulness": null,
+        "mechanism_coverage": 1.0,
+        "management_coverage": 1.0,
+        "citation_accuracy": 0.0
+      }
+    }
+  ]
+}

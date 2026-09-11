@@ -915,3 +915,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+.demo-notice { padding: 16px; border: 1px solid #64748b; border-radius: 12px; margin-bottom: 20px; color: #dbeafe; line-height: 1.6; }
+.demo-notice p { margin: 8px 0 12px; }
+.demo-notice button { cursor: pointer; padding: 10px 14px; border: 1px solid #a5b4fc; background: #252d56; color: white; border-radius: 8px; margin-right: 16px; margin-bottom: 10px; }
+.demo-notice a { color: #c4b5fd; display: inline-block; }

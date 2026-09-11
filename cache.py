@@ -8,6 +8,7 @@ if `REDIS_URL` is configured, or an in-memory LRU cache otherwise.
 """
 import json
 import logging
+import time
 from collections import OrderedDict
 from typing import Any
 
@@ -16,22 +17,30 @@ from config import settings
 logger = logging.getLogger(__name__)
 
 class LocalLRUCache:
-    """Simple thread-safe asyncio-compatible LRU cache."""
-    def __init__(self, capacity: int = 10000):
+    """Event-loop-local LRU cache with bounded freshness (not cross-thread)."""
+    def __init__(self, capacity: int = 10000, ttl: float = 3600):
         self._capacity = capacity
+        self._ttl = ttl
+        self._expires = {}
         self._cache: OrderedDict[str, str] = OrderedDict()
 
     async def get(self, key: str) -> str | None:
         if key not in self._cache:
+            return None
+        if self._expires[key] <= time.monotonic():
+            self._cache.pop(key)
+            self._expires.pop(key)
             return None
         self._cache.move_to_end(key)
         return self._cache[key]
 
     async def set(self, key: str, value: str) -> None:
         self._cache[key] = value
+        self._expires[key] = time.monotonic() + self._ttl
         self._cache.move_to_end(key)
         if len(self._cache) > self._capacity:
-            self._cache.popitem(last=False)
+            evicted, _ = self._cache.popitem(last=False)
+            self._expires.pop(evicted, None)
 
 class PairCache:
     """
@@ -44,8 +53,8 @@ class PairCache:
         if settings.redis_url:
             try:
                 import redis.asyncio as redis
-                self._redis = redis.from_url(settings.redis_url, decode_responses=True)
-                logger.info("PairCache initialized with Redis: %s", settings.redis_url)
+                self._redis = redis.from_url(settings.redis_url, decode_responses=True, socket_connect_timeout=1, socket_timeout=1)
+                logger.info("PairCache initialized with Redis")
             except ImportError:
                 logger.warning("redis package not installed. Falling back to LRU cache.")
                 self._local = LocalLRUCache()
@@ -72,8 +81,8 @@ class PairCache:
         try:
             val = json.dumps(data)
             if self._redis:
-                # 30 day expiration for Redis
-                await self._redis.setex(key, 86400 * 30, val)
+                # One-hour TTL; evidence/version changes also invalidate the key
+                await self._redis.setex(key, 3600, val)
             else:
                 await self._local.set(key, val)
         except Exception as e:

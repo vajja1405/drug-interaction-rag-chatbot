@@ -22,7 +22,7 @@ Two model backends
     • TF-IDF (char + word n-grams) on the interaction description
     • Drug-class indicator features (anticoagulant, NSAID, statin, …)
     • Clinical keyword presence features (from SEVERE/MODERATE/MILD sets)
-    • Calibrated RandomForestClassifier (Platt scaling)
+    • Calibrated RandomForestClassifier (isotonic calibration)
     • Trained in < 1 second on the built-in corpus; no GPU required
 
   BERTSeverityClassifier
@@ -82,7 +82,7 @@ logging.basicConfig(
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 MODEL_DIR = Path("models/saved")
-RF_MODEL_PATH = MODEL_DIR / "rf_severity_classifier.pkl"
+RF_MODEL_PATH = MODEL_DIR / "rf_severity_classifier_v2.pkl"
 BERT_MODEL_DIR = MODEL_DIR / "bert_severity_classifier"
 
 # ── Label constants ────────────────────────────────────────────────────────────
@@ -780,8 +780,9 @@ class RandomForestSeverityClassifier:
     Training on the built-in corpus takes < 2 seconds on any machine.
     No GPU required.
 
-    The pipeline is calibrated with Platt scaling (CalibratedClassifierCV)
-    so that the predicted probabilities are well-calibrated fractions.
+    The pipeline is calibrated with isotonic calibration (CalibratedClassifierCV)
+    with feature fitting inside each calibration fold. Reliability still needs
+    independent held-out evaluation; calibration is not a clinical guarantee.
     """
 
     def __init__(
@@ -793,7 +794,9 @@ class RandomForestSeverityClassifier:
     ) -> None:
         self.n_estimators = n_estimators
         self.random_state = random_state
-        self._pipeline: Pipeline | None = None
+        self.max_depth = max_depth
+        self.min_samples_leaf = min_samples_leaf
+        self._pipeline: CalibratedClassifierCV | None = None
         self._label_encoder = LabelEncoder()
         self.classes_: list[str] = []
         self.cv_report_: str = ""
@@ -910,6 +913,7 @@ class RandomForestSeverityClassifier:
             pickle.dump(
                 {
                     "pipeline": self._pipeline,
+                    "artifact_version": 2,
                     "label_encoder": self._label_encoder,
                     "classes": self.classes_,
                     "cv_report": self.cv_report_,
@@ -930,6 +934,8 @@ class RandomForestSeverityClassifier:
             )
         with open(path, "rb") as fh:
             payload = pickle.load(fh)
+        if payload.get("artifact_version") != 2:
+            raise ValueError("Legacy calibration artifact: retrain with the current pipeline.")
         instance = cls()
         instance._pipeline = payload["pipeline"]
         instance._label_encoder = payload["label_encoder"]
@@ -940,7 +946,7 @@ class RandomForestSeverityClassifier:
 
     # ── Internal ───────────────────────────────────────────────────────────────
 
-    def _build_pipeline(self) -> Pipeline:
+    def _build_pipeline(self) -> CalibratedClassifierCV:
         """
         Assemble the scikit-learn pipeline:
           FeatureUnion([TF-IDF, DrugClass, Keyword]) → RandomForest → Calibration
@@ -977,23 +983,18 @@ class RandomForestSeverityClassifier:
             ("keywords", KeywordFeatureExtractor()),
         ])
 
-        rf = CalibratedClassifierCV(
-            RandomForestClassifier(
-                n_estimators=self.n_estimators,
-                max_depth=None,
-                min_samples_leaf=1,
-                class_weight="balanced",
-                random_state=self.random_state,
-                n_jobs=-1,
-            ),
-            method="isotonic",
-            cv=3,
-        )
-
-        return Pipeline([
+        # Clone and fit the entire feature pipeline in each calibration fold.
+        # Fitting TF-IDF outside this wrapper exposes calibration-fold vocabulary.
+        estimator = Pipeline([
             ("features", feature_union),
-            ("clf", rf),
+            ("rf", RandomForestClassifier(
+                n_estimators=self.n_estimators,
+                max_depth=self.max_depth,
+                min_samples_leaf=self.min_samples_leaf,
+                class_weight="balanced", random_state=self.random_state, n_jobs=-1,
+            )),
         ])
+        return CalibratedClassifierCV(estimator, method="isotonic", cv=3)
 
     def _check_trained(self) -> None:
         if self._pipeline is None:

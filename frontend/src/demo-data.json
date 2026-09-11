@@ -1,0 +1,247 @@
+[
+  {
+    "drug_a": "warfarin",
+    "drug_b": "aspirin",
+    "severity": "Severe",
+    "mechanism": "Pharmacodynamic synergy: additive anticoagulant and antiplatelet effects. Aspirin also displaces warfarin from plasma protein binding sites, raising free warfarin concentration.",
+    "clinical_effects": "Significantly increased risk of serious or fatal bleeding, including gastrointestinal haemorrhage and intracranial bleeding."
+  },
+  {
+    "drug_a": "warfarin",
+    "drug_b": "ibuprofen",
+    "severity": "Severe",
+    "mechanism": "Ibuprofen (NSAID) inhibits COX-1-mediated platelet aggregation and causes gastric mucosal irritation. It may also displace warfarin from albumin-binding sites, transiently increasing free warfarin levels.",
+    "clinical_effects": "Elevated bleeding risk, particularly gastrointestinal bleeding. Possible INR fluctuations."
+  },
+  {
+    "drug_a": "warfarin",
+    "drug_b": "metformin",
+    "severity": "Low",
+    "mechanism": "No direct pharmacokinetic interaction. Metformin does not significantly affect warfarin metabolism via CYP2C9. No significant inhibition or induction of CYP2C9 enzymes has been observed.",
+    "clinical_effects": "Minimal interaction; routine INR monitoring sufficient. Rare case reports of slightly elevated INR."
+  },
+  {
+    "drug_a": "aspirin",
+    "drug_b": "ibuprofen",
+    "severity": "Moderate",
+    "mechanism": "Ibuprofen competitively inhibits the COX-1 binding site of aspirin, blocking aspirin's irreversible antiplatelet effect.",
+    "clinical_effects": "Reduced cardioprotective effect of low-dose aspirin; potential loss of antiplatelet benefit in patients using aspirin for cardiovascular prophylaxis."
+  },
+  {
+    "drug_a": "aspirin",
+    "drug_b": "metformin",
+    "severity": "Low",
+    "mechanism": "No direct pharmacokinetic or pharmacodynamic interaction. High-dose salicylates can theoretically potentiate hypoglycaemia, but at typical aspirin doses this is not clinically relevant.",
+    "clinical_effects": "Minimal interaction. High-dose salicylates (>3 g/day) may rarely contribute to hypoglycaemia."
+  },
+  {
+    "drug_a": "ibuprofen",
+    "drug_b": "metformin",
+    "severity": "Moderate",
+    "mechanism": "NSAIDs reduce renal prostaglandin synthesis, leading to decreased renal perfusion and reduced metformin clearance. This increases the risk of metformin accumulation and lactic acidosis.",
+    "clinical_effects": "Risk of acute kidney injury with consequent metformin accumulation; rare but serious lactic acidosis."
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "ibuprofen",
+    "severity": "Moderate",
+    "mechanism": "NSAIDs blunt the antihypertensive and cardioprotective effects of ACE inhibitors by inhibiting prostaglandin-mediated vasodilation. Combination also increases the risk of acute kidney injury ('triple whammy' effect).",
+    "clinical_effects": "Reduced antihypertensive efficacy; elevated blood pressure. Increased risk of AKI especially in volume-depleted or elderly patients."
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "metformin",
+    "severity": "Low",
+    "mechanism": "No direct pharmacokinetic interaction. ACE inhibitors may improve insulin sensitivity, potentially modestly enhancing metformin's glucose-lowering effect.",
+    "clinical_effects": "Generally favourable combination in diabetic patients with hypertension. Rare mild hypoglycaemia possible."
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "aspirin",
+    "severity": "Low",
+    "mechanism": "High-dose aspirin (anti-inflammatory doses) may reduce the vasodilatory benefit of ACE inhibitors via prostaglandin inhibition. Low-dose aspirin (\u2264100 mg/day) has minimal clinical impact.",
+    "clinical_effects": "Slight reduction in antihypertensive efficacy at high aspirin doses. Not clinically significant at cardioprotective doses."
+  },
+  {
+    "drug_a": "warfarin",
+    "drug_b": "lisinopril",
+    "severity": "Low",
+    "mechanism": "No significant pharmacokinetic interaction. Neither drug substantially alters the other's metabolism.",
+    "clinical_effects": "No clinically relevant interaction. Standard monitoring of INR is sufficient."
+  },
+  {
+    "drug_a": "simvastatin",
+    "drug_b": "amiodarone",
+    "severity": "Severe",
+    "mechanism": "Amiodarone inhibits CYP3A4 and CYP2C9, significantly reducing simvastatin metabolism and raising plasma statin concentrations.",
+    "clinical_effects": "Markedly increased risk of myopathy and rhabdomyolysis with potential acute kidney injury."
+  },
+  {
+    "drug_a": "clopidogrel",
+    "drug_b": "omeprazole",
+    "severity": "Moderate",
+    "mechanism": "Omeprazole inhibits CYP2C19, the enzyme responsible for converting clopidogrel to its active metabolite. This reduces clopidogrel's antiplatelet effect.",
+    "clinical_effects": "Reduced platelet inhibition; potential increased cardiovascular event risk in high-risk patients (e.g., post-PCI)."
+  },
+  {
+    "drug_a": "methotrexate",
+    "drug_b": "ibuprofen",
+    "severity": "Severe",
+    "mechanism": "NSAIDs reduce renal tubular secretion of methotrexate, significantly increasing methotrexate plasma levels and half-life.",
+    "clinical_effects": "Methotrexate toxicity: myelosuppression, mucositis, hepatotoxicity, nephrotoxicity. Can be life-threatening."
+  },
+  {
+    "drug_a": "digoxin",
+    "drug_b": "amiodarone",
+    "severity": "Severe",
+    "mechanism": "Amiodarone inhibits P-glycoprotein and reduces renal clearance of digoxin, raising digoxin serum concentrations by 70\u2013100%.",
+    "clinical_effects": "Digoxin toxicity: bradycardia, heart block, nausea, visual disturbances, potentially fatal arrhythmias."
+  },
+  {
+    "drug_a": "fluoxetine",
+    "drug_b": "tramadol",
+    "severity": "Severe",
+    "mechanism": "Fluoxetine inhibits serotonin reuptake (SSRI) and also inhibits CYP2D6, the enzyme responsible for tramadol activation. Tramadol itself inhibits serotonin and noradrenaline reuptake. Combined serotonergic stimulation greatly increases serotonin syndrome risk.",
+    "clinical_effects": "Serotonin syndrome: agitation, hyperthermia, tachycardia, clonus, diaphoresis \u2014 potentially life-threatening. CYP2D6 inhibition by fluoxetine also raises tramadol plasma levels. Lowered seizure threshold."
+  },
+  {
+    "drug_a": "lisinopril",
+    "drug_b": "potassium chloride",
+    "severity": "Moderate",
+    "mechanism": "ACE inhibitors such as lisinopril reduce aldosterone secretion, decreasing renal potassium excretion. Concurrent potassium chloride supplementation can cause additive potassium retention, leading to hyperkalemia.",
+    "clinical_effects": "Hyperkalemia: muscle weakness, cardiac arrhythmias, potentially life-threatening in severe cases. Risk is amplified in patients with renal impairment."
+  },
+  {
+    "drug_a": "warfarin",
+    "drug_b": "amiodarone",
+    "severity": "Severe",
+    "mechanism": "Amiodarone and its active metabolite desethylamiodarone inhibit CYP2C9 and CYP3A4, the main enzymes responsible for warfarin metabolism. This significantly impairs warfarin clearance and raises free warfarin levels.",
+    "clinical_effects": "Markedly elevated INR; substantially increased risk of serious bleeding including intracranial haemorrhage. Effect may persist weeks after amiodarone is stopped due to its very long half-life."
+  },
+  {
+    "drug_a": "lithium",
+    "drug_b": "ibuprofen",
+    "severity": "Severe",
+    "mechanism": "NSAIDs including ibuprofen inhibit renal prostaglandin synthesis, reducing renal blood flow and sodium excretion. This decreases lithium clearance by reducing lithium's renal tubular secretion \u2014 the kidney reabsorbs lithium instead of sodium when sodium is depleted.",
+    "clinical_effects": "Lithium toxicity: tremor, nausea, diarrhoea, confusion, seizures, cardiac arrhythmias. Can be life-threatening at high lithium levels."
+  },
+  {
+    "drug_a": "aspirin",
+    "drug_b": "clopidogrel",
+    "severity": "Moderate",
+    "mechanism": "Pharmacodynamic synergy: aspirin irreversibly inhibits COX-1-dependent thromboxane A2 production (reducing platelet activation), while clopidogrel irreversibly blocks the P2Y12 ADP receptor. Dual antiplatelet therapy produces additive platelet inhibition and increased bleeding risk.",
+    "clinical_effects": "Increased risk of bleeding, particularly gastrointestinal bleeding and minor haemorrhages. Beneficial in high-risk cardiovascular patients (post-ACS, post-PCI) but requires careful risk\u2013benefit assessment."
+  },
+  {
+    "drug_a": "ssri",
+    "drug_b": "tramadol",
+    "severity": "Severe",
+    "mechanism": "SSRIs inhibit serotonin reuptake; tramadol also inhibits serotonin and noradrenaline reuptake and has weak opioid agonist activity. Combination increases serotonergic tone markedly.",
+    "clinical_effects": "Serotonin syndrome: agitation, hyperthermia, tachycardia, clonus, diaphoresis. Can be life-threatening. Also lowers seizure threshold."
+  },
+  {
+    "drug_a": "nitroglycerin",
+    "drug_b": "sildenafil",
+    "severity": "Severe",
+    "mechanism": "Both sildenafil (PDE5 inhibitor) and nitroglycerin (nitrate) increase cyclic GMP, causing potent vasodilation. Co-administration produces synergistic, additive reduction in systemic vascular resistance.",
+    "clinical_effects": "Profound, potentially fatal hypotension. Severe drop in blood pressure may lead to syncope, myocardial infarction, or stroke."
+  },
+  {
+    "drug_a": "fluconazole",
+    "drug_b": "warfarin",
+    "severity": "Severe",
+    "mechanism": "Fluconazole is a potent CYP2C9 inhibitor and also inhibits CYP3A4. As CYP2C9 is the primary enzyme metabolising the more potent S-enantiomer of warfarin, fluconazole dramatically reduces warfarin clearance.",
+    "clinical_effects": "Significantly elevated INR with high risk of serious or fatal bleeding. Even a single dose of fluconazole can cause dangerous INR elevation."
+  },
+  {
+    "drug_a": "atorvastatin",
+    "drug_b": "clarithromycin",
+    "severity": "Severe",
+    "mechanism": "Clarithromycin is a potent CYP3A4 inhibitor. Atorvastatin is extensively metabolised by CYP3A4. Co-administration greatly increases atorvastatin plasma concentrations (AUC up to 4.5-fold).",
+    "clinical_effects": "Markedly elevated statin levels; high risk of myopathy and rhabdomyolysis with associated acute kidney injury."
+  },
+  {
+    "drug_a": "metoprolol",
+    "drug_b": "verapamil",
+    "severity": "Severe",
+    "mechanism": "Both metoprolol (beta-1 selective blocker) and verapamil (non-dihydropyridine calcium channel blocker) depress sinoatrial and atrioventricular nodal conduction. Verapamil also inhibits CYP2D6, raising metoprolol levels.",
+    "clinical_effects": "Severe bradycardia, complete heart block, and cardiogenic shock. Life-threatening cardiac arrest has been reported."
+  },
+  {
+    "drug_a": "ciprofloxacin",
+    "drug_b": "warfarin",
+    "severity": "Moderate",
+    "mechanism": "Ciprofloxacin inhibits CYP1A2 and may disrupt gut flora that produce vitamin K. Both mechanisms reduce warfarin clearance and increase anticoagulant effect.",
+    "clinical_effects": "Elevated INR with increased bleeding risk. INR can rise significantly within 2\u20133 days of starting ciprofloxacin."
+  },
+  {
+    "drug_a": "rifampicin",
+    "drug_b": "warfarin",
+    "severity": "Severe",
+    "mechanism": "Rifampicin is a potent inducer of CYP2C9, CYP3A4, and P-glycoprotein. This dramatically accelerates warfarin metabolism and reduces its plasma levels by up to 85%.",
+    "clinical_effects": "Markedly reduced anticoagulant effect; thrombotic events including stroke and pulmonary embolism reported in patients whose warfarin was subtherapeutic."
+  },
+  {
+    "drug_a": "potassium chloride",
+    "drug_b": "spironolactone",
+    "severity": "Severe",
+    "mechanism": "Spironolactone is a potassium-sparing diuretic that blocks aldosterone receptors in the collecting duct, reducing urinary potassium excretion. Combined with potassium supplementation, significant hyperkalaemia can develop rapidly.",
+    "clinical_effects": "Hyperkalaemia: weakness, paralysis, potentially fatal ventricular arrhythmias and cardiac arrest."
+  },
+  {
+    "drug_a": "furosemide",
+    "drug_b": "gentamicin",
+    "severity": "Severe",
+    "mechanism": "Both furosemide (loop diuretic) and gentamicin (aminoglycoside) are independently nephrotoxic and ototoxic. Furosemide reduces renal blood flow, reducing gentamicin clearance and increasing its accumulation in renal tubular cells and the cochlea.",
+    "clinical_effects": "Synergistic nephrotoxicity (acute tubular necrosis) and ototoxicity (irreversible sensorineural hearing loss and vestibular damage)."
+  },
+  {
+    "drug_a": "sertraline",
+    "drug_b": "warfarin",
+    "severity": "Moderate",
+    "mechanism": "Sertraline moderately inhibits CYP2C9 and may also inhibit platelet serotonin uptake, reducing platelet aggregation. Both effects increase bleeding risk in anticoagulated patients.",
+    "clinical_effects": "Modestly elevated INR; increased risk of bleeding including gastrointestinal haemorrhage. Risk of combined anticoagulant and antiplatelet effect."
+  },
+  {
+    "drug_a": "azithromycin",
+    "drug_b": "warfarin",
+    "severity": "Moderate",
+    "mechanism": "Azithromycin may inhibit CYP3A4 to a modest degree and disrupts gut flora that produce vitamin K. The net effect is a modest increase in warfarin anticoagulant activity.",
+    "clinical_effects": "Elevated INR during azithromycin course, with potential bleeding risk."
+  },
+  {
+    "drug_a": "carbamazepine",
+    "drug_b": "ethinylestradiol",
+    "severity": "Severe",
+    "mechanism": "Carbamazepine is a potent inducer of CYP3A4, the enzyme that metabolises ethinylestradiol (the oestrogen component of oral contraceptives). This dramatically increases oestrogen metabolism and lowers plasma levels.",
+    "clinical_effects": "Contraceptive failure with unintended pregnancy. Carbamazepine reduces ethinylestradiol AUC by approximately 50%."
+  },
+  {
+    "drug_a": "insulin",
+    "drug_b": "alcohol",
+    "severity": "Moderate",
+    "mechanism": "Alcohol inhibits hepatic gluconeogenesis, reducing the liver's ability to compensate for insulin-induced hypoglycaemia. It also masks sympathetic warning symptoms of hypoglycaemia.",
+    "clinical_effects": "Prolonged, severe hypoglycaemia that may be difficult to recognise and treat. Risk is highest several hours after alcohol ingestion."
+  },
+  {
+    "drug_a": "phenytoin",
+    "drug_b": "warfarin",
+    "severity": "Severe",
+    "mechanism": "Bidirectional interaction: phenytoin initially inhibits warfarin metabolism (CYP2C9), raising INR; chronic exposure induces CYP2C9, lowering INR. Warfarin can also inhibit phenytoin metabolism, raising phenytoin levels to toxic range.",
+    "clinical_effects": "Unpredictable INR and phenytoin levels; risk of both bleeding (if INR over-elevated) and thrombosis (if INR under-elevated). Phenytoin toxicity (nystagmus, ataxia, confusion) is also possible."
+  },
+  {
+    "drug_a": "iodinated contrast",
+    "drug_b": "metformin",
+    "severity": "Moderate",
+    "mechanism": "Iodinated contrast agents can cause contrast-induced nephropathy (acute tubular injury), reducing renal function. Impaired kidneys cannot clear metformin, causing drug accumulation and risk of lactic acidosis.",
+    "clinical_effects": "Metformin-associated lactic acidosis in the setting of contrast-induced nephropathy. Though rare, lactic acidosis carries high mortality (up to 50%)."
+  },
+  {
+    "drug_a": "phenelzine",
+    "drug_b": "tramadol",
+    "severity": "Severe",
+    "mechanism": "Phenelzine (MAOI) inhibits monoamine oxidase, the enzyme that degrades serotonin. Tramadol inhibits serotonin reuptake. Combined serotonin accumulation produces life-threatening serotonin syndrome. MAOIs also inhibit tramadol's first-pass metabolism.",
+    "clinical_effects": "Severe serotonin syndrome: hyperthermia, clonus, rhabdomyolysis, multi-organ failure, death. Also risk of hypertensive crisis."
+  }
+]

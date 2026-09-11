@@ -25,7 +25,7 @@ COPY chatbot/       chatbot/
 COPY models/        models/
 COPY rag_pipeline/  rag_pipeline/
 COPY data_pipeline/ data_pipeline/
-COPY config.py      .
+COPY config.py cache.py cache_identity.py ./
 COPY build_index.py .
 
 # ── Data directory (will be overridden by volume mount in docker-compose) ────

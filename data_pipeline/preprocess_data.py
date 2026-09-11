@@ -182,6 +182,8 @@ def process_records(records: list[dict]) -> list[dict]:
                 "severity": enriched.get("severity", "Unknown"),
                 "severity_source": enriched.get("severity_source", "unknown"),
                 "source": enriched.get("source", "unknown"),
+                "evidence_status": enriched.get("evidence_status", "unverified"),
+                "clinical_validation": enriched.get("clinical_validation", "not_established"),
                 "source_url": enriched.get("source_url", ""),
                 "source_page": enriched.get("source_page", ""),
                 "rxcui_a": enriched.get("rxcui_a"),
