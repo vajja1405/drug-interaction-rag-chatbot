@@ -2,7 +2,11 @@
 
 A React/TypeScript + FastAPI research prototype for drug-pair retrieval, severity classification, and LLM explanations.
 
-**Public demo:** https://vajja1405.github.io/drug-interaction-rag-chatbot/
+**Full public application:** https://astra6-drug-interaction-ai.hf.space
+
+[Hugging Face Space](https://huggingface.co/spaces/astra6/drug-interaction-ai) runs React + FastAPI, embeddings, FAISS retrieval and the classifier on CPU Basic. Explanations use `Qwen/Qwen3-4B-Instruct-2507:nscale` through Hugging Face Inference Providers, with the API key stored as a server-side Space secret. Visitors need no account. Medication names are sent to the server and model provider; use demonstration inputs only.
+
+**Browser-only backup:** https://vajja1405.github.io/drug-interaction-rag-chatbot/
 
 The deployed GitHub Pages site performs deterministic lookup of 35 bundled research fixtures entirely in the browser. It requires no account or API key. It does **not** host FastAPI, run the trained classifier, or call an LLM. Unsupported or conflicting pairs return **Unknown**, never an assurance of safety. Public fixtures are incomplete and not clinically adjudicated; do not use this prototype for treatment decisions. It supplies no personalized management or dosing recommendations.
 
@@ -66,7 +70,7 @@ python -m pytest tests/ -v
 python -m evaluation.run_eval --verbose
 ```
 
-For Docker, build the index first, then `docker compose up --build`. The image includes the React build, fixture index, embedding weights, calibrated classifier, and cache modules. It runs as a non-root user and does not need host data mounts. It has not been certified for clinical production. GitHub Pages publishes only the static demo; Python hosting is still needed for a publicly accessible full backend. Never put API keys in Vite variables or browser bundles.
+For Docker, run `docker compose up --build`; the image build creates its own index. The image includes the React build, fixture index, embedding weights, calibrated classifier, and cache modules. It runs as a non-root user and does not need host data mounts. It has not been certified for clinical production. GitHub Pages publishes only the static demo; the Hugging Face Space hosts the full Python backend. Never put API keys in Vite variables or browser bundles.
 
 ## Sources and limits
 
@@ -77,12 +81,19 @@ For Docker, build the index first, then `docker compose up --build`. The image i
 This maintenance release improves engineering correctness. It does not retroactively establish historical deployment dates, avoided inference costs, independent clinical validation, or production usage.
 
 
-## Full backend hosting preparation
+## Full backend deployment
 
 The Docker image serves React and FastAPI on the same origin (`PORT`, default 7860). Build with `docker build -t drug-interaction-ai .`. Supply a real compatible model service through runtime secrets/settings: `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `LLM_MODEL`. A local Ollama URL pointing at localhost does not become a cloud model service when the image is uploaded.
 
 `deployment/HF_README.md` provides Hugging Face Docker metadata. `deployment/render.yaml` is a reviewable Render blueprint with a paid plan; neither file creates an account or starts billing. See the provider's current prices before applying. Do not upload `.env` or reuse a broad GitHub token as a model credential.
 
-Public defaults: five medications, five requests/minute per connection IP, one concurrent analysis, 200 uncached analyses per process per UTC day, 1,800 output tokens and a 25-second timeout per model attempt with no SDK retries. The ordinary JSON call can fall back to one text call. The daily counter resets on process restart and is **not** a provider billing cap. Use provider-side budgets as well. Proxy headers are not trusted by default; an upstream shared proxy may make the IP limit apply globally. Configure trusted proxies only after verifying the host topology.
+Docker defaults: five medications, five requests/minute per connection IP, one concurrent analysis, 200 uncached analyses per process per UTC day, 1,800 output tokens and a 25-second timeout per model attempt with no SDK retries. The ordinary JSON call can fall back to one text call. The daily counter resets on process restart and is **not** a provider billing cap. Use provider-side budgets as well. Proxy headers are not trusted by default; an upstream shared proxy may make the IP limit apply globally. Configure trusted proxies only after verifying the host topology.
 
 `/api/v1/ready` returns 503 when resources or model-key configuration are missing. A ready response does not claim live model verification. Responses explicitly distinguish generated JSON, generated text and model-unavailable evidence fallback. Failed generations are not cached. Unknown-evidence pairs remain visible even when Low pairs are filtered out. Integration tests cover those behaviors. Clinical validation and generated-claim adjudication remain outstanding.
+
+
+### Hosted verification and operating limits
+
+On September 11, the public Space returned generated JSON for one supported pair, served its repeat from cache with a distinct request ID, retained an unsupported pair as Unknown with Low results filtered out, and served readiness while inference was running. React example loading, analysis and expanded evidence were also checked in the public browser. [Smoke-check record](docs/hosting-smoke-2026-09-11.json). These are deployment checks, not adjudicated medical-answer evaluation or a latency benchmark. GitHub integration CI passed 28 tests, including Spark.
+
+The Space overrides the daily allowance to **50 uncached analyses per process per UTC day** and the timeout to **40 seconds per model attempt**. Other bounds remain five medications, five requests per minute per observed client IP, one concurrent uncached analysis and 1,800 output tokens. CPU Basic was selected; no paid GPU or storage upgrade was enabled. Inference uses the account's provider credits and can fail when credit or provider availability is exhausted. A process-local throttle does not guarantee a spending cap. An idle Space can require startup time; keep the browser-only backup available.

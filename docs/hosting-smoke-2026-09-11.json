@@ -1,0 +1,23 @@
+{
+  "verified_on": "2026-09-11",
+  "url": "https://astra6-drug-interaction-ai.hf.space",
+  "space": "astra6/drug-interaction-ai",
+  "hardware": "cpu-basic",
+  "model": "Qwen/Qwen3-4B-Instruct-2507:nscale",
+  "generation_status": "generated_json",
+  "cold_ms": 5787.2,
+  "cache_hit_ms": 0.25158101925626397,
+  "distinct_request_ids": true,
+  "health_during_inference_ms": 258,
+  "evidence_documents": 2,
+  "served_react": true,
+  "live_cloud_deployment": true,
+  "unsupported_pair_unknown": true,
+  "clinical_validation": false,
+  "sample_size": {
+    "known_pairs": 1,
+    "repeat_requests": 1,
+    "unsupported_pairs": 1
+  },
+  "scope": "Deployment smoke check only; not a performance benchmark, clinical validation or adjudicated explanation evaluation."
+}
