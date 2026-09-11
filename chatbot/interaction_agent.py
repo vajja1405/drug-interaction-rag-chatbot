@@ -256,6 +256,7 @@ class InteractionReport:
     processing_time_ms: float
     retrieved_docs_total: int
     disclaimer: str = DISCLAIMER
+    generation_status: str = "not_run"
 
     # ── Convenience accessors ─────────────────────────────────────────────────
 
@@ -312,6 +313,7 @@ class InteractionReport:
             ],
             "monitoring_priorities": self.monitoring_priorities,
             "narrative": self.narrative,
+            "generation_status": self.generation_status,
             "retrieved_docs_total": self.retrieved_docs_total,
             "processing_time_ms": self.processing_time_ms,
             "reasoning_trace": self.reasoning_trace.steps,
@@ -539,6 +541,8 @@ class DrugInteractionAgent:
             model=settings.llm_model,
             temperature=settings.llm_temperature,
             max_tokens=settings.llm_max_tokens,
+            timeout=settings.llm_timeout_seconds,
+            max_retries=0,
         )
         self._json_chain = (
             ChatPromptTemplate.from_messages([
@@ -590,7 +594,7 @@ class DrugInteractionAgent:
         assessments = self._stage3_classification(combos, evidences, trace)
 
         # ── Stage 4: LLM structured explanation ───────────────────────────────
-        explanations, narrative = self._stage4_explanation(
+        explanations, narrative, generation_status = self._stage4_explanation(
             drugs, combos, evidences, assessments, trace
         )
 
@@ -610,6 +614,7 @@ class DrugInteractionAgent:
             overall_risk=overall_risk,
             monitoring_priorities=monitoring,
             narrative=narrative,
+            generation_status=generation_status,
             reasoning_trace=trace,
             processing_time_ms=round(elapsed, 1),
             retrieved_docs_total=sum(e.document_count for e in evidences.values()),
@@ -871,7 +876,7 @@ class DrugInteractionAgent:
         evidences: dict[str, RetrievedEvidence],
         assessments: dict[str, SeverityAssessment],
         trace: ReasoningTrace,
-    ) -> tuple[list[PairExplanation], str]:
+    ) -> tuple[list[PairExplanation], str, str]:
         """
         Call the LLM with a JSON-mode prompt and parse the response.
 
@@ -893,6 +898,7 @@ class DrugInteractionAgent:
             f"temp={settings.llm_temperature}) with {len(combos)} pairs"
         )
 
+        generation_status = "unavailable"
         llm_raw = ""
         parsed_json: dict | None = None
 
@@ -900,6 +906,7 @@ class DrugInteractionAgent:
         try:
             llm_raw = self._json_chain.invoke(prompt_inputs)
             parsed_json = _parse_json_response(llm_raw)
+            generation_status = "generated_json"
             trace.add("Stage 4 — JSON response parsed successfully")
         except Exception as exc:
             trace.add(f"Stage 4 — JSON call/parse failed ({exc}); trying fallback")
@@ -911,10 +918,11 @@ class DrugInteractionAgent:
                 llm_raw = self._fallback_chain.invoke(
                     {**prompt_inputs, "disclaimer": DISCLAIMER}
                 )
+                generation_status = "generated_text"
                 trace.add("Stage 4 — fallback plain-text response received")
             except Exception as exc2:
                 llm_raw = (
-                    f"LLM unavailable: {exc2}. "
+                    "LLM unavailable. "
                     "Severity classifications are based on structured/ML data."
                 )
                 trace.add(f"Stage 4 — LLM completely unavailable: {exc2}")
@@ -942,6 +950,10 @@ class DrugInteractionAgent:
                 pd = pair_data.get(combo.pair_key) or pair_data.get(
                     f"{combo.drug_b}+{combo.drug_a}", {}
                 )
+                if not ev.documents:
+                    pd = {"mechanism":"No supporting record in this research index.",
+                          "clinical_effects":"", "management":"No medication recommendation can be made from missing evidence.",
+                          "monitoring_points":[], "interaction_type":"unknown"}
                 explanations.append(PairExplanation(
                     combination=combo,
                     severity=assess.final_severity,
@@ -983,7 +995,7 @@ class DrugInteractionAgent:
         trace.add(
             f"Stage 4 — {len(explanations)} pair explanation(s) assembled"
         )
-        return explanations, narrative
+        return explanations, narrative, generation_status
 
     # ══════════════════════════════════════════════════════════════════════════
     # Stage 5 — Overall risk + monitoring synthesis

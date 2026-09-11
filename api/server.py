@@ -32,6 +32,8 @@ Rate limiting
 
 
 import logging
+import re
+from pathlib import Path
 import time
 import uuid
 from contextlib import asynccontextmanager
@@ -40,7 +42,10 @@ from typing import Annotated
 import httpx
 from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
+from starlette.concurrency import run_in_threadpool
+from hosting_limits import AnalysisBudget, AdmissionDenied
 from pydantic import BaseModel, Field
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -63,6 +68,8 @@ logger = logging.getLogger(__name__)
 
 # ── Rate limiter ──────────────────────────────────────────────────────────────
 limiter = Limiter(key_func=get_remote_address)
+budget = AnalysisBudget(settings.max_concurrent_analyses, settings.max_uncached_analyses_per_day)
+FRONTEND = Path(__file__).resolve().parents[1] / "frontend" / "dist"
 
 
 # ── Lifespan: load all heavy resources once at startup ────────────────────────
@@ -133,8 +140,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],          # restrict in production
-    allow_credentials=True,
+    allow_origins=[o.strip() for o in settings.cors_origins.split(",") if o.strip()],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -148,14 +155,15 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 class AnalyzeRequest(BaseModel):
     """Request body for drug interaction analysis."""
 
-    drugs: list[str] = Field(
+    drugs: list[Annotated[str, Field(min_length=1, max_length=80)]] = Field(
         min_length=2,
+        max_length=20,
         description="List of drug names to analyse (2–20 drugs).",
         examples=[["warfarin", "ibuprofen", "aspirin"]],
     )
     include_low_severity: bool = Field(
         default=True,
-        description="Set to false to suppress Low/Unknown pairs in the response.",
+        description="Set to false to suppress Low pairs; Unknown remains visible.",
     )
 
     model_config = {
@@ -203,6 +211,10 @@ class AnalyzeResponse(BaseModel):
     )
     retrieved_docs: int = Field(description="Total evidence documents retrieved from the knowledge base.")
     processing_time_ms: float = Field(description="Server-side processing time in milliseconds.")
+    generation_status: str = Field(default="not_run", description="generated_json | generated_text | unavailable | not_run")
+    evidence_version: str = Field(default="")
+    cache_hit: bool = Field(default=False)
+    clinical_validation: str = Field(default="not_established")
     disclaimer: str = Field(
         default=(
             "This analysis is for informational purposes only. "
@@ -234,7 +246,7 @@ _SEVERITY_ORDER = {"Severe": 0, "Moderate": 1, "Low": 2, "Unknown": 3}
 
 def _require_healthy(request: Request) -> None:
     if not request.app.state.healthy:
-        err = request.app.state.startup_error or "Server not ready"
+        err = "The research service is not ready"
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=(
@@ -263,7 +275,9 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
             ),
         )
 
-    drugs = [d.strip().lower() for d in drugs_raw if d.strip()]
+    drugs = list(dict.fromkeys(d.strip().lower() for d in drugs_raw if d.strip()))
+    if any(not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9 ()/.,+%’\'-]{0,79}", d) for d in drugs):
+        raise HTTPException(status_code=422, detail="Enter medication names only, up to 80 characters each.")
     if len(set(drugs)) < 2:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -272,7 +286,7 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
 
     request_id = str(uuid.uuid4())
     t_start = time.perf_counter()
-    logger.info("[%s] Analyzing: %s", request_id, drugs)
+    logger.info("[%s] Analyzing %d medication names", request_id, len(drugs))
     
     # Caching path for pair-level evaluations (exactly 2 drugs)
     cache_key = None
@@ -287,16 +301,19 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
             logger.info("[%s] Cache HIT: %s", request_id, sorted_pair)
             # Request identity and timing belong to this request, not the miss.
             cached_data = {**cached_data, "request_id": request_id,
-                           "processing_time_ms": (time.perf_counter() - t_start) * 1000}
+                           "processing_time_ms": (time.perf_counter() - t_start) * 1000, "cache_hit": True}
             return AnalyzeResponse(**cached_data)
 
     try:
-        report = request.app.state.agent.analyze(drugs)
+        with budget.reserve():
+            report = await run_in_threadpool(request.app.state.agent.analyze, drugs)
+    except AdmissionDenied as exc:
+        raise HTTPException(status_code=429, detail=str(exc), headers={"Retry-After":"30"}) from exc
     except Exception as exc:
         logger.exception("[%s] Analysis failed: %s", request_id, exc)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Analysis failed: {exc}",
+            detail="Analysis unavailable. Please retry later.",
         ) from exc
 
     elapsed_ms = (time.perf_counter() - t_start) * 1000
@@ -306,7 +323,7 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
     interactions: list[DrugInteraction] = []
     for item in raw["interactions"]:
         sev = item["severity"]
-        if not include_low and sev in ("Low", "Unknown"):
+        if not include_low and sev == "Low":
             continue
         interactions.append(
             DrugInteraction(
@@ -338,6 +355,8 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
         monitoring_priorities=raw.get("monitoring_priorities", []),
         retrieved_docs=raw["retrieved_docs_total"],
         processing_time_ms=round(elapsed_ms, 1),
+        generation_status=raw.get("generation_status", "not_run"),
+        evidence_version=request.app.state.evidence_version,
     )
 
     logger.info(
@@ -345,7 +364,7 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
         request_id, elapsed_ms, len(raw["pairs_checked"]), raw["overall_risk"],
     )
     
-    if cache_key:
+    if cache_key and response.generation_status not in ("unavailable", "not_run"):
         await cache.set(cache_key, response.model_dump(mode="json"))
         
     return response
@@ -355,6 +374,8 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
 
 @app.get("/", include_in_schema=False)
 async def root():
+    if (FRONTEND / "index.html").is_file():
+        return FileResponse(FRONTEND / "index.html")
     return {
         "message": "Drug Interaction Analysis API",
         "docs": "/docs",
@@ -472,3 +493,15 @@ if __name__ == "__main__":
         port=settings.api_port,
         reload=True,
     )
+
+
+@app.get("/api/v1/ready", include_in_schema=False)
+async def ready(request: Request):
+    if not request.app.state.healthy:
+        return JSONResponse({"status":"not_ready"}, status_code=503)
+    key_ready = settings.openai_api_key not in ("", "sk-placeholder")
+    return JSONResponse({"status":"ready" if key_ready else "missing_model_key",
+                         "live_model_verified": False}, status_code=200 if key_ready else 503)
+
+if (FRONTEND / "assets").is_dir():
+    app.mount("/assets", StaticFiles(directory=FRONTEND / "assets"), name="frontend-assets")

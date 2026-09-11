@@ -18,13 +18,12 @@ services:
     container_name: drug-interaction-backend
     ports:
       - "8000:8000"
-    volumes:
-      - ./data:/app/data          # Mount data dir (vectorstore, raw, processed)
     env_file:
       - .env                      # Load from .env (create from .env.example)
     environment:
       - API_HOST=0.0.0.0
       - API_PORT=8000
+      - PORT=8000
       - VECTOR_STORE_PATH=data/vectorstore
     depends_on:
       redis:

@@ -66,7 +66,7 @@ python -m pytest tests/ -v
 python -m evaluation.run_eval --verbose
 ```
 
-For Docker, build the index first, then `docker compose up --build`. The image includes the cache modules; it has not been certified for clinical production. GitHub Pages publishes only the static demo; Python hosting is still needed for a publicly accessible full backend. Never put API keys in Vite variables or browser bundles.
+For Docker, build the index first, then `docker compose up --build`. The image includes the React build, fixture index, embedding weights, calibrated classifier, and cache modules. It runs as a non-root user and does not need host data mounts. It has not been certified for clinical production. GitHub Pages publishes only the static demo; Python hosting is still needed for a publicly accessible full backend. Never put API keys in Vite variables or browser bundles.
 
 ## Sources and limits
 
@@ -75,3 +75,14 @@ For Docker, build the index first, then `docker compose up --build`. The image i
 - [GitHub Pages hosting scope](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
 
 This maintenance release improves engineering correctness. It does not retroactively establish historical deployment dates, avoided inference costs, independent clinical validation, or production usage.
+
+
+## Full backend hosting preparation
+
+The Docker image serves React and FastAPI on the same origin (`PORT`, default 7860). Build with `docker build -t drug-interaction-ai .`. Supply a real compatible model service through runtime secrets/settings: `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `LLM_MODEL`. A local Ollama URL pointing at localhost does not become a cloud model service when the image is uploaded.
+
+`deployment/HF_README.md` provides Hugging Face Docker metadata. `deployment/render.yaml` is a reviewable Render blueprint with a paid plan; neither file creates an account or starts billing. See the provider's current prices before applying. Do not upload `.env` or reuse a broad GitHub token as a model credential.
+
+Public defaults: five medications, five requests/minute per connection IP, one concurrent analysis, 200 uncached analyses per process per UTC day, 1,800 output tokens and a 25-second timeout per model attempt with no SDK retries. The ordinary JSON call can fall back to one text call. The daily counter resets on process restart and is **not** a provider billing cap. Use provider-side budgets as well. Proxy headers are not trusted by default; an upstream shared proxy may make the IP limit apply globally. Configure trusted proxies only after verifying the host topology.
+
+`/api/v1/ready` returns 503 when resources or model-key configuration are missing. A ready response does not claim live model verification. Responses explicitly distinguish generated JSON, generated text and model-unavailable evidence fallback. Failed generations are not cached. Unknown-evidence pairs remain visible even when Low pairs are filtered out. Integration tests cover those behaviors. Clinical validation and generated-claim adjudication remain outstanding.

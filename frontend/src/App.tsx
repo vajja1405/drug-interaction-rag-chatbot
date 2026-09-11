@@ -77,6 +77,11 @@ export default function App() {
                             <button type="button" onClick={() => { setDrugs(['warfarin', 'ibuprofen']); setResult(null); setError(null); }}>Load an example pair</button>
                             <a href="https://github.com/vajja1405/drug-interaction-rag-chatbot" target="_blank" rel="noopener noreferrer">Source & full Python system ↗</a>
                         </div>}
+                        {!DEMO_MODE && <div className="demo-notice">
+                            <strong>Full research application · Python API + retrieval + model explanation</strong>
+                            <p>Enter medication names only. Names are sent to this server and its model provider. The evidence corpus is curated and unvalidated; do not use the output for care decisions.</p>
+                            <button type="button" onClick={() => { setDrugs(['warfarin', 'ibuprofen']); setResult(null); setError(null); }}>Load an example pair</button>
+                        </div>}
                         <DrugSearch onAddDrug={addDrug} selectedDrugs={drugs} />
                         <SelectedDrugs drugs={drugs} onRemove={removeDrug} />
                         <AnalyzeButton

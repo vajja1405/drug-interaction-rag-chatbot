@@ -120,6 +120,10 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
 
     return (
         <div className="results-panel">
+            {!DEMO_MODE && <div className="demo-notice">
+                <strong>{result.generation_status === 'unavailable' ? 'Model unavailable: evidence-only fallback' : result.generation_status?.startsWith('generated') ? 'Model explanation generated' : 'Model status not verified'}</strong>
+                <p>{result.cache_hit ? 'Previously generated response served from the versioned cache.' : 'New request processed by the backend.'} Generated text is not clinically validated.</p>
+            </div>}
             {/* Overall risk banner */}
             <div className="risk-banner" style={{
                 background: (SEVERITY_CONFIG[result.overall_risk] ?? SEVERITY_CONFIG.Unknown).bg,

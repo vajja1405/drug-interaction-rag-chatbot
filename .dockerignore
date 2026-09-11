@@ -1,37 +1,16 @@
-# ── Git / Version Control ─────────────────────────────────────────────────────
-.git
-.gitignore
-
-# ── Python ────────────────────────────────────────────────────────────────────
-__pycache__
-*.pyc
-*.pyo
-.venv
-venv
-.env
-
-# ── Frontend (not needed in backend image) ────────────────────────────────────
-frontend/
-node_modules/
-
-# ── Data (mounted as volume instead) ──────────────────────────────────────────
-data/
-
-# ── IDE / OS ──────────────────────────────────────────────────────────────────
-.vscode
-.idea
-*.swp
-*.swo
+**/.git
+**/__pycache__
+**/*.pyc
+**/.env
+**/.env.*
+**/node_modules
+**/.venv
+**/venv
+frontend/dist
+frontend/tsconfig.tsbuildinfo
+data
+models/saved
+work
+outputs
+*.log
 .DS_Store
-Thumbs.db
-
-# ── Docker ────────────────────────────────────────────────────────────────────
-Dockerfile
-docker-compose.yml
-.dockerignore
-
-# ── Docs & misc ───────────────────────────────────────────────────────────────
-README.md
-LICENSE
-*.md
-.env.example

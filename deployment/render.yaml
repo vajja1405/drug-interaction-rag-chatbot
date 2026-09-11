@@ -1,0 +1,19 @@
+# Review the hosting price before applying. This file creates nothing by itself.
+services:
+  - type: web
+    name: drug-interaction-ai
+    runtime: docker
+    repo: https://github.com/vajja1405/drug-interaction-rag-chatbot
+    branch: main
+    plan: standard
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/v1/ready
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        value: https://api.openai.com/v1
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: MAX_UNCACHED_ANALYSES_PER_DAY
+        value: '200'

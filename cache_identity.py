@@ -2,7 +2,7 @@
 import hashlib
 import json
 
-PIPELINE_VERSION = "2026-09-11-calibration-v2"
+PIPELINE_VERSION = "2026-09-11-hosting-v3"
 
 def evidence_version(texts, metadata):
     payload = json.dumps([texts, metadata], sort_keys=True, ensure_ascii=False,

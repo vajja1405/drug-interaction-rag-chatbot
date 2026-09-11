@@ -20,6 +20,9 @@ export interface DrugInteraction {
 }
 
 export interface AnalyzeResponse {
+    generation_status?: string;
+    cache_hit?: boolean;
+    evidence_version?: string;
     request_id: string;
     drugs: string[];
     pairs_checked: string[];
@@ -61,7 +64,7 @@ export async function analyzeInteractions(drugs: string[]): Promise<AnalyzeRespo
     });
     if (!res.ok) {
         const err = await res.json().catch(() => ({ detail: 'Analysis request failed' }));
-        throw new Error(err.detail ?? `HTTP ${res.status}`);
+        throw new Error(Array.isArray(err.detail) ? err.detail.map((e: {msg: string}) => e.msg).join("; ") : err.detail ?? `HTTP ${res.status}`);
     }
     return res.json();
 }

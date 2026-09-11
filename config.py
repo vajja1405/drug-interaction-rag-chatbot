@@ -25,6 +25,11 @@ class Settings(BaseSettings):
         description="Maximum tokens to generate (critical for local models to prevent truncation)",
     )
 
+    llm_timeout_seconds: float = Field(default=25, gt=0, le=120)
+    max_concurrent_analyses: int = Field(default=1, ge=1, le=4)
+    max_uncached_analyses_per_day: int = Field(default=200, ge=1)
+    cors_origins: str = Field(default="http://localhost:5173")
+
     # ── Embeddings ────────────────────────────────────────────────────────────
     embedding_model: str = Field(
         default="sentence-transformers/all-MiniLM-L6-v2",
