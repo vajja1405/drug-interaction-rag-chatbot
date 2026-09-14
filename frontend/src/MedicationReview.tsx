@@ -36,6 +36,7 @@ export default function MedicationReview() {
     const [elapsed,setElapsed]=useState(0)
     const [result,setResult]=useState<Review|null>(null)
     const [filter,setFilter]=useState('all')
+    const [reportText,setReportText]=useState('')
     const [page,setPage]=useState(0)
     const [matrix,setMatrix]=useState(false)
     const [focusPair,setFocusPair]=useState<Pair|null>(null)
@@ -49,7 +50,7 @@ export default function MedicationReview() {
         return()=>{clearTimeout(timer);c.abort()}
     },[query])
     useEffect(()=>{if(!loading)return;const start=Date.now();setElapsed(0);const t=setInterval(()=>setElapsed(Math.floor((Date.now()-start)/1000)),1000);return()=>clearInterval(t)},[loading])
-    function clearResult(){setResult(null);setError('');setFocusPair(null);setPage(0);setFilter('all')}
+    function clearResult(){setReportText('');setResult(null);setError('');setFocusPair(null);setPage(0);setFilter('all')}
     function add(m:Medication){if(selected.length>=20||selected.some(x=>x.rxcui===m.rxcui))return;setSelected([...selected,m]);setQuery('');clearResult()}
     async function review(){
         const c=new AbortController();controller.current=c;setLoading(true);clearResult()
@@ -60,8 +61,9 @@ export default function MedicationReview() {
     }
     function download(){
         if(!result)return
-        const lines=['MEDICATION LABEL REVIEW','For a conversation with a pharmacist; not a treatment or safety assessment.',`Prepared: ${result.generated_at}`,result.method,'',...result.medications.map(m=>`${m.name} (RxCUI ${m.rxcui}): ${statusNames[m.status]}`),'',...result.pairs.flatMap(p=>[`${p.names.join(' + ')} — ${statusNames[p.status]}`,...p.evidence.map(e=>`${e.excerpt}\n${e.source_title}\n${e.source_url}`)]),'','SOURCES',...result.medications.flatMap(m=>m.labels.map(l=>`${l.title}\nVersion ${l.version}; published ${l.published_date}\n${l.url}`)),'','LIMITATIONS',...result.limitations,'','QUESTIONS TO DISCUSS','Does this list match the exact strengths and formulations I take?','Do any class-based, condition-specific or multi-drug effects need review?','Are any shared ingredients intentional?']
-        const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='medication-label-review.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)
+        const lines=['MEDICATION LABEL REVIEW','For a conversation with a pharmacist; not a treatment or safety assessment.',`Prepared: ${result.generated_at}`,result.method,'',...result.medications.map(m=>`${m.name} (RxCUI ${m.rxcui}): ${statusNames[m.status]}`),'',...result.pairs.flatMap(p=>[`${p.names.join(' + ')} — ${statusNames[p.status]}${p.source_complete?'':' (incomplete source coverage)'}`,...p.evidence.map(e=>`${e.excerpt}\n${e.source_title}\n${e.source_url}`)]),'','SOURCES',...result.medications.flatMap(m=>m.labels.map(l=>`${l.title}\nVersion ${l.version}; published ${l.published_date}\n${l.url}`)),'','LIMITATIONS',...result.limitations,'','QUESTIONS TO DISCUSS','Does this list match the exact strengths and formulations I take?','Do any class-based, condition-specific or multi-drug effects need review?','Are any shared ingredients intentional?']
+        const text=lines.join('\n');setReportText(text)
+        const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='medication-label-review.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)
     }
     const pairs=result?.pairs.filter(p=>filter==='all'||(filter==='incomplete_sources'?!p.source_complete:p.status===filter))||[]
     const totalPages=Math.ceil(pairs.length/15)
@@ -84,6 +86,7 @@ export default function MedicationReview() {
             {loading&&<p role="status" className="review-loading">Fetching a sample human label for each selected concept, then matching ingredient names. Larger lists can take up to two minutes. Missing sources will be identified explicitly.</p>}
             {result&&<section className="review-results" aria-labelledby="results-title">
                 <div className="review-section-top"><div><p className="review-eyebrow">02 / READ THE EVIDENCE</p><h2 id="results-title">Your medication review</h2><p className="review-muted">{result.medications.length} selected concepts · {(result.processing_time_ms/1000).toFixed(1)}s server processing</p></div><button className="review-secondary" onClick={download}>Download review for discussion ↓</button></div>
+                {reportText&&<div className="review-export" role="region" aria-label="Review text"><label htmlFor="review-export-text">Your review is ready</label><p>If the download did not start, select and copy the text below to save it.</p><textarea id="review-export-text" readOnly value={reportText} rows={8}/></div>}
                 <div className="review-stats"><div><strong>{result.pairs_reviewed}</strong><span>Pairs compared</span></div><div><strong>{result.counts.label_mention||0}</strong><span>Direct label mentions</span></div><div><strong>{result.counts.ingredient_overlap||0}</strong><span>Possible ingredient overlaps</span></div><div><strong>{result.pairs_with_incomplete_sources}</strong><span>Pairs with incomplete sources</span></div></div>
                 <p className="review-notice">These are evidence categories, not risk scores. <strong>“No direct mention” is never a no-interaction result.</strong> Read each excerpt in context, including passages that describe no effect.</p>
                 <div className="review-filters"><label>Show <select value={filter} onChange={e=>{setFilter(e.target.value);setPage(0)}}><option value="all">All pairs ({result.pairs_reviewed})</option>{['ingredient_overlap','label_mention','incomplete_sources','no_direct_mention'].map(k=><option key={k} value={k}>{statusNames[k]} ({k==='incomplete_sources'?result.pairs_with_incomplete_sources:result.counts[k]||0})</option>)}</select></label><button className="review-secondary" onClick={()=>setMatrix(!matrix)}>{matrix?'Hide pair matrix':'Show pair matrix'}</button></div>
