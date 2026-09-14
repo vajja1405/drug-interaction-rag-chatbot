@@ -8,12 +8,16 @@ app_port: 7860
 license: mit
 ---
 
-Full React + FastAPI research application with embeddings, FAISS retrieval, severity classification and live LLM explanations.
+Medication evidence workspace with two clearly separated modes.
 
-[Open application](https://astra6-drug-interaction-ai.hf.space) · [Source and validation](https://github.com/vajja1405/drug-interaction-rag-chatbot) · [Browser-only backup](https://vajja1405.github.io/drug-interaction-rag-chatbot/)
+[Open application](https://astra6-drug-interaction-ai.hf.space) · [Source, validation and limitations](https://github.com/vajja1405/drug-interaction-rag-chatbot)
 
-The Space uses CPU Basic for retrieval/classification and Qwen/Qwen3-4B-Instruct-2507 through nscale via Hugging Face Inference Providers for explanations. Visitors need no account. Medication names are sent to the server and model provider. Use demonstration inputs only: the curated corpus is incomplete and not clinically adjudicated. This application is not for treatment decisions.
+**Medication label review:** search 23,651 RxNorm ingredient, combination and brand terms; select up to 20 concepts and inspect up to 190 pairs. DailyMed human labels are matched by RxCUI and checked for active-ingredient compatibility. Results show original passages, possible ingredient overlap, source versions and coverage gaps. Includes a pair matrix and a downloadable discussion report. No LLM is used for this mode. Terminology count is not verified interaction coverage. No direct mention does not mean safe.
 
-Runtime secrets/settings: OPENAI_API_KEY (secret), OPENAI_BASE_URL and LLM_MODEL. Credentials are never included in the source or browser bundle. Current hosted limits: five drugs, one concurrent uncached analysis, five requests/minute per observed client IP, 50 uncached analyses/process/UTC day, 1,800 output tokens and 40 seconds per model attempt. The process counter resets on restart and is not a billing cap. Provider failures are displayed explicitly and not cached as successful generations.
+**RAG research demo:** the original React/FastAPI/FAISS/classifier/LLM path remains available in its own tab with a five-medication limit. It uses a small curated research corpus and Qwen/Qwen3-4B-Instruct-2507 through nscale via Hugging Face Inference Providers. It is not clinically validated.
 
-September 11 verification: a live supported-pair response, a cached repeat, an unsupported-pair abstention, concurrent readiness and the React browser flow passed. See the GitHub repository for the exact smoke-check scope. Engineering checks do not establish clinical effectiveness or generated-answer faithfulness.
+CPU Basic hosts the application. Runtime credentials stay in Space secrets. Label review uses bounded NLM requests and a 12-hour source cache; no patient records or user medication lists are persisted by the review application. Hosting/upstream services may retain logs. See the repository for operating limits and test scope.
+
+This tool helps organize a discussion with a pharmacist. It does not assess personalized treatment, class-based or higher-order interactions, or certify medication combinations as safe.
+
+This product uses publicly available data from the U.S. National Library of Medicine (NLM), National Institutes of Health, Department of Health and Human Services; NLM is not responsible for the product and does not endorse or recommend this or any other product.

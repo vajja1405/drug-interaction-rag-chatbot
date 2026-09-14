@@ -6,8 +6,9 @@ import ResultsPanel from './components/ResultsPanel'
 import LoadingOverlay from './components/LoadingOverlay'
 import { analyzeInteractions, DEMO_MODE } from './api'
 import type { AnalyzeResponse } from './api'
+import MedicationReview from './MedicationReview'
 
-export default function App() {
+function ResearchApp() {
     const [drugs, setDrugs] = useState<string[]>([])
     const [result, setResult] = useState<AnalyzeResponse | null>(null)
     const [loading, setLoading] = useState(false)
@@ -76,6 +77,7 @@ export default function App() {
                             <p>This public demo runs locally in your browser. It does not run the Python API, trained classifier, or LLM. Labels and text are unvalidated examples from the repository.</p>
                             <button type="button" onClick={() => { setDrugs(['warfarin', 'ibuprofen']); setResult(null); setError(null); }}>Load an example pair</button>
                             <a href="https://github.com/vajja1405/drug-interaction-rag-chatbot" target="_blank" rel="noopener noreferrer">Source & full Python system ↗</a>
+                            <a href="https://astra6-drug-interaction-ai.hf.space" target="_blank" rel="noopener noreferrer">Open the medication label review ↗</a>
                         </div>}
                         {!DEMO_MODE && <div className="demo-notice">
                             <strong>Full research application · Python API + retrieval + model explanation</strong>
@@ -109,4 +111,10 @@ export default function App() {
             </div>
         </>
     )
+}
+
+export default function App() {
+    const [mode,setMode]=useState('review')
+    if(DEMO_MODE)return <ResearchApp/>
+    return <><nav className="mode-nav" aria-label="Application mode"><button aria-pressed={mode==='review'} onClick={()=>setMode('review')}>Medication label review</button><button aria-pressed={mode==='research'} onClick={()=>setMode('research')}>RAG research demo</button><a href="https://github.com/vajja1405/drug-interaction-rag-chatbot" target="_blank" rel="noreferrer">View source ↗</a></nav>{mode==='review'?<MedicationReview/>:<ResearchApp/>}</>
 }

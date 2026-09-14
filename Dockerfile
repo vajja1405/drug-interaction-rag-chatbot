@@ -22,6 +22,7 @@ COPY chatbot/ chatbot/
 COPY models/ models/
 COPY rag_pipeline/ rag_pipeline/
 COPY data_pipeline/ data_pipeline/
+COPY medication_review/ medication_review/
 COPY config.py cache.py cache_identity.py hosting_limits.py build_index.py ./
 # Build only repository fixtures. No user data or API secret enters the image.
 RUN python build_index.py --all-seed && \
@@ -32,4 +33,4 @@ USER appuser
 ENV HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
 EXPOSE 7860
 HEALTHCHECK --interval=30s --timeout=5s --start-period=90s CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.environ.get('PORT','7860')+'/api/v1/ready')"
-CMD ["sh", "-c", "exec uvicorn api.server:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1 --no-proxy-headers"]
+CMD ["sh", "-c", "exec uvicorn api.server:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1 --no-proxy-headers --no-access-log"]

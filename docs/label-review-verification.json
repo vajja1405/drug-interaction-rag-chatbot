@@ -1,0 +1,1033 @@
+{
+  "scope": "One live-source twenty-concept smoke check; no clinical adjudication, sensitivity, specificity or medical accuracy measured. Pair comparisons are exact-text evidence searches, not verified clinical interactions.",
+  "observed_at": "2026-09-14T20:22:04.131949+00:00",
+  "medication_count": 20,
+  "pairs_reviewed": 190,
+  "categories": {
+    "label_mention": 39,
+    "no_direct_mention": 118,
+    "incomplete_sources": 32,
+    "ingredient_overlap": 1
+  },
+  "pairs_with_incomplete_sources": 37,
+  "server_processing_ms": 12447,
+  "catalog_terms": 23651,
+  "catalog_source": {
+    "source": "https://rxnav.nlm.nih.gov/REST/allconcepts.json?tty=IN+MIN+BN",
+    "source_version": {
+      "version": "08-Sep-2026",
+      "apiVersion": "3.1.355"
+    },
+    "retrieved_at": "2026-09-14T20:04:21.654749+00:00",
+    "sha256": "51bf2af440eed0543f36198ddcf59f845a508fba2340295cdd047cbe5b819973",
+    "counts": {
+      "BN": 5118,
+      "IN": 14689,
+      "MIN": 3844
+    },
+    "scope": "Active RxNorm ingredient, multiple-ingredient and brand concepts. Terminology availability does not establish human product availability or interaction coverage."
+  },
+  "medications": [
+    {
+      "rxcui": "11289",
+      "name": "warfarin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "11289",
+          "name": "warfarin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "5a5b5e3a-6556-a542-e063-6294a90a6d3f",
+          "version": "1",
+          "effective_date": "20260831",
+          "sha256": "81a00fd5d24d07d047588be7d77d41b0b6a50c2b7c1a93fd3fea8e78769661aa",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 913,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 2491,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 7562,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 6292,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "WARFARIN SODIUM"
+          ],
+          "title": "WARFARIN SODIUM (WARFARIN) TABLET [COUPLER LLC]",
+          "published_date": "Sep 02, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5a5b5e3a-6556-a542-e063-6294a90a6d3f"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 115,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "5640",
+      "name": "ibuprofen",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "5640",
+          "name": "ibuprofen",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "ba86e936-ef72-43e5-aebf-f2c788fe2266",
+          "version": "30",
+          "effective_date": "20260820",
+          "sha256": "d07de5b2d4410577a2aabacaefebc4d950e9cfa541f37f3bd56ccf616fb63318",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 823,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 535,
+              "truncated": false
+            },
+            {
+              "section": "Warnings",
+              "characters": 11262,
+              "truncated": false
+            },
+            {
+              "section": "Warnings",
+              "characters": 877,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 443,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 1549,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "IBUPROFEN"
+          ],
+          "title": "IBUPROFEN TABLET [MAJOR PHARMACEUTICALS]",
+          "published_date": "Sep 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ba86e936-ef72-43e5-aebf-f2c788fe2266"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 446,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "703",
+      "name": "amiodarone",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "703",
+          "name": "amiodarone",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "4c149392-a4f0-4e2d-a13f-2b94810005de",
+          "version": "8",
+          "effective_date": "20260805",
+          "sha256": "8f534fa7ef5bcfa8700615833f0844b191792d062b3fb1d4ac34457083b8dfae",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 1895,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 507,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 8218,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 3473,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "AMIODARONE HYDROCHLORIDE"
+          ],
+          "title": "AMIODARONE HYDROCHLORIDE TABLET [REMEDYREPACK INC.]",
+          "published_date": "Aug 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c149392-a4f0-4e2d-a13f-2b94810005de"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 62,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "1191",
+      "name": "aspirin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "1191",
+          "name": "aspirin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "fd199a7f-76ca-fefc-e053-6294a90a821d",
+          "version": "4",
+          "effective_date": "20250204",
+          "sha256": "b44147549007b798c26b0acf1f9a7238f3a2d33b21d219d1ad1c779825e42714",
+          "sections": [
+            {
+              "section": "Warnings",
+              "characters": 2128,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "ASPIRIN"
+          ],
+          "title": "ASPIRIN LOW DOSE (ASPIRIN) TABLET, DELAYED RELEASE [NUCARE PHARMACEUTICALS,INC.]",
+          "published_date": "Sep 04, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fd199a7f-76ca-fefc-e053-6294a90a821d"
+        }
+      ],
+      "status": "interaction_section_unavailable",
+      "label_matches": 976,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "6809",
+      "name": "metformin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "6809",
+          "name": "metformin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "fb832474-88d9-4e29-95cd-fbc446944cc4",
+          "version": "31",
+          "effective_date": "20260902",
+          "sha256": "42f54fb18f8edfadd1893c561719daa255b547e623d7e80808856f53cfdb9080",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 2647,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 499,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 7869,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 2645,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "METFORMIN HYDROCHLORIDE"
+          ],
+          "title": "GLUMETZA (METFORMIN HYDROCHLORIDE) TABLET, FILM COATED, EXTENDED RELEASE [SANTARUS, INC.]",
+          "published_date": "Sep 04, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fb832474-88d9-4e29-95cd-fbc446944cc4"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 548,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "29046",
+      "name": "lisinopril",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "29046",
+          "name": "lisinopril",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "34bb4602-ccff-4939-91b9-26a63bfd40f7",
+          "version": "24",
+          "effective_date": "20260804",
+          "sha256": "2c6f329e217013c26f183aebcae262d56b6b104e8f8d0eefdaf9ce1a32697b88",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 540,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 746,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 6225,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 4004,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "LISINOPRIL"
+          ],
+          "title": "LISINOPRIL TABLET [REMEDYREPACK INC.]",
+          "published_date": "Aug 06, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=34bb4602-ccff-4939-91b9-26a63bfd40f7"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 375,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "83367",
+      "name": "atorvastatin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "83367",
+          "name": "atorvastatin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "604a011e-6c64-4895-8f6e-d28f119c4c22",
+          "version": "3",
+          "effective_date": "20260904",
+          "sha256": "fdfb728c94438e261e9b2f2eac038911e6f74a69d56d8437e9ac7a4dd4d184b5",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 515,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 7533,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 7758,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "ATORVASTATIN"
+          ],
+          "title": "ATORVASTATIN CALCIUM TABLET [REMEDYREPACK INC.]",
+          "published_date": "Sep 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=604a011e-6c64-4895-8f6e-d28f119c4c22"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 402,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "7646",
+      "name": "omeprazole",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "7646",
+          "name": "omeprazole",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "54612d26-9e1a-1960-e063-6394a90a5784",
+          "version": "1",
+          "effective_date": "20260616",
+          "sha256": "d7f1b99d9a2730048c2e9296422388e75e00d5b3fc69bb4023be0951b115cf07",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 1090,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 9995,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 350,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 8595,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "OMEPRAZOLE"
+          ],
+          "title": "OMEPRAZOLE CAPSULE, DELAYED RELEASE [NUCARE PHARMACEUTICALS, INC.]",
+          "published_date": "Sep 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=54612d26-9e1a-1960-e063-6394a90a5784"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 242,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "161",
+      "name": "acetaminophen",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "161",
+          "name": "acetaminophen",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "464e404a-1957-44a2-a53a-f2a9d3c15bde",
+          "version": "4",
+          "effective_date": "20260828",
+          "sha256": "33194d6e96f8f2bf11c52d77a9c101f9fc8af581c2dace3f7c29a24b22ac1b76",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 1505,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 489,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 3109,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 1183,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "ACETAMINOPHEN"
+          ],
+          "title": "ACETAMINOPHEN INJECTION, SOLUTION [REMEDYREPACK INC.]",
+          "published_date": "Aug 31, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=464e404a-1957-44a2-a53a-f2a9d3c15bde"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 796,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "202433",
+      "name": "Tylenol",
+      "tty": "BN",
+      "ingredients": [
+        {
+          "rxcui": "161",
+          "name": "acetaminophen",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "brand_or_concept_level",
+      "labels": [
+        {
+          "setid": "103d109d-f520-409c-8da2-eb6b0fbec891",
+          "version": "16",
+          "effective_date": "20260722",
+          "sha256": "e04bb147cf015bfcdfaa3f47b5fc80b59a8b679d8f04e5133cd2a30afab9f648",
+          "sections": [
+            {
+              "section": "Warnings",
+              "characters": 1310,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "ACETAMINOPHEN"
+          ],
+          "title": "TYLENOL EXTRA STRENGTH (ACETAMINOPHEN) TABLET, FILM COATED [KENVUE BRANDS LLC]",
+          "published_date": "Jul 24, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=103d109d-f520-409c-8da2-eb6b0fbec891"
+        }
+      ],
+      "status": "interaction_section_unavailable",
+      "label_matches": 56,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "36567",
+      "name": "simvastatin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "36567",
+          "name": "simvastatin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "3f6fad0b-0278-433f-86db-761b673a5803",
+          "version": "4",
+          "effective_date": "20260831",
+          "sha256": "65ac165f9c118c29ad42bba3f8b5c99a44e701c9cf61a597a3326529a78f5260",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 989,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 7539,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 7064,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "SIMVASTATIN"
+          ],
+          "title": "SIMVASTATIN TABLET, FILM COATED [PREFERRED PHARMACEUTICALS, INC.]",
+          "published_date": "Sep 02, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3f6fad0b-0278-433f-86db-761b673a5803"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 183,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "21212",
+      "name": "clarithromycin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "21212",
+          "name": "clarithromycin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "d5be5f12-6392-4d7d-ab23-ebc205ac1a85",
+          "version": "38",
+          "effective_date": "20250530",
+          "sha256": "7bffbf972cf632ba4fc960958a89a4afb5a28812452b62e4b6586ebb9d485d11",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 2354,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 10590,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 17164,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "CLARITHROMYCIN"
+          ],
+          "title": "CLARITHROMYCIN TABLET, FILM COATED, EXTENDED RELEASE [ACTAVIS PHARMA, INC.]",
+          "published_date": "Aug 06, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d5be5f12-6392-4d7d-ab23-ebc205ac1a85"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 76,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "3407",
+      "name": "digoxin",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "3407",
+          "name": "digoxin",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "dfac7f13-28be-423d-9389-9089da29da17",
+          "version": "20",
+          "effective_date": "20260113",
+          "sha256": "430c1101dade95b26a2fcc553c345760b0c9787e39c529051ac76bf1ee4d3442",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 473,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 6144,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 6806,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 242,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "DIGOXIN"
+          ],
+          "title": "DIGOXIN TABLET [AMNEAL PHARMACEUTICALS OF NEW YORK LLC]",
+          "published_date": "Aug 17, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=dfac7f13-28be-423d-9389-9089da29da17"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 63,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "9997",
+      "name": "spironolactone",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "9997",
+          "name": "spironolactone",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "4290b3ec-8993-47d4-bfe3-fcb81d7baed8",
+          "version": "5",
+          "effective_date": "20260831",
+          "sha256": "ab6afbadbbabcf472181d35518931d6f77753ce2f70015d06ad8052a4b8f7724",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 247,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 2175,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 3009,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "Spironolactone"
+          ],
+          "title": "SPIRONOLACTONE TABLET, COATED [PREFERRED PHARMACEUTICALS INC.]",
+          "published_date": "Sep 02, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4290b3ec-8993-47d4-bfe3-fcb81d7baed8"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 187,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "52175",
+      "name": "losartan",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "52175",
+          "name": "losartan",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "021cd76a-b093-4704-8410-5e7d01e20a54",
+          "version": "21",
+          "effective_date": "20260827",
+          "sha256": "a717fab51a789d444706f03a22243c0ada00371a1999abcfce6da4d938429f82",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 504,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 280,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 2135,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 2728,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "LOSARTAN POTASSIUM"
+          ],
+          "title": "LOSARTAN POTASSIUM TABLET, FILM COATED [CARDINAL HEALTH 107, LLC]",
+          "published_date": "Sep 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=021cd76a-b093-4704-8410-5e7d01e20a54"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 307,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "36437",
+      "name": "sertraline",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "36437",
+          "name": "sertraline",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "7d598f1a-6c76-458a-a155-7a6a0743a2d3",
+          "version": "3",
+          "effective_date": "20260903",
+          "sha256": "864cd8dba4f57365001342efeaf1ca265027a0f755a9354f45aab23ccc57f43a",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 612,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 665,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 10866,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 5545,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "SERTRALINE HYDROCHLORIDE"
+          ],
+          "title": "SERTRALINE HYDROCHLORIDE TABLET [REMEDYREPACK INC.]",
+          "published_date": "Sep 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7d598f1a-6c76-458a-a155-7a6a0743a2d3"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 240,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "10689",
+      "name": "tramadol",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "10689",
+          "name": "tramadol",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "a6cbd5de-8ae5-49e3-b89b-e35536b115d8",
+          "version": "5",
+          "effective_date": "20260827",
+          "sha256": "2847c6beb53be190a0b57bbbac86ab65eb1633f621fa43c90ebf0523354c27f5",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 6204,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 1493,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 31375,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 9402,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "TRAMADOL HYDROCHLORIDE"
+          ],
+          "title": "TRAMADOL HYDROCHLORIDE TABLET [STRIDES PHARMA SCIENCE LIMITED]",
+          "published_date": "Sep 02, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a6cbd5de-8ae5-49e3-b89b-e35536b115d8"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 236,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "4493",
+      "name": "fluoxetine",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "4493",
+          "name": "fluoxetine",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "23899405-007b-48d9-82a9-a530b8e90784",
+          "version": "16",
+          "effective_date": "20260820",
+          "sha256": "14cb326a014aac55863fcc60d3a3f21fa52077ec1d3ef1a92022831616c98790",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 1390,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 2094,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 25846,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 10897,
+              "truncated": false
+            },
+            {
+              "section": "Boxed warning",
+              "characters": 15,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "FLUOXETINE HYDROCHLORIDE"
+          ],
+          "title": "FLUOXETINE (FLUOXETINE HYDROCHLORIDE) CAPSULE [SCIEGEN PHARMACEUTICALS, INC.]",
+          "published_date": "Aug 21, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=23899405-007b-48d9-82a9-a530b8e90784"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 248,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "6918",
+      "name": "metoprolol",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "6918",
+          "name": "metoprolol",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "106b7a0c-af7f-2565-e063-6294a90a34e0",
+          "version": "4",
+          "effective_date": "20260817",
+          "sha256": "2519e937782b73ace70ad9b3ba43d28a80565fa4025c7770631502c193e8e4ff",
+          "sections": [
+            {
+              "section": "Contraindications",
+              "characters": 544,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 4434,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 2200,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "METOPROLOL TARTRATE"
+          ],
+          "title": "METOPROLOL TARTRATE (METOPROLOL) TABLET [NORTHWIND HEALTH COMPANY, LLC]",
+          "published_date": "Sep 07, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=106b7a0c-af7f-2565-e063-6294a90a34e0"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 477,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    },
+    {
+      "rxcui": "10582",
+      "name": "levothyroxine",
+      "tty": "IN",
+      "ingredients": [
+        {
+          "rxcui": "10582",
+          "name": "levothyroxine",
+          "tty": "IN"
+        }
+      ],
+      "ingredient_resolution": "catalog",
+      "labels": [
+        {
+          "setid": "597ea445-d926-adc6-e063-6394a90a6446",
+          "version": "1",
+          "effective_date": "20260820",
+          "sha256": "375f3789ed0c02916dd988d484c4c52c32b40f4f525afca23cb848f02f9151ec",
+          "sections": [
+            {
+              "section": "Boxed warning",
+              "characters": 948,
+              "truncated": false
+            },
+            {
+              "section": "Contraindications",
+              "characters": 181,
+              "truncated": false
+            },
+            {
+              "section": "Warnings and precautions",
+              "characters": 4798,
+              "truncated": false
+            },
+            {
+              "section": "Drug interactions",
+              "characters": 8947,
+              "truncated": false
+            }
+          ],
+          "active_ingredients": [
+            "LEVOTHYROXINE SODIUM"
+          ],
+          "title": "LEVOTHYROXINE SODIUM TABLET [NUCARE PHARMACEUTICALS, INC.]",
+          "published_date": "Aug 26, 2026",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=597ea445-d926-adc6-e063-6394a90a6446"
+        }
+      ],
+      "status": "label_available",
+      "label_matches": 411,
+      "label_selection": "A sample matching human label; verify manufacturer, strength, route and formulation against your package."
+    }
+  ],
+  "clinical_validation": "not_established"
+}

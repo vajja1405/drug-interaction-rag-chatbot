@@ -58,6 +58,8 @@ from rag_pipeline.retriever import DrugInteractionRetriever
 from rag_pipeline.vector_store import DrugVectorStore
 from config import settings
 from cache_identity import pair_cache_key, evidence_version
+from medication_review.service import ReviewService
+from api.review import router as review_router
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -80,6 +82,7 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up Drug Interaction AI server…")
     app.state.healthy = False
     app.state.startup_error = None
+    app.state.review_service = ReviewService()
 
     try:
         logger.info("Loading embedding pipeline…")
@@ -119,6 +122,7 @@ async def lifespan(app: FastAPI):
 
     yield
 
+    await app.state.review_service.close()
     logger.info("Shutting down Drug Interaction AI server")
 
 
@@ -127,10 +131,10 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Drug Interaction Analysis API",
     description=(
-        "RAG-based clinical decision support for drug-drug interaction analysis.\n\n"
+        "Medication label review and a separate RAG research demonstration. Not clinically validated.\n\n"
         "**Quick start:** `POST /analyze_interaction` with a JSON body containing a `drugs` list.\n\n"
-        "Provides evidence-based severity classification (Severe / Moderate / Low) and "
-        "LLM-generated clinical explanations for all drug pair combinations."
+        "Use /api/v2/review for attributed label excerpts and ingredient overlap across up to 20 selected concepts. "
+        "The v1 endpoints retain the curated-fixture severity and LLM research path."
     ),
     version="1.0.0",
     lifespan=lifespan,
@@ -148,6 +152,7 @@ app.add_middleware(
 
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.include_router(review_router)
 
 
 # ── Pydantic models ───────────────────────────────────────────────────────────
@@ -291,14 +296,13 @@ async def _run_analysis(request: Request, drugs_raw: list[str], include_low: boo
     # Caching path for pair-level evaluations (exactly 2 drugs)
     cache_key = None
     if len(drugs) == 2:
-        sorted_pair = "+".join(sorted(drugs))
         cache_key = pair_cache_key(drugs, request.app.state.evidence_version,
                                    settings.llm_model, settings.llm_temperature,
                                    settings.llm_max_tokens, include_low)
         
         cached_data = await cache.get(cache_key)
         if cached_data:
-            logger.info("[%s] Cache HIT: %s", request_id, sorted_pair)
+            logger.info("[%s] Cache HIT", request_id)
             # Request identity and timing belong to this request, not the miss.
             cached_data = {**cached_data, "request_id": request_id,
                            "processing_time_ms": (time.perf_counter() - t_start) * 1000, "cache_hit": True}
