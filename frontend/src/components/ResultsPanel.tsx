@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { DEMO_MODE } from '../api'
+import { reviewSummary } from '../review-summary.mjs'
 import type { AnalyzeResponse, DrugInteraction } from '../api'
 
 interface ResultsPanelProps {
@@ -124,6 +125,17 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
                 <strong>{result.generation_status === 'unavailable' ? 'Model unavailable: evidence-only fallback' : result.generation_status?.startsWith('generated') ? 'Model explanation generated' : 'Model status not verified'}</strong>
                 <p>{result.cache_hit ? 'Previously generated response served from the versioned cache.' : 'New request processed by the backend.'} Generated text is not clinically validated.</p>
             </div>}
+            <section className="demo-notice" aria-label="Reviewer handoff">
+                <strong>Next step: verify the evidence with a qualified reviewer</strong>
+                <p>Confirm medication names and active ingredients, then inspect the linked sources.
+                   Unknown or missing results are not a safety clearance. This prototype has no patient context.</p>
+                <button type="button" onClick={() => {
+                    const url = URL.createObjectURL(new Blob([reviewSummary(result)], { type: 'text/plain;charset=utf-8' }));
+                    const link = document.createElement('a');
+                    link.href = url; link.download = 'medication-research-review.txt'; link.click();
+                    setTimeout(() => URL.revokeObjectURL(url), 1000);
+                }}>Download research review summary</button>
+            </section>
             {/* Overall risk banner */}
             <div className="risk-banner" style={{
                 background: (SEVERITY_CONFIG[result.overall_risk] ?? SEVERITY_CONFIG.Unknown).bg,
@@ -131,7 +143,7 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
             }}>
                 <div className="risk-banner-content">
                     <span className="risk-level">
-                        {DEMO_MODE ? 'Highest fixture label / coverage' : 'Overall Risk'}: <strong>{result.overall_risk}</strong>
+                        {'Highest research label / coverage'}: <strong>{result.overall_risk}</strong>
                     </span>
                     <span className="risk-meta">
                         {result.pairs_checked.length} pair{result.pairs_checked.length !== 1 ? 's' : ''} checked
@@ -147,8 +159,8 @@ export default function ResultsPanel({ result }: ResultsPanelProps) {
             {/* Interaction cards */}
             {interactions.length === 0 ? (
                 <div className="no-interactions">
-                    <div className="no-interactions-icon">✅</div>
-                    <h3>No interactions found</h3>
+                    <div className="no-interactions-icon">?</div>
+                    <h3>No evidence records returned</h3>
                     <p>No interaction records were returned. This does not establish that the combination is safe.</p>
                 </div>
             ) : (

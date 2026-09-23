@@ -17,11 +17,15 @@ function ResearchApp() {
     function addDrug(name: string) {
         const normalized = name.toLowerCase().trim()
         if (normalized && !drugs.includes(normalized)) {
+            setResult(null)
+            setError(null)
             setDrugs((prev) => [...prev, normalized])
         }
     }
 
     function removeDrug(name: string) {
+        setResult(null)
+        setError(null)
         setDrugs((prev) => prev.filter((d) => d !== name))
     }
 
