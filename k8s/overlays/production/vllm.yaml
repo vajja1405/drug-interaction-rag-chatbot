@@ -1,0 +1,31 @@
+# Self-hosted inference on the EKS GPU node group (g5.xlarge, 1x A10G 24 GB).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: vllm}}
+  template:
+    metadata: {labels: {app: vllm}}
+    spec:
+      nodeSelector: {workload: gpu}
+      tolerations: [{key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}]
+      containers:
+        - name: vllm
+          image: vllm/vllm-openai:v0.6.4
+          args: ["--model", "Qwen/Qwen2.5-3B-Instruct", "--max-model-len", "8192",
+                 "--gpu-memory-utilization", "0.85", "--enable-prefix-caching"]
+          ports: [{containerPort: 8000}]
+          resources:
+            limits: {nvidia.com/gpu: 1, memory: 16Gi}
+            requests: {cpu: "2", memory: 12Gi}
+          readinessProbe: {httpGet: {path: /health, port: 8000}, periodSeconds: 10, failureThreshold: 60}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vllm
+spec:
+  selector: {app: vllm}
+  ports: [{port: 8000, targetPort: 8000}]

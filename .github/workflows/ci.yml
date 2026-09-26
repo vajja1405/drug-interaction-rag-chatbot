@@ -33,6 +33,45 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: pytest tests/test_classifier.py --noconftest -v --tb=short
 
+  search-and-gateway:
+    name: Hybrid search + model gateway tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install light dependencies (no model downloads)
+        run: pip install pytest numpy rank-bm25 httpx prometheus-client fastapi requests
+      - name: Run hybrid-search and router tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest tests/test_hybrid_search.py tests/test_model_router.py --noconftest -v --tb=short
+
+  infrastructure:
+    name: Kubernetes + Terraform validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install kustomize and kubeconform
+        run: |
+          curl -sSfL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz | tar xz
+          curl -sSfL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz | tar xz kubeconform
+      - name: Validate both overlays against Kubernetes 1.31 schemas
+        run: |
+          for o in local production; do
+            ./kustomize build k8s/overlays/$o | ./kubeconform -strict -summary -kubernetes-version 1.31.0 -
+          done
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.8
+      - name: Terraform fmt + validate (no credentials, nothing applied)
+        working-directory: infra/terraform
+        run: |
+          terraform fmt -check -recursive
+          terraform init -backend=false -input=false
+          terraform validate
+
   lint:
     name: Lint
     runs-on: ubuntu-latest

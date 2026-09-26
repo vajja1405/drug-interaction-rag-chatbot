@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-26",
+  "endpoint": "/api/v3/evidence/search (hybrid_rerank, k=5)",
+  "setup": "1 uvicorn worker, 4 CPU threads, Apple M3 laptop; Locust on the same machine; 45 s per scenario",
+  "rows": [
+    {
+      "scenario": "depth30_u10",
+      "users": 10,
+      "repeat_share": 0.0,
+      "requests": 76,
+      "failures": 0,
+      "rps": 1.8,
+      "p50_ms": 4900.0,
+      "p95_ms": 7400.0,
+      "p99_ms": 10000.0
+    },
+    {
+      "scenario": "depth30_u25",
+      "users": 25,
+      "repeat_share": 0.0,
+      "requests": 20,
+      "failures": 0,
+      "rps": 0.5,
+      "p50_ms": 34000.0,
+      "p95_ms": 41000.0,
+      "p99_ms": 41000.0
+    },
+    {
+      "scenario": "depth10_u10",
+      "users": 10,
+      "repeat_share": 0.0,
+      "requests": 394,
+      "failures": 0,
+      "rps": 8.9,
+      "p50_ms": 960.0,
+      "p95_ms": 1200.0,
+      "p99_ms": 1500.0
+    },
+    {
+      "scenario": "depth10_u25",
+      "users": 25,
+      "repeat_share": 0.0,
+      "requests": 335,
+      "failures": 0,
+      "rps": 7.6,
+      "p50_ms": 3000.0,
+      "p95_ms": 3900.0,
+      "p99_ms": 4300.0
+    },
+    {
+      "scenario": "depth10_u25_cache50",
+      "users": 25,
+      "repeat_share": 0.5,
+      "requests": 578,
+      "failures": 0,
+      "rps": 13.1,
+      "p50_ms": 2600.0,
+      "p95_ms": 4000.0,
+      "p99_ms": 5600.0
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# EKS: images from ECR, two API replicas behind the HPA, and a GPU node pool for vLLM.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources: [../../base, vllm.yaml]
+images:
+  - name: drug-interaction-api
+    newName: ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/drug-interaction-api
+    newTag: "1.1.0"
+patches:
+  - target: {kind: HorizontalPodAutoscaler, name: api}
+    patch: |-
+      - {op: replace, path: /spec/minReplicas, value: 2}
+      - {op: replace, path: /spec/maxReplicas, value: 10}

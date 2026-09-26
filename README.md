@@ -103,6 +103,113 @@ Label review sends selected concept identifiers to the server and NLM services. 
 
 The hosted RAG configuration bounds inference at one concurrent uncached analysis, 50 uncached analyses/process/UTC day, 1,800 output tokens and 40 seconds per attempt. A JSON attempt can fall back to one text attempt. Process-local counters reset on restart and are not billing ceilings. Provider availability/credits and Space startup can affect availability. The browser-only backup uses 35 local research records and makes no server or LLM calls.
 
+## Production AI track (September 26, 2026)
+
+The label-review app and research chatbot stay as they were. This track adds the pieces a team would need to
+run retrieval and generation as a service: evidence search with measured retrieval quality, a model gateway
+with self-hosted inference and fallback, metrics and traces, load testing, and deployment manifests.
+
+### 1. Hybrid evidence search with a cross-encoder reranker
+
+`search/` indexes the `drug_interactions` sections of **154 FDA drug labels (openFDA)**, split into **1,011 passages**,
+and serves them at `GET /api/v3/evidence/search?q=...&mode=hybrid_rerank`.
+
+```
+query ─┬─▶ BM25 (exact drug names) ──────┐
+       └─▶ MiniLM dense (paraphrase, typos)┴─▶ reciprocal rank fusion ─▶ cross-encoder rerank ─▶ top-k passages
+```
+
+**Benchmark:** 600 queries built from drug pairs the labels actually mention (300 clean, 300 with a misspelled drug name,
+as patients type). Relevance is mention-based (label A passages naming drug B, and vice versa), a proxy rather than
+pharmacist judgment. `python -m benchmarks.retrieval.run` reproduces it.
+
+| Mode | Hit@5 | MRR@10 | nDCG@10 | MRR (clean) | MRR (misspelled) | p50 | p95 |
+|---|---|---|---|---|---|---|---|
+| BM25 | 0.618 | 0.490 | 0.513 | 0.782 | 0.197 | 0.3 ms | 0.4 ms |
+| Dense (MiniLM) | 0.682 | 0.496 | 0.505 | 0.542 | 0.450 | 3.12 ms | 4.57 ms |
+| Hybrid (RRF) | 0.700 | 0.575 | 0.584 | 0.773 | 0.377 | 3.7 ms | 5.19 ms |
+| Hybrid + cross-encoder (depth 30) | 0.793 | 0.652 | 0.651 | 0.725 | 0.579 | 548.03 ms | 1034.49 ms |
+
+Hybrid + rerank lifts MRR@10 from **0.496 (dense only, the chatbot's original approach) to 0.652 (+31%)** and Hit@5 from
+0.682 to 0.793, and nearly triples BM25 on misspelled drugs (MRR 0.197 → 0.579). The cost is the reranker, so rerank depth
+was swept (`benchmarks/retrieval/rerank_depth.py`):
+
+| Rerank depth | MRR@10 | Hit@5 | p50 | p95 |
+|---|---|---|---|---|
+| 5 | 0.583 | 0.700 | 69.6 ms | 91.8 ms |
+| 10 | 0.619 | 0.752 | 151.7 ms | 231.8 ms |
+| 15 | 0.638 | 0.777 | 240.6 ms | 359.5 ms |
+| 20 | 0.645 | 0.782 | 387.1 ms | 689.8 ms |
+| 30 | 0.652 | 0.793 | 584.9 ms | 1081.4 ms |
+
+The service defaults to depth 10 (`EVIDENCE_RERANK_DEPTH`): most of the quality gain at a quarter of the depth-30 latency.
+
+### 2. Model gateway: self-hosted first, external fallback
+
+`inference/gateway.py` is an OpenAI-compatible `/v1/chat/completions` proxy. The API only changes `OPENAI_BASE_URL`.
+The router sends each request to a self-hosted server (vLLM in the EKS manifests, Ollama on a laptop) and falls back to
+the external API on a timeout, an HTTP error, an empty answer, or invalid JSON when JSON was requested. A circuit breaker
+skips the primary for a cooldown after repeated failures, then lets one request probe it (half-open). Fallbacks are
+counted by reason in `llm_fallback_total`.
+
+Measured on the laptop (Apple M3, 8 GB; Llama 3.2 3B Q4 via Ollama, which ran on CPU under memory pressure):
+
+| | |
+|---|---|
+| Time to first token (p50) | 1.67 s |
+| Decode throughput | 9.1 tokens/s |
+| Gateway end-to-end, self-hosted primary (p50, ~70-token answers) | 9.2 s, 6/6 served by the self-hosted model |
+| Outage drill: primary on a dead port | 6/6 answered by the fallback; 3 fell back on `error`, then the breaker opened and 3 skipped the primary (`breaker_open`) |
+
+The drill surfaced a real bug that is now fixed and tested: when the fallback also failed, the gateway returned a raw 500
+instead of a clean 503. A GPU node running vLLM (continuous batching, prefix caching) is the production target in
+`k8s/overlays/production/vllm.yaml`; its throughput has not been measured in this update.
+
+### 3. Observability
+
+- `GET /metrics` (Prometheus): request latency histograms per route template, retrieval stage latency (bm25 / dense / rerank),
+  evidence-cache hit/miss, LLM latency per provider, fallbacks by reason.
+- OpenTelemetry tracing turns on when `OTEL_EXPORTER_OTLP_ENDPOINT` is set (FastAPI spans plus an `evidence.search` span).
+- `docker compose -f docker-compose.observability.yml up -d` starts Prometheus, Grafana (dashboard provisioned from
+  `observability/grafana/dashboards/api.json`: P50/P95/P99, throughput, error rate, stage latency, cache hit rate, LLM latency) and Jaeger.
+
+### 4. Load testing
+
+`benchmarks/load/run_scenarios.sh` runs Locust against the evidence endpoint (fresh queries unless noted; 45 s per scenario;
+one uvicorn worker, 4 CPU threads, Locust on the same laptop):
+
+| Scenario | Users | Req/s | p50 | p95 | p99 | Failures |
+|---|---|---|---|---|---|---|
+| Rerank depth 30 (before) | 10 | 1.8 | 4.90 s | 7.40 s | 10.00 s | 0 |
+| Rerank depth 30 (before) | 25 | 0.5 | 34.00 s | 41.00 s | 41.00 s | 0 |
+| Rerank depth 10 (after) | 10 | 8.9 | 0.96 s | 1.20 s | 1.50 s | 0 |
+| Rerank depth 10 (after) | 25 | 7.6 | 3.00 s | 3.90 s | 4.30 s | 0 |
+| Depth 10, 50% repeated queries (cache) | 25 | 13.1 | 2.60 s | 4.00 s | 5.60 s | 0 |
+
+**Before → change → after.** At 10 users, cutting rerank depth from 30 to 10 raised throughput **4.9x (1.8 → 8.9 req/s)** and cut
+p95 **84% (7.4 s → 1.2 s)**; at 25 users depth 30 collapsed while depth 10 held 7.6 req/s. With half the queries repeating,
+the content-keyed cache lifts throughput another 72% (7.6 → 13.1 req/s). A Prometheus scrape of a 10-user run confirmed the
+bottleneck by stage: p95 BM25 5 ms, dense 238 ms, rerank 993 ms. Next step: batch reranking across concurrent requests or run
+the cross-encoder on a GPU / as an INT8 ONNX model.
+
+### 5. Deployment
+
+- `k8s/base`: API, model gateway and Redis Deployments and Services, startup/readiness/liveness probes, CPU and memory
+  requests/limits, non-root containers, ConfigMaps, optional Secret references, an HPA (70% CPU) and an Ingress.
+  `k8s/overlays/local` targets kind; `k8s/overlays/production` pulls from ECR, runs 2–10 API replicas and adds a vLLM
+  Deployment on a GPU node pool.
+- `infra/terraform`: VPC (2 AZs, single NAT for cost), EKS with a general node group and a GPU node group that defaults
+  to zero nodes, and an immutable, scanned ECR repository.
+
+Validated in this update: `kustomize build` for both overlays passes `kubeconform -strict` against the Kubernetes 1.31
+schemas (11 and 13 resources), and `terraform validate` passes. Both checks now run in CI (`infrastructure` job).
+Nothing was applied to a cloud account, so no EKS cost was incurred; the GPU node group defaults to 0 nodes.
+
+### Honest scope
+
+Retrieval relevance is mention-based, not pharmacist-judged. Latencies are CPU numbers from one Apple M3 laptop.
+The EKS/vLLM path is written and validated but was not applied to a paid AWS account in this update.
+
 ## Sources and intended use
 
 - [RxNorm API and non-proprietary terminology terms](https://lhncbc.nlm.nih.gov/RxNav/TermsofService.html)

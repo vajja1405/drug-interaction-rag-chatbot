@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels: {app: gateway}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: gateway}}
+  template:
+    metadata:
+      labels: {app: gateway}
+      annotations: {prometheus.io/scrape: "true", prometheus.io/port: "9000", prometheus.io/path: /metrics}
+    spec:
+      securityContext: {runAsNonRoot: true, runAsUser: 1000}
+      containers:
+        - name: gateway
+          image: drug-interaction-api:local
+          command: ["uvicorn", "inference.gateway:app", "--host", "0.0.0.0", "--port", "9000"]
+          ports: [{containerPort: 9000, name: http}]
+          envFrom:
+            - configMapRef: {name: gateway-config}
+            - secretRef: {name: gateway-secrets, optional: true}   # FALLBACK_API_KEY
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: 500m, memory: 512Mi}
+          readinessProbe: {httpGet: {path: /healthz, port: http}, periodSeconds: 5}
+          livenessProbe: {httpGet: {path: /healthz, port: http}, periodSeconds: 20}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway
+spec:
+  selector: {app: gateway}
+  ports: [{name: http, port: 9000, targetPort: http}]

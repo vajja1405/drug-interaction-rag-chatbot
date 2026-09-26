@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+data:
+  REDIS_URL: redis://redis:6379/0
+  OPENAI_BASE_URL: http://gateway:9000/v1     # API → model gateway → self-hosted / external
+  EVIDENCE_RERANK: "1"
+  EVIDENCE_CACHE_SIZE: "1024"
+  SEARCH_DEVICE: cpu
+  TOKENIZERS_PARALLELISM: "false"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-config
+data:
+  PRIMARY_BASE_URL: http://vllm:8000/v1       # self-hosted OpenAI-compatible server
+  PRIMARY_MODEL: Qwen/Qwen2.5-3B-Instruct
+  PRIMARY_TIMEOUT_S: "20"
+  FALLBACK_BASE_URL: https://api.openai.com/v1
+  FALLBACK_MODEL: gpt-4o-mini
+  BREAKER_THRESHOLD: "3"
+  BREAKER_COOLDOWN_S: "60"

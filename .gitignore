@@ -52,3 +52,4 @@ evaluation/results.json
 
 # Logs
 *.log
+data/benchmark/raw/

@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-26",
+  "model": "llama3.2 (Ollama, Q4 GGUF)",
+  "hardware": "Apple M3, 8 GB",
+  "direct": {
+    "requests": 9,
+    "ttft_ms_p50": 1665.1,
+    "decode_tokens_per_s": 9.1,
+    "mean_output_tokens": 71.3
+  },
+  "gateway_primary_self_hosted": {
+    "requests": 6,
+    "p50_ms": 9201.2,
+    "max_ms": 16773.7,
+    "providers": {
+      "self_hosted": 6
+    },
+    "fallback_reasons": {}
+  },
+  "outage_drill": {
+    "requests": 6,
+    "p50_ms": 18427.0,
+    "max_ms": 22968.7,
+    "providers": {
+      "external": 6
+    },
+    "fallback_reasons": {
+      "breaker_open": 3,
+      "error": 3
+    }
+  }
+}

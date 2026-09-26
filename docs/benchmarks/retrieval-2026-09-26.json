@@ -1,0 +1,167 @@
+{
+  "date": "2026-09-26",
+  "corpus": {
+    "passages": 1011,
+    "labels": 154,
+    "source": "openFDA drug label `drug_interactions` sections"
+  },
+  "queries": {
+    "total": 600,
+    "clean": 300,
+    "typo": 300
+  },
+  "relevance": "mention-based proxy: label A passages naming B, plus label B passages naming A",
+  "models": {
+    "dense": "sentence-transformers/all-MiniLM-L6-v2",
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "bm25": "rank_bm25 Okapi",
+    "fusion": "Reciprocal Rank Fusion, k=60, 50 candidates per retriever, rerank depth 30"
+  },
+  "hardware": "arm64 CPU, Darwin; single query at a time",
+  "results": {
+    "bm25": {
+      "slices": {
+        "clean": {
+          "hit@1": 0.6967,
+          "hit@5": 0.89,
+          "recall@5": 0.8153,
+          "recall@10": 0.8971,
+          "mrr@10": 0.7822,
+          "ndcg@10": 0.7875,
+          "n": 300
+        },
+        "all": {
+          "hit@1": 0.3933,
+          "hit@5": 0.6183,
+          "recall@5": 0.5457,
+          "recall@10": 0.6527,
+          "mrr@10": 0.4898,
+          "ndcg@10": 0.5128,
+          "n": 600
+        },
+        "typo": {
+          "hit@1": 0.09,
+          "hit@5": 0.3467,
+          "recall@5": 0.2762,
+          "recall@10": 0.4083,
+          "mrr@10": 0.1974,
+          "ndcg@10": 0.2381,
+          "n": 300
+        }
+      },
+      "latency_ms": {
+        "p50": 0.3,
+        "p95": 0.4,
+        "p99": 0.45
+      }
+    },
+    "dense": {
+      "slices": {
+        "clean": {
+          "hit@1": 0.4133,
+          "hit@5": 0.7267,
+          "recall@5": 0.6124,
+          "recall@10": 0.7346,
+          "mrr@10": 0.5423,
+          "ndcg@10": 0.5539,
+          "n": 300
+        },
+        "all": {
+          "hit@1": 0.3783,
+          "hit@5": 0.6817,
+          "recall@5": 0.5618,
+          "recall@10": 0.6809,
+          "mrr@10": 0.4963,
+          "ndcg@10": 0.5052,
+          "n": 600
+        },
+        "typo": {
+          "hit@1": 0.3433,
+          "hit@5": 0.6367,
+          "recall@5": 0.5112,
+          "recall@10": 0.6272,
+          "mrr@10": 0.4503,
+          "ndcg@10": 0.4564,
+          "n": 300
+        }
+      },
+      "latency_ms": {
+        "p50": 3.12,
+        "p95": 4.57,
+        "p99": 9.95
+      }
+    },
+    "hybrid": {
+      "slices": {
+        "clean": {
+          "hit@1": 0.7033,
+          "hit@5": 0.8567,
+          "recall@5": 0.7891,
+          "recall@10": 0.8705,
+          "mrr@10": 0.7734,
+          "ndcg@10": 0.765,
+          "n": 300
+        },
+        "all": {
+          "hit@1": 0.4867,
+          "hit@5": 0.7,
+          "recall@5": 0.6141,
+          "recall@10": 0.7356,
+          "mrr@10": 0.5752,
+          "ndcg@10": 0.5842,
+          "n": 600
+        },
+        "typo": {
+          "hit@1": 0.27,
+          "hit@5": 0.5433,
+          "recall@5": 0.4391,
+          "recall@10": 0.6008,
+          "mrr@10": 0.377,
+          "ndcg@10": 0.4034,
+          "n": 300
+        }
+      },
+      "latency_ms": {
+        "p50": 3.7,
+        "p95": 5.19,
+        "p99": 10.3
+      }
+    },
+    "hybrid_rerank": {
+      "slices": {
+        "clean": {
+          "hit@1": 0.6333,
+          "hit@5": 0.8567,
+          "recall@5": 0.7498,
+          "recall@10": 0.8397,
+          "mrr@10": 0.7246,
+          "ndcg@10": 0.7172,
+          "n": 300
+        },
+        "all": {
+          "hit@1": 0.5517,
+          "hit@5": 0.7933,
+          "recall@5": 0.6828,
+          "recall@10": 0.7877,
+          "mrr@10": 0.652,
+          "ndcg@10": 0.6507,
+          "n": 600
+        },
+        "typo": {
+          "hit@1": 0.47,
+          "hit@5": 0.73,
+          "recall@5": 0.6158,
+          "recall@10": 0.7357,
+          "mrr@10": 0.5794,
+          "ndcg@10": 0.5841,
+          "n": 300
+        }
+      },
+      "latency_ms": {
+        "p50": 548.03,
+        "p95": 1034.49,
+        "p99": 1134.89
+      }
+    }
+  }
+}

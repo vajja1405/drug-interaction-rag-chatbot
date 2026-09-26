@@ -23,10 +23,15 @@ COPY models/ models/
 COPY rag_pipeline/ rag_pipeline/
 COPY data_pipeline/ data_pipeline/
 COPY medication_review/ medication_review/
-COPY config.py cache.py cache_identity.py hosting_limits.py build_index.py ./
+COPY search/ search/
+COPY inference/ inference/
+COPY config.py cache.py cache_identity.py hosting_limits.py build_index.py observability.py ./
+COPY data/benchmark/label_passages.jsonl data/benchmark/passage_embeddings.npy data/benchmark/
 # Build only repository fixtures. No user data or API secret enters the image.
+# Models are fetched at build time because the runtime sets HF_HUB_OFFLINE=1.
 RUN python build_index.py --all-seed && \
-    python -c "from models.severity_classifier import get_trained_classifier; get_trained_classifier()"
+    python -c "from models.severity_classifier import get_trained_classifier; get_trained_classifier()" && \
+    python -c "from sentence_transformers import CrossEncoder; CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"
 COPY --from=frontend /frontend/dist/ /app/frontend/dist/
 RUN useradd --uid 1000 --create-home appuser && chown -R appuser:appuser /app
 USER appuser

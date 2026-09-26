@@ -1,0 +1,600 @@
+{"qid": "phenytoin|metronidazole|clean", "slice": "clean", "query": "What happens if metronidazole is combined with phenytoin?", "relevant": ["metronidazole#2"]}
+{"qid": "phenytoin|metronidazole|typo", "slice": "typo", "query": "What happens if metrnidazole is combined with phenytoin?", "relevant": ["metronidazole#2"]}
+{"qid": "hydroxychloroquine|digoxin|clean", "slice": "clean", "query": "hydroxychloroquine and digoxin interaction", "relevant": ["hydroxychloroquine#2"]}
+{"qid": "hydroxychloroquine|digoxin|typo", "slice": "typo", "query": "hydroxychloroquine and dioxin interaction", "relevant": ["hydroxychloroquine#2"]}
+{"qid": "sotalol|clozapine|clean", "slice": "clean", "query": "What happens if clozapine is combined with sotalol?", "relevant": ["clozapine#4"]}
+{"qid": "sotalol|clozapine|typo", "slice": "typo", "query": "What happens if clozaine is combined with sotalol?", "relevant": ["clozapine#4"]}
+{"qid": "tamoxifen|bupropion|clean", "slice": "clean", "query": "Can I take tamoxifen with bupropion?", "relevant": ["bupropion#4"]}
+{"qid": "tamoxifen|bupropion|typo", "slice": "typo", "query": "Can I take tamoxifen with buprpion?", "relevant": ["bupropion#4"]}
+{"qid": "insulin glargine|clozapine|clean", "slice": "clean", "query": "insulin glargine and clozapine interaction", "relevant": ["insulin_glargine#0"]}
+{"qid": "insulin glargine|clozapine|typo", "slice": "typo", "query": "insulin glargine and clozaine interaction", "relevant": ["insulin_glargine#0"]}
+{"qid": "clarithromycin|sildenafil|clean", "slice": "clean", "query": "Can I take clarithromycin with sildenafil?", "relevant": ["clarithromycin#11", "clarithromycin#12"]}
+{"qid": "clarithromycin|sildenafil|typo", "slice": "typo", "query": "Can I take clarithromycin with sildenafl?", "relevant": ["clarithromycin#11", "clarithromycin#12"]}
+{"qid": "clarithromycin|lansoprazole|clean", "slice": "clean", "query": "Can I take clarithromycin with lansoprazole?", "relevant": ["lansoprazole#4", "lansoprazole#5"]}
+{"qid": "clarithromycin|lansoprazole|typo", "slice": "typo", "query": "Can I take clarithromycin with lnsoprazole?", "relevant": ["lansoprazole#4", "lansoprazole#5"]}
+{"qid": "itraconazole|buprenorphine|clean", "slice": "clean", "query": "itraconazole and buprenorphine interaction", "relevant": ["itraconazole#2"]}
+{"qid": "itraconazole|buprenorphine|typo", "slice": "typo", "query": "itraconazole and buprenorhine interaction", "relevant": ["itraconazole#2"]}
+{"qid": "digoxin|naproxen|clean", "slice": "clean", "query": "Can I take digoxin with naproxen?", "relevant": ["naproxen#13", "naproxen#14", "naproxen#6"]}
+{"qid": "digoxin|naproxen|typo", "slice": "typo", "query": "Can I take digoxin with napoxen?", "relevant": ["naproxen#13", "naproxen#14", "naproxen#6"]}
+{"qid": "ritonavir|clarithromycin|clean", "slice": "clean", "query": "Can I take ritonavir with clarithromycin?", "relevant": ["clarithromycin#17", "clarithromycin#18", "clarithromycin#7", "ritonavir#12"]}
+{"qid": "ritonavir|clarithromycin|typo", "slice": "typo", "query": "Can I take ritonavir with clarthromycin?", "relevant": ["clarithromycin#17", "clarithromycin#18", "clarithromycin#7", "ritonavir#12"]}
+{"qid": "linezolid|paroxetine|clean", "slice": "clean", "query": "risk of using linezolid together with paroxetine", "relevant": ["paroxetine#0"]}
+{"qid": "linezolid|paroxetine|typo", "slice": "typo", "query": "risk of using linezolid together with paroetine", "relevant": ["paroxetine#0"]}
+{"qid": "aspirin|methotrexate|clean", "slice": "clean", "query": "What happens if methotrexate is combined with aspirin?", "relevant": ["aspirin#1", "methotrexate#1"]}
+{"qid": "aspirin|methotrexate|typo", "slice": "typo", "query": "What happens if methotrexte is combined with aspirin?", "relevant": ["aspirin#1", "methotrexate#1"]}
+{"qid": "cyclosporine|sulfamethoxazole|clean", "slice": "clean", "query": "Is sulfamethoxazole safe while on cyclosporine?", "relevant": ["cyclosporine#6", "sulfamethoxazole#1"]}
+{"qid": "cyclosporine|sulfamethoxazole|typo", "slice": "typo", "query": "Is sulfamethoazole safe while on cyclosporine?", "relevant": ["cyclosporine#6", "sulfamethoxazole#1"]}
+{"qid": "methotrexate|lansoprazole|clean", "slice": "clean", "query": "Can I take methotrexate with lansoprazole?", "relevant": ["lansoprazole#2"]}
+{"qid": "methotrexate|lansoprazole|typo", "slice": "typo", "query": "Can I take methotrexate with lasoprazole?", "relevant": ["lansoprazole#2"]}
+{"qid": "allopurinol|azathioprine|clean", "slice": "clean", "query": "risk of using allopurinol together with azathioprine", "relevant": ["allopurinol#0", "allopurinol#4", "allopurinol#5", "azathioprine#0"]}
+{"qid": "allopurinol|azathioprine|typo", "slice": "typo", "query": "risk of using allopurinol together with azathiprine", "relevant": ["allopurinol#0", "allopurinol#4", "allopurinol#5", "azathioprine#0"]}
+{"qid": "olanzapine|carbamazepine|clean", "slice": "clean", "query": "What happens if carbamazepine is combined with olanzapine?", "relevant": ["carbamazepine#5", "carbamazepine#6", "olanzapine#0", "olanzapine#1", "olanzapine#2"]}
+{"qid": "olanzapine|carbamazepine|typo", "slice": "typo", "query": "What happens if carbamzepine is combined with olanzapine?", "relevant": ["carbamazepine#5", "carbamazepine#6", "olanzapine#0", "olanzapine#1", "olanzapine#2"]}
+{"qid": "tadalafil|enalapril|clean", "slice": "clean", "query": "tadalafil and enalapril interaction", "relevant": ["tadalafil#2"]}
+{"qid": "tadalafil|enalapril|typo", "slice": "typo", "query": "tadalafil and enaapril interaction", "relevant": ["tadalafil#2"]}
+{"qid": "sertraline|metoprolol|clean", "slice": "clean", "query": "sertraline and metoprolol interaction", "relevant": ["sertraline#4"]}
+{"qid": "sertraline|metoprolol|typo", "slice": "typo", "query": "sertraline and mtoprolol interaction", "relevant": ["sertraline#4"]}
+{"qid": "mirtazapine|oxycodone|clean", "slice": "clean", "query": "Is oxycodone safe while on mirtazapine?", "relevant": ["oxycodone#5"]}
+{"qid": "mirtazapine|oxycodone|typo", "slice": "typo", "query": "Is oxycodne safe while on mirtazapine?", "relevant": ["oxycodone#5"]}
+{"qid": "ketoconazole|atorvastatin|clean", "slice": "clean", "query": "risk of using ketoconazole together with atorvastatin", "relevant": ["atorvastatin#4"]}
+{"qid": "ketoconazole|atorvastatin|typo", "slice": "typo", "query": "risk of using ketoconazole together with atorvstatin", "relevant": ["atorvastatin#4"]}
+{"qid": "omeprazole|cyclosporine|clean", "slice": "clean", "query": "Can I take omeprazole with cyclosporine?", "relevant": ["omeprazole#9"]}
+{"qid": "omeprazole|cyclosporine|typo", "slice": "typo", "query": "Can I take omeprazole with cyclospoine?", "relevant": ["omeprazole#9"]}
+{"qid": "mirtazapine|phenytoin|clean", "slice": "clean", "query": "Can I take mirtazapine with phenytoin?", "relevant": ["mirtazapine#2"]}
+{"qid": "mirtazapine|phenytoin|typo", "slice": "typo", "query": "Can I take mirtazapine with phentoin?", "relevant": ["mirtazapine#2"]}
+{"qid": "trazodone|ketoconazole|clean", "slice": "clean", "query": "Is ketoconazole safe while on trazodone?", "relevant": ["trazodone#3"]}
+{"qid": "trazodone|ketoconazole|typo", "slice": "typo", "query": "Is ketoconazle safe while on trazodone?", "relevant": ["trazodone#3"]}
+{"qid": "metformin|dapagliflozin|clean", "slice": "clean", "query": "risk of using metformin together with dapagliflozin", "relevant": ["dapagliflozin#4", "dapagliflozin#6"]}
+{"qid": "metformin|dapagliflozin|typo", "slice": "typo", "query": "risk of using metformin together with daagliflozin", "relevant": ["dapagliflozin#4", "dapagliflozin#6"]}
+{"qid": "clarithromycin|methylprednisolone|clean", "slice": "clean", "query": "Is methylprednisolone safe while on clarithromycin?", "relevant": ["clarithromycin#15"]}
+{"qid": "clarithromycin|methylprednisolone|typo", "slice": "typo", "query": "Is methylprenisolone safe while on clarithromycin?", "relevant": ["clarithromycin#15"]}
+{"qid": "sildenafil|ritonavir|clean", "slice": "clean", "query": "What happens if ritonavir is combined with sildenafil?", "relevant": ["ritonavir#20", "ritonavir#21", "ritonavir#22", "sildenafil#0", "sildenafil#3"]}
+{"qid": "sildenafil|ritonavir|typo", "slice": "typo", "query": "What happens if ritonair is combined with sildenafil?", "relevant": ["ritonavir#20", "ritonavir#21", "ritonavir#22", "sildenafil#0", "sildenafil#3"]}
+{"qid": "phenytoin|metformin|clean", "slice": "clean", "query": "Can I take phenytoin with metformin?", "relevant": ["metformin#2"]}
+{"qid": "phenytoin|metformin|typo", "slice": "typo", "query": "Can I take phenytoin with metormin?", "relevant": ["metformin#2"]}
+{"qid": "amitriptyline|fluconazole|clean", "slice": "clean", "query": "What happens if fluconazole is combined with amitriptyline?", "relevant": ["fluconazole#21"]}
+{"qid": "amitriptyline|fluconazole|typo", "slice": "typo", "query": "What happens if fluconaole is combined with amitriptyline?", "relevant": ["fluconazole#21"]}
+{"qid": "digoxin|atorvastatin|clean", "slice": "clean", "query": "What happens if atorvastatin is combined with digoxin?", "relevant": ["atorvastatin#0", "atorvastatin#8", "digoxin#2"]}
+{"qid": "digoxin|atorvastatin|typo", "slice": "typo", "query": "What happens if atorastatin is combined with digoxin?", "relevant": ["atorvastatin#0", "atorvastatin#8", "digoxin#2"]}
+{"qid": "famotidine|aripiprazole|clean", "slice": "clean", "query": "Is aripiprazole safe while on famotidine?", "relevant": ["aripiprazole#3"]}
+{"qid": "famotidine|aripiprazole|typo", "slice": "typo", "query": "Is aripprazole safe while on famotidine?", "relevant": ["aripiprazole#3"]}
+{"qid": "erythromycin|methadone|clean", "slice": "clean", "query": "Is methadone safe while on erythromycin?", "relevant": ["methadone#2"]}
+{"qid": "erythromycin|methadone|typo", "slice": "typo", "query": "Is mehadone safe while on erythromycin?", "relevant": ["methadone#2"]}
+{"qid": "erythromycin|alprazolam|clean", "slice": "clean", "query": "Can I take erythromycin with alprazolam?", "relevant": ["alprazolam#4", "erythromycin#4"]}
+{"qid": "erythromycin|alprazolam|typo", "slice": "typo", "query": "Can I take erythromycin with alprazoam?", "relevant": ["alprazolam#4", "erythromycin#4"]}
+{"qid": "glimepiride|isoniazid|clean", "slice": "clean", "query": "What happens if isoniazid is combined with glimepiride?", "relevant": ["glimepiride#2"]}
+{"qid": "glimepiride|isoniazid|typo", "slice": "typo", "query": "What happens if isonazid is combined with glimepiride?", "relevant": ["glimepiride#2"]}
+{"qid": "itraconazole|mirtazapine|clean", "slice": "clean", "query": "itraconazole and mirtazapine interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "itraconazole|mirtazapine|typo", "slice": "typo", "query": "itraconazole and mrtazapine interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "ketoconazole|famotidine|clean", "slice": "clean", "query": "ketoconazole and famotidine interaction", "relevant": ["famotidine#1"]}
+{"qid": "ketoconazole|famotidine|typo", "slice": "typo", "query": "ketoconazole and famotidne interaction", "relevant": ["famotidine#1"]}
+{"qid": "lithium|furosemide|clean", "slice": "clean", "query": "risk of using lithium together with furosemide", "relevant": ["furosemide#1"]}
+{"qid": "lithium|furosemide|typo", "slice": "typo", "query": "risk of using lithium together with furoseide", "relevant": ["furosemide#1"]}
+{"qid": "colchicine|ritonavir|clean", "slice": "clean", "query": "colchicine and ritonavir interaction", "relevant": ["colchicine#4", "ritonavir#11", "ritonavir#12"]}
+{"qid": "colchicine|ritonavir|typo", "slice": "typo", "query": "colchicine and rionavir interaction", "relevant": ["colchicine#4", "ritonavir#11", "ritonavir#12"]}
+{"qid": "rivaroxaban|clopidogrel|clean", "slice": "clean", "query": "rivaroxaban and clopidogrel interaction", "relevant": ["rivaroxaban#3"]}
+{"qid": "rivaroxaban|clopidogrel|typo", "slice": "typo", "query": "rivaroxaban and clopidogrl interaction", "relevant": ["rivaroxaban#3"]}
+{"qid": "montelukast|digoxin|clean", "slice": "clean", "query": "Can I take montelukast with digoxin?", "relevant": ["montelukast#0"]}
+{"qid": "montelukast|digoxin|typo", "slice": "typo", "query": "Can I take montelukast with dgoxin?", "relevant": ["montelukast#0"]}
+{"qid": "cyclosporine|amlodipine|clean", "slice": "clean", "query": "cyclosporine and amlodipine interaction", "relevant": ["amlodipine#1"]}
+{"qid": "cyclosporine|amlodipine|typo", "slice": "typo", "query": "cyclosporine and amlodpine interaction", "relevant": ["amlodipine#1"]}
+{"qid": "digoxin|azithromycin|clean", "slice": "clean", "query": "Can I take digoxin with azithromycin?", "relevant": ["azithromycin#1", "azithromycin#2", "digoxin#3"]}
+{"qid": "digoxin|azithromycin|typo", "slice": "typo", "query": "Can I take digoxin with azithromcin?", "relevant": ["azithromycin#1", "azithromycin#2", "digoxin#3"]}
+{"qid": "fluoxetine|bupropion|clean", "slice": "clean", "query": "risk of using fluoxetine together with bupropion", "relevant": ["bupropion#0", "bupropion#3"]}
+{"qid": "fluoxetine|bupropion|typo", "slice": "typo", "query": "risk of using fluoxetine together with bupropon", "relevant": ["bupropion#0", "bupropion#3"]}
+{"qid": "meloxicam|diclofenac|clean", "slice": "clean", "query": "risk of using meloxicam together with diclofenac", "relevant": ["diclofenac#8"]}
+{"qid": "meloxicam|diclofenac|typo", "slice": "typo", "query": "risk of using meloxicam together with dicofenac", "relevant": ["diclofenac#8"]}
+{"qid": "cyclobenzaprine|morphine|clean", "slice": "clean", "query": "cyclobenzaprine and morphine interaction", "relevant": ["morphine#2", "morphine#3"]}
+{"qid": "cyclobenzaprine|morphine|typo", "slice": "typo", "query": "cyclobenzaprine and morphne interaction", "relevant": ["morphine#2", "morphine#3"]}
+{"qid": "warfarin|rifampin|clean", "slice": "clean", "query": "warfarin and rifampin interaction", "relevant": ["rifampin#6", "warfarin#3"]}
+{"qid": "warfarin|rifampin|typo", "slice": "typo", "query": "warfarin and rifapin interaction", "relevant": ["rifampin#6", "warfarin#3"]}
+{"qid": "theophylline|cetirizine|clean", "slice": "clean", "query": "theophylline and cetirizine interaction", "relevant": ["cetirizine#0"]}
+{"qid": "theophylline|cetirizine|typo", "slice": "typo", "query": "theophylline and ctirizine interaction", "relevant": ["cetirizine#0"]}
+{"qid": "rifampin|diltiazem|clean", "slice": "clean", "query": "risk of using rifampin together with diltiazem", "relevant": ["diltiazem#6", "diltiazem#7", "rifampin#7"]}
+{"qid": "rifampin|diltiazem|typo", "slice": "typo", "query": "risk of using rifampin together with ditiazem", "relevant": ["diltiazem#6", "diltiazem#7", "rifampin#7"]}
+{"qid": "voriconazole|ritonavir|clean", "slice": "clean", "query": "Can I take voriconazole with ritonavir?", "relevant": ["ritonavir#10", "voriconazole#2", "voriconazole#7"]}
+{"qid": "voriconazole|ritonavir|typo", "slice": "typo", "query": "Can I take voriconazole with rionavir?", "relevant": ["ritonavir#10", "voriconazole#2", "voriconazole#7"]}
+{"qid": "pregabalin|carbamazepine|clean", "slice": "clean", "query": "pregabalin and carbamazepine interaction", "relevant": ["pregabalin#0"]}
+{"qid": "pregabalin|carbamazepine|typo", "slice": "typo", "query": "pregabalin and crbamazepine interaction", "relevant": ["pregabalin#0"]}
+{"qid": "itraconazole|prednisone|clean", "slice": "clean", "query": "Can I take itraconazole with prednisone?", "relevant": ["prednisone#3", "prednisone#9"]}
+{"qid": "itraconazole|prednisone|typo", "slice": "typo", "query": "Can I take itraconazole with prednione?", "relevant": ["prednisone#3", "prednisone#9"]}
+{"qid": "sertraline|digoxin|clean", "slice": "clean", "query": "risk of using sertraline together with digoxin", "relevant": ["sertraline#6"]}
+{"qid": "sertraline|digoxin|typo", "slice": "typo", "query": "risk of using sertraline together with digoin", "relevant": ["sertraline#6"]}
+{"qid": "morphine|ticagrelor|clean", "slice": "clean", "query": "What happens if ticagrelor is combined with morphine?", "relevant": ["ticagrelor#1"]}
+{"qid": "morphine|ticagrelor|typo", "slice": "typo", "query": "What happens if ticagreor is combined with morphine?", "relevant": ["ticagrelor#1"]}
+{"qid": "rifampin|mirtazapine|clean", "slice": "clean", "query": "rifampin and mirtazapine interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "rifampin|mirtazapine|typo", "slice": "typo", "query": "rifampin and mirtazaine interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "rifampin|mycophenolate mofetil|clean", "slice": "clean", "query": "What happens if mycophenolate mofetil is combined with rifampin?", "relevant": ["mycophenolate_mofetil#3"]}
+{"qid": "rifampin|mycophenolate mofetil|typo", "slice": "typo", "query": "What happens if mycophenolate mfetil is combined with rifampin?", "relevant": ["mycophenolate_mofetil#3"]}
+{"qid": "levothyroxine|sertraline|clean", "slice": "clean", "query": "levothyroxine and sertraline interaction", "relevant": ["levothyroxine#19", "levothyroxine#8"]}
+{"qid": "levothyroxine|sertraline|typo", "slice": "typo", "query": "levothyroxine and srtraline interaction", "relevant": ["levothyroxine#19", "levothyroxine#8"]}
+{"qid": "rifampin|pioglitazone|clean", "slice": "clean", "query": "Is pioglitazone safe while on rifampin?", "relevant": ["pioglitazone#0"]}
+{"qid": "rifampin|pioglitazone|typo", "slice": "typo", "query": "Is pioglitaone safe while on rifampin?", "relevant": ["pioglitazone#0"]}
+{"qid": "rifampin|lamotrigine|clean", "slice": "clean", "query": "risk of using rifampin together with lamotrigine", "relevant": ["lamotrigine#2", "lamotrigine#4"]}
+{"qid": "rifampin|lamotrigine|typo", "slice": "typo", "query": "risk of using rifampin together with lamotrigne", "relevant": ["lamotrigine#2", "lamotrigine#4"]}
+{"qid": "lithium|valsartan|clean", "slice": "clean", "query": "Is valsartan safe while on lithium?", "relevant": ["valsartan#0", "valsartan#1", "valsartan#4"]}
+{"qid": "lithium|valsartan|typo", "slice": "typo", "query": "Is valsrtan safe while on lithium?", "relevant": ["valsartan#0", "valsartan#1", "valsartan#4"]}
+{"qid": "propranolol|dronedarone|clean", "slice": "clean", "query": "propranolol and dronedarone interaction", "relevant": ["dronedarone#7"]}
+{"qid": "propranolol|dronedarone|typo", "slice": "typo", "query": "propranolol and dronedrone interaction", "relevant": ["dronedarone#7"]}
+{"qid": "warfarin|sertraline|clean", "slice": "clean", "query": "Can I take warfarin with sertraline?", "relevant": ["sertraline#0", "sertraline#3", "warfarin#4"]}
+{"qid": "warfarin|sertraline|typo", "slice": "typo", "query": "Can I take warfarin with sertralie?", "relevant": ["sertraline#0", "sertraline#3", "warfarin#4"]}
+{"qid": "ciprofloxacin|itraconazole|clean", "slice": "clean", "query": "Can I take ciprofloxacin with itraconazole?", "relevant": ["itraconazole#14"]}
+{"qid": "ciprofloxacin|itraconazole|typo", "slice": "typo", "query": "Can I take ciprofloxacin with iraconazole?", "relevant": ["itraconazole#14"]}
+{"qid": "carvedilol|paroxetine|clean", "slice": "clean", "query": "Can I take carvedilol with paroxetine?", "relevant": ["carvedilol#1"]}
+{"qid": "carvedilol|paroxetine|typo", "slice": "typo", "query": "Can I take carvedilol with paroxeine?", "relevant": ["carvedilol#1"]}
+{"qid": "famotidine|theophylline|clean", "slice": "clean", "query": "risk of using famotidine together with theophylline", "relevant": ["theophylline#9"]}
+{"qid": "famotidine|theophylline|typo", "slice": "typo", "query": "risk of using famotidine together with thophylline", "relevant": ["theophylline#9"]}
+{"qid": "duloxetine|ciprofloxacin|clean", "slice": "clean", "query": "risk of using duloxetine together with ciprofloxacin", "relevant": ["duloxetine#0"]}
+{"qid": "duloxetine|ciprofloxacin|typo", "slice": "typo", "query": "risk of using duloxetine together with ciproflxacin", "relevant": ["duloxetine#0"]}
+{"qid": "citalopram|omeprazole|clean", "slice": "clean", "query": "citalopram and omeprazole interaction", "relevant": ["omeprazole#3", "omeprazole#4"]}
+{"qid": "citalopram|omeprazole|typo", "slice": "typo", "query": "citalopram and oeprazole interaction", "relevant": ["omeprazole#3", "omeprazole#4"]}
+{"qid": "clarithromycin|tadalafil|clean", "slice": "clean", "query": "risk of using clarithromycin together with tadalafil", "relevant": ["clarithromycin#11", "clarithromycin#12"]}
+{"qid": "clarithromycin|tadalafil|typo", "slice": "typo", "query": "risk of using clarithromycin together with tadalail", "relevant": ["clarithromycin#11", "clarithromycin#12"]}
+{"qid": "losartan|rifampin|clean", "slice": "clean", "query": "Can I take losartan with rifampin?", "relevant": ["rifampin#11"]}
+{"qid": "losartan|rifampin|typo", "slice": "typo", "query": "Can I take losartan with riampin?", "relevant": ["rifampin#11"]}
+{"qid": "trimethoprim|memantine|clean", "slice": "clean", "query": "Is memantine safe while on trimethoprim?", "relevant": ["trimethoprim#3"]}
+{"qid": "trimethoprim|memantine|typo", "slice": "typo", "query": "Is memntine safe while on trimethoprim?", "relevant": ["trimethoprim#3"]}
+{"qid": "citalopram|lithium|clean", "slice": "clean", "query": "citalopram and lithium interaction", "relevant": ["citalopram#2"]}
+{"qid": "citalopram|lithium|typo", "slice": "typo", "query": "citalopram and lihium interaction", "relevant": ["citalopram#2"]}
+{"qid": "itraconazole|gemfibrozil|clean", "slice": "clean", "query": "What happens if gemfibrozil is combined with itraconazole?", "relevant": ["gemfibrozil#2"]}
+{"qid": "itraconazole|gemfibrozil|typo", "slice": "typo", "query": "What happens if gemfirozil is combined with itraconazole?", "relevant": ["gemfibrozil#2"]}
+{"qid": "meloxicam|lithium|clean", "slice": "clean", "query": "risk of using meloxicam together with lithium", "relevant": ["meloxicam#4", "meloxicam#5"]}
+{"qid": "meloxicam|lithium|typo", "slice": "typo", "query": "risk of using meloxicam together with litium", "relevant": ["meloxicam#4", "meloxicam#5"]}
+{"qid": "clozapine|paroxetine|clean", "slice": "clean", "query": "Is paroxetine safe while on clozapine?", "relevant": ["clozapine#2"]}
+{"qid": "clozapine|paroxetine|typo", "slice": "typo", "query": "Is parxetine safe while on clozapine?", "relevant": ["clozapine#2"]}
+{"qid": "trimethoprim|glipizide|clean", "slice": "clean", "query": "Is glipizide safe while on trimethoprim?", "relevant": ["trimethoprim#2"]}
+{"qid": "trimethoprim|glipizide|typo", "slice": "typo", "query": "Is glpizide safe while on trimethoprim?", "relevant": ["trimethoprim#2"]}
+{"qid": "fluoxetine|phenytoin|clean", "slice": "clean", "query": "risk of using fluoxetine together with phenytoin", "relevant": ["fluoxetine#1", "fluoxetine#11", "phenytoin#2"]}
+{"qid": "fluoxetine|phenytoin|typo", "slice": "typo", "query": "risk of using fluoxetine together with phenyoin", "relevant": ["fluoxetine#1", "fluoxetine#11", "phenytoin#2"]}
+{"qid": "zolpidem|fluoxetine|clean", "slice": "clean", "query": "What happens if fluoxetine is combined with zolpidem?", "relevant": ["zolpidem#2"]}
+{"qid": "zolpidem|fluoxetine|typo", "slice": "typo", "query": "What happens if fuoxetine is combined with zolpidem?", "relevant": ["zolpidem#2"]}
+{"qid": "isoniazid|glyburide|clean", "slice": "clean", "query": "Is glyburide safe while on isoniazid?", "relevant": ["glyburide#1"]}
+{"qid": "isoniazid|glyburide|typo", "slice": "typo", "query": "Is glburide safe while on isoniazid?", "relevant": ["glyburide#1"]}
+{"qid": "aspirin|venlafaxine|clean", "slice": "clean", "query": "What happens if venlafaxine is combined with aspirin?", "relevant": ["venlafaxine#4"]}
+{"qid": "aspirin|venlafaxine|typo", "slice": "typo", "query": "What happens if venlafxine is combined with aspirin?", "relevant": ["venlafaxine#4"]}
+{"qid": "alprazolam|ketoconazole|clean", "slice": "clean", "query": "alprazolam and ketoconazole interaction", "relevant": ["alprazolam#3", "ketoconazole#1"]}
+{"qid": "alprazolam|ketoconazole|typo", "slice": "typo", "query": "alprazolam and ketocnazole interaction", "relevant": ["alprazolam#3", "ketoconazole#1"]}
+{"qid": "tramadol|carbamazepine|clean", "slice": "clean", "query": "risk of using tramadol together with carbamazepine", "relevant": ["carbamazepine#5", "tramadol#6"]}
+{"qid": "tramadol|carbamazepine|typo", "slice": "typo", "query": "risk of using tramadol together with crbamazepine", "relevant": ["carbamazepine#5", "tramadol#6"]}
+{"qid": "buprenorphine|fentanyl|clean", "slice": "clean", "query": "What happens if fentanyl is combined with buprenorphine?", "relevant": ["fentanyl#6"]}
+{"qid": "buprenorphine|fentanyl|typo", "slice": "typo", "query": "What happens if fentnyl is combined with buprenorphine?", "relevant": ["fentanyl#6"]}
+{"qid": "carbamazepine|dronedarone|clean", "slice": "clean", "query": "risk of using carbamazepine together with dronedarone", "relevant": ["dronedarone#5"]}
+{"qid": "carbamazepine|dronedarone|typo", "slice": "typo", "query": "risk of using carbamazepine together with drnedarone", "relevant": ["dronedarone#5"]}
+{"qid": "rifampin|clarithromycin|clean", "slice": "clean", "query": "risk of using rifampin together with clarithromycin", "relevant": ["rifampin#10"]}
+{"qid": "rifampin|clarithromycin|typo", "slice": "typo", "query": "risk of using rifampin together with clarithromyin", "relevant": ["rifampin#10"]}
+{"qid": "methadone|ritonavir|clean", "slice": "clean", "query": "What happens if ritonavir is combined with methadone?", "relevant": ["methadone#2", "methadone#9", "ritonavir#4", "ritonavir#5"]}
+{"qid": "methadone|ritonavir|typo", "slice": "typo", "query": "What happens if ritnavir is combined with methadone?", "relevant": ["methadone#2", "methadone#9", "ritonavir#4", "ritonavir#5"]}
+{"qid": "warfarin|diclofenac|clean", "slice": "clean", "query": "What happens if diclofenac is combined with warfarin?", "relevant": ["diclofenac#0", "diclofenac#1", "diclofenac#8", "warfarin#4"]}
+{"qid": "warfarin|diclofenac|typo", "slice": "typo", "query": "What happens if dicofenac is combined with warfarin?", "relevant": ["diclofenac#0", "diclofenac#1", "diclofenac#8", "warfarin#4"]}
+{"qid": "pantoprazole|clopidogrel|clean", "slice": "clean", "query": "Can I take pantoprazole with clopidogrel?", "relevant": ["clopidogrel#2", "pantoprazole#2"]}
+{"qid": "pantoprazole|clopidogrel|typo", "slice": "typo", "query": "Can I take pantoprazole with clopidogel?", "relevant": ["clopidogrel#2", "pantoprazole#2"]}
+{"qid": "ritonavir|fluoxetine|clean", "slice": "clean", "query": "risk of using ritonavir together with fluoxetine", "relevant": ["ritonavir#9"]}
+{"qid": "ritonavir|fluoxetine|typo", "slice": "typo", "query": "risk of using ritonavir together with fuoxetine", "relevant": ["ritonavir#9"]}
+{"qid": "lansoprazole|clopidogrel|clean", "slice": "clean", "query": "risk of using lansoprazole together with clopidogrel", "relevant": ["clopidogrel#2"]}
+{"qid": "lansoprazole|clopidogrel|typo", "slice": "typo", "query": "risk of using lansoprazole together with clopiogrel", "relevant": ["clopidogrel#2"]}
+{"qid": "tamsulosin|itraconazole|clean", "slice": "clean", "query": "risk of using tamsulosin together with itraconazole", "relevant": ["itraconazole#2"]}
+{"qid": "tamsulosin|itraconazole|typo", "slice": "typo", "query": "risk of using tamsulosin together with itracoazole", "relevant": ["itraconazole#2"]}
+{"qid": "aripiprazole|paroxetine|clean", "slice": "clean", "query": "Can I take aripiprazole with paroxetine?", "relevant": ["aripiprazole#1", "aripiprazole#3"]}
+{"qid": "aripiprazole|paroxetine|typo", "slice": "typo", "query": "Can I take aripiprazole with paroetine?", "relevant": ["aripiprazole#1", "aripiprazole#3"]}
+{"qid": "fluconazole|celecoxib|clean", "slice": "clean", "query": "risk of using fluconazole together with celecoxib", "relevant": ["celecoxib#8", "fluconazole#23"]}
+{"qid": "fluconazole|celecoxib|typo", "slice": "typo", "query": "risk of using fluconazole together with celecoib", "relevant": ["celecoxib#8", "fluconazole#23"]}
+{"qid": "topiramate|phenytoin|clean", "slice": "clean", "query": "risk of using topiramate together with phenytoin", "relevant": ["phenytoin#2", "phenytoin#6", "topiramate#0"]}
+{"qid": "topiramate|phenytoin|typo", "slice": "typo", "query": "risk of using topiramate together with pheytoin", "relevant": ["phenytoin#2", "phenytoin#6", "topiramate#0"]}
+{"qid": "cyclosporine|meloxicam|clean", "slice": "clean", "query": "cyclosporine and meloxicam interaction", "relevant": ["meloxicam#5"]}
+{"qid": "cyclosporine|meloxicam|typo", "slice": "typo", "query": "cyclosporine and meloicam interaction", "relevant": ["meloxicam#5"]}
+{"qid": "levothyroxine|furosemide|clean", "slice": "clean", "query": "Can I take levothyroxine with furosemide?", "relevant": ["levothyroxine#14", "levothyroxine#3"]}
+{"qid": "levothyroxine|furosemide|typo", "slice": "typo", "query": "Can I take levothyroxine with frosemide?", "relevant": ["levothyroxine#14", "levothyroxine#3"]}
+{"qid": "cyclobenzaprine|buprenorphine|clean", "slice": "clean", "query": "risk of using cyclobenzaprine together with buprenorphine", "relevant": ["buprenorphine#7"]}
+{"qid": "cyclobenzaprine|buprenorphine|typo", "slice": "typo", "query": "risk of using cyclobenzaprine together with buprenrphine", "relevant": ["buprenorphine#7"]}
+{"qid": "sertraline|selegiline|clean", "slice": "clean", "query": "risk of using sertraline together with selegiline", "relevant": ["sertraline#1"]}
+{"qid": "sertraline|selegiline|typo", "slice": "typo", "query": "risk of using sertraline together with selegiine", "relevant": ["sertraline#1"]}
+{"qid": "hydrocodone|linezolid|clean", "slice": "clean", "query": "Is linezolid safe while on hydrocodone?", "relevant": ["hydrocodone#5", "hydrocodone#6"]}
+{"qid": "hydrocodone|linezolid|typo", "slice": "typo", "query": "Is linezlid safe while on hydrocodone?", "relevant": ["hydrocodone#5", "hydrocodone#6"]}
+{"qid": "mirtazapine|carbamazepine|clean", "slice": "clean", "query": "mirtazapine and carbamazepine interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "mirtazapine|carbamazepine|typo", "slice": "typo", "query": "mirtazapine and carbmazepine interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "carbamazepine|bupropion|clean", "slice": "clean", "query": "Is bupropion safe while on carbamazepine?", "relevant": ["bupropion#0", "bupropion#2", "carbamazepine#5"]}
+{"qid": "carbamazepine|bupropion|typo", "slice": "typo", "query": "Is buropion safe while on carbamazepine?", "relevant": ["bupropion#0", "bupropion#2", "carbamazepine#5"]}
+{"qid": "valproic acid|diazepam|clean", "slice": "clean", "query": "valproic acid and diazepam interaction", "relevant": ["valproic_acid#1", "valproic_acid#10", "valproic_acid#9"]}
+{"qid": "valproic acid|diazepam|typo", "slice": "typo", "query": "valproic acid and diazepm interaction", "relevant": ["valproic_acid#1", "valproic_acid#10", "valproic_acid#9"]}
+{"qid": "verapamil|erythromycin|clean", "slice": "clean", "query": "Can I take verapamil with erythromycin?", "relevant": ["erythromycin#0", "erythromycin#2", "verapamil#0"]}
+{"qid": "verapamil|erythromycin|typo", "slice": "typo", "query": "Can I take verapamil with erthromycin?", "relevant": ["erythromycin#0", "erythromycin#2", "verapamil#0"]}
+{"qid": "clozapine|tacrolimus|clean", "slice": "clean", "query": "What happens if tacrolimus is combined with clozapine?", "relevant": ["clozapine#4"]}
+{"qid": "clozapine|tacrolimus|typo", "slice": "typo", "query": "What happens if tacrolius is combined with clozapine?", "relevant": ["clozapine#4"]}
+{"qid": "clonazepam|fluoxetine|clean", "slice": "clean", "query": "Can I take clonazepam with fluoxetine?", "relevant": ["clonazepam#2"]}
+{"qid": "clonazepam|fluoxetine|typo", "slice": "typo", "query": "Can I take clonazepam with fuoxetine?", "relevant": ["clonazepam#2"]}
+{"qid": "amiodarone|trazodone|clean", "slice": "clean", "query": "risk of using amiodarone together with trazodone", "relevant": ["trazodone#5"]}
+{"qid": "amiodarone|trazodone|typo", "slice": "typo", "query": "risk of using amiodarone together with traodone", "relevant": ["trazodone#5"]}
+{"qid": "celecoxib|meloxicam|clean", "slice": "clean", "query": "risk of using celecoxib together with meloxicam", "relevant": ["celecoxib#7"]}
+{"qid": "celecoxib|meloxicam|typo", "slice": "typo", "query": "risk of using celecoxib together with meloicam", "relevant": ["celecoxib#7"]}
+{"qid": "carbamazepine|levothyroxine|clean", "slice": "clean", "query": "risk of using carbamazepine together with levothyroxine", "relevant": ["carbamazepine#5", "levothyroxine#14", "levothyroxine#15", "levothyroxine#3", "levothyroxine#4"]}
+{"qid": "carbamazepine|levothyroxine|typo", "slice": "typo", "query": "risk of using carbamazepine together with levothyrxine", "relevant": ["carbamazepine#5", "levothyroxine#14", "levothyroxine#15", "levothyroxine#3", "levothyroxine#4"]}
+{"qid": "dexamethasone|cyclosporine|clean", "slice": "clean", "query": "Can I take dexamethasone with cyclosporine?", "relevant": ["dexamethasone#1"]}
+{"qid": "dexamethasone|cyclosporine|typo", "slice": "typo", "query": "Can I take dexamethasone with cclosporine?", "relevant": ["dexamethasone#1"]}
+{"qid": "phenytoin|fluconazole|clean", "slice": "clean", "query": "Can I take phenytoin with fluconazole?", "relevant": ["fluconazole#30", "fluconazole#31", "fluconazole#6", "fluconazole#7", "phenytoin#2", "phenytoin#4"]}
+{"qid": "phenytoin|fluconazole|typo", "slice": "typo", "query": "Can I take phenytoin with fluconaole?", "relevant": ["fluconazole#30", "fluconazole#31", "fluconazole#6", "fluconazole#7", "phenytoin#2", "phenytoin#4"]}
+{"qid": "fluconazole|carbamazepine|clean", "slice": "clean", "query": "fluconazole and carbamazepine interaction", "relevant": ["carbamazepine#1", "fluconazole#22", "fluconazole#23"]}
+{"qid": "fluconazole|carbamazepine|typo", "slice": "typo", "query": "fluconazole and crbamazepine interaction", "relevant": ["carbamazepine#1", "fluconazole#22", "fluconazole#23"]}
+{"qid": "erythromycin|itraconazole|clean", "slice": "clean", "query": "Can I take erythromycin with itraconazole?", "relevant": ["itraconazole#14"]}
+{"qid": "erythromycin|itraconazole|typo", "slice": "typo", "query": "Can I take erythromycin with iraconazole?", "relevant": ["itraconazole#14"]}
+{"qid": "erythromycin|sirolimus|clean", "slice": "clean", "query": "erythromycin and sirolimus interaction", "relevant": ["sirolimus#1"]}
+{"qid": "erythromycin|sirolimus|typo", "slice": "typo", "query": "erythromycin and siolimus interaction", "relevant": ["sirolimus#1"]}
+{"qid": "ticagrelor|itraconazole|clean", "slice": "clean", "query": "risk of using ticagrelor together with itraconazole", "relevant": ["itraconazole#3", "ticagrelor#1"]}
+{"qid": "ticagrelor|itraconazole|typo", "slice": "typo", "query": "risk of using ticagrelor together with itraconazoe", "relevant": ["itraconazole#3", "ticagrelor#1"]}
+{"qid": "carbamazepine|clonazepam|clean", "slice": "clean", "query": "Is clonazepam safe while on carbamazepine?", "relevant": ["carbamazepine#5", "clonazepam#0", "clonazepam#2"]}
+{"qid": "carbamazepine|clonazepam|typo", "slice": "typo", "query": "Is cloazepam safe while on carbamazepine?", "relevant": ["carbamazepine#5", "clonazepam#0", "clonazepam#2"]}
+{"qid": "colchicine|digoxin|clean", "slice": "clean", "query": "Can I take colchicine with digoxin?", "relevant": ["colchicine#2"]}
+{"qid": "colchicine|digoxin|typo", "slice": "typo", "query": "Can I take colchicine with digxin?", "relevant": ["colchicine#2"]}
+{"qid": "lithium|verapamil|clean", "slice": "clean", "query": "Is verapamil safe while on lithium?", "relevant": ["verapamil#9"]}
+{"qid": "lithium|verapamil|typo", "slice": "typo", "query": "Is verapail safe while on lithium?", "relevant": ["verapamil#9"]}
+{"qid": "clarithromycin|esomeprazole|clean", "slice": "clean", "query": "Is esomeprazole safe while on clarithromycin?", "relevant": ["esomeprazole#4"]}
+{"qid": "clarithromycin|esomeprazole|typo", "slice": "typo", "query": "Is esomeprzole safe while on clarithromycin?", "relevant": ["esomeprazole#4"]}
+{"qid": "amiodarone|atenolol|clean", "slice": "clean", "query": "Is atenolol safe while on amiodarone?", "relevant": ["atenolol#0"]}
+{"qid": "amiodarone|atenolol|typo", "slice": "typo", "query": "Is aenolol safe while on amiodarone?", "relevant": ["atenolol#0"]}
+{"qid": "aspirin|tadalafil|clean", "slice": "clean", "query": "Is tadalafil safe while on aspirin?", "relevant": ["tadalafil#7"]}
+{"qid": "aspirin|tadalafil|typo", "slice": "typo", "query": "Is taalafil safe while on aspirin?", "relevant": ["tadalafil#7"]}
+{"qid": "morphine|gabapentin|clean", "slice": "clean", "query": "Can I take morphine with gabapentin?", "relevant": ["gabapentin#0", "gabapentin#2", "gabapentin#3", "gabapentin#8"]}
+{"qid": "morphine|gabapentin|typo", "slice": "typo", "query": "Can I take morphine with gabapntin?", "relevant": ["gabapentin#0", "gabapentin#2", "gabapentin#3", "gabapentin#8"]}
+{"qid": "sulfamethoxazole|metformin|clean", "slice": "clean", "query": "Can I take sulfamethoxazole with metformin?", "relevant": ["sulfamethoxazole#2", "sulfamethoxazole#3"]}
+{"qid": "sulfamethoxazole|metformin|typo", "slice": "typo", "query": "Can I take sulfamethoxazole with mtformin?", "relevant": ["sulfamethoxazole#2", "sulfamethoxazole#3"]}
+{"qid": "itraconazole|esomeprazole|clean", "slice": "clean", "query": "What happens if esomeprazole is combined with itraconazole?", "relevant": ["esomeprazole#5"]}
+{"qid": "itraconazole|esomeprazole|typo", "slice": "typo", "query": "What happens if eomeprazole is combined with itraconazole?", "relevant": ["esomeprazole#5"]}
+{"qid": "ketoconazole|colchicine|clean", "slice": "clean", "query": "risk of using ketoconazole together with colchicine", "relevant": ["colchicine#4", "ketoconazole#1"]}
+{"qid": "ketoconazole|colchicine|typo", "slice": "typo", "query": "risk of using ketoconazole together with colchicne", "relevant": ["colchicine#4", "ketoconazole#1"]}
+{"qid": "methotrexate|trimethoprim|clean", "slice": "clean", "query": "risk of using methotrexate together with trimethoprim", "relevant": ["trimethoprim#1"]}
+{"qid": "methotrexate|trimethoprim|typo", "slice": "typo", "query": "risk of using methotrexate together with trimehoprim", "relevant": ["trimethoprim#1"]}
+{"qid": "phenytoin|ondansetron|clean", "slice": "clean", "query": "phenytoin and ondansetron interaction", "relevant": ["ondansetron#1"]}
+{"qid": "phenytoin|ondansetron|typo", "slice": "typo", "query": "phenytoin and onansetron interaction", "relevant": ["ondansetron#1"]}
+{"qid": "phenytoin|sirolimus|clean", "slice": "clean", "query": "Can I take phenytoin with sirolimus?", "relevant": ["sirolimus#3"]}
+{"qid": "phenytoin|sirolimus|typo", "slice": "typo", "query": "Can I take phenytoin with siolimus?", "relevant": ["sirolimus#3"]}
+{"qid": "omeprazole|clarithromycin|clean", "slice": "clean", "query": "omeprazole and clarithromycin interaction", "relevant": ["clarithromycin#12", "clarithromycin#18", "clarithromycin#19", "omeprazole#6", "omeprazole#7"]}
+{"qid": "omeprazole|clarithromycin|typo", "slice": "typo", "query": "omeprazole and clarithromycn interaction", "relevant": ["clarithromycin#12", "clarithromycin#18", "clarithromycin#19", "omeprazole#6", "omeprazole#7"]}
+{"qid": "lithium|enalapril|clean", "slice": "clean", "query": "lithium and enalapril interaction", "relevant": ["enalapril#4"]}
+{"qid": "lithium|enalapril|typo", "slice": "typo", "query": "lithium and enalapil interaction", "relevant": ["enalapril#4"]}
+{"qid": "pregabalin|tramadol|clean", "slice": "clean", "query": "pregabalin and tramadol interaction", "relevant": ["tramadol#8"]}
+{"qid": "pregabalin|tramadol|typo", "slice": "typo", "query": "pregabalin and tramdol interaction", "relevant": ["tramadol#8"]}
+{"qid": "ritonavir|lovastatin|clean", "slice": "clean", "query": "ritonavir and lovastatin interaction", "relevant": ["ritonavir#18"]}
+{"qid": "ritonavir|lovastatin|typo", "slice": "typo", "query": "ritonavir and lovastain interaction", "relevant": ["ritonavir#18"]}
+{"qid": "erythromycin|simvastatin|clean", "slice": "clean", "query": "risk of using erythromycin together with simvastatin", "relevant": ["erythromycin#0", "erythromycin#4", "simvastatin#2"]}
+{"qid": "erythromycin|simvastatin|typo", "slice": "typo", "query": "risk of using erythromycin together with simvastain", "relevant": ["erythromycin#0", "erythromycin#4", "simvastatin#2"]}
+{"qid": "propranolol|meloxicam|clean", "slice": "clean", "query": "risk of using propranolol together with meloxicam", "relevant": ["meloxicam#2"]}
+{"qid": "propranolol|meloxicam|typo", "slice": "typo", "query": "risk of using propranolol together with meloxiam", "relevant": ["meloxicam#2"]}
+{"qid": "lithium|aripiprazole|clean", "slice": "clean", "query": "Can I take lithium with aripiprazole?", "relevant": ["aripiprazole#3"]}
+{"qid": "lithium|aripiprazole|typo", "slice": "typo", "query": "Can I take lithium with aripiprzole?", "relevant": ["aripiprazole#3"]}
+{"qid": "clonazepam|fluconazole|clean", "slice": "clean", "query": "clonazepam and fluconazole interaction", "relevant": ["clonazepam#2"]}
+{"qid": "clonazepam|fluconazole|typo", "slice": "typo", "query": "clonazepam and flucoazole interaction", "relevant": ["clonazepam#2"]}
+{"qid": "sulfamethoxazole|theophylline|clean", "slice": "clean", "query": "Is theophylline safe while on sulfamethoxazole?", "relevant": ["theophylline#9"]}
+{"qid": "sulfamethoxazole|theophylline|typo", "slice": "typo", "query": "Is theophyllie safe while on sulfamethoxazole?", "relevant": ["theophylline#9"]}
+{"qid": "gemfibrozil|warfarin|clean", "slice": "clean", "query": "risk of using gemfibrozil together with warfarin", "relevant": ["gemfibrozil#1"]}
+{"qid": "gemfibrozil|warfarin|typo", "slice": "typo", "query": "risk of using gemfibrozil together with wafarin", "relevant": ["gemfibrozil#1"]}
+{"qid": "prednisone|erythromycin|clean", "slice": "clean", "query": "Can I take prednisone with erythromycin?", "relevant": ["prednisone#10", "prednisone#3", "prednisone#9"]}
+{"qid": "prednisone|erythromycin|typo", "slice": "typo", "query": "Can I take prednisone with erthromycin?", "relevant": ["prednisone#10", "prednisone#3", "prednisone#9"]}
+{"qid": "gemfibrozil|colchicine|clean", "slice": "clean", "query": "gemfibrozil and colchicine interaction", "relevant": ["colchicine#2", "gemfibrozil#6"]}
+{"qid": "gemfibrozil|colchicine|typo", "slice": "typo", "query": "gemfibrozil and colchiine interaction", "relevant": ["colchicine#2", "gemfibrozil#6"]}
+{"qid": "quetiapine|rifampin|clean", "slice": "clean", "query": "Can I take quetiapine with rifampin?", "relevant": ["quetiapine#0", "quetiapine#1"]}
+{"qid": "quetiapine|rifampin|typo", "slice": "typo", "query": "Can I take quetiapine with rfampin?", "relevant": ["quetiapine#0", "quetiapine#1"]}
+{"qid": "terbinafine|sulfamethoxazole|clean", "slice": "clean", "query": "Can I take terbinafine with sulfamethoxazole?", "relevant": ["terbinafine#2"]}
+{"qid": "terbinafine|sulfamethoxazole|typo", "slice": "typo", "query": "Can I take terbinafine with sulfamethoxaole?", "relevant": ["terbinafine#2"]}
+{"qid": "warfarin|terbinafine|clean", "slice": "clean", "query": "Can I take warfarin with terbinafine?", "relevant": ["terbinafine#3", "warfarin#3"]}
+{"qid": "warfarin|terbinafine|typo", "slice": "typo", "query": "Can I take warfarin with tebinafine?", "relevant": ["terbinafine#3", "warfarin#3"]}
+{"qid": "amiodarone|clarithromycin|clean", "slice": "clean", "query": "What happens if clarithromycin is combined with amiodarone?", "relevant": ["clarithromycin#1"]}
+{"qid": "amiodarone|clarithromycin|typo", "slice": "typo", "query": "What happens if clarthromycin is combined with amiodarone?", "relevant": ["clarithromycin#1"]}
+{"qid": "amlodipine|erythromycin|clean", "slice": "clean", "query": "risk of using amlodipine together with erythromycin", "relevant": ["erythromycin#0"]}
+{"qid": "amlodipine|erythromycin|typo", "slice": "typo", "query": "risk of using amlodipine together with erthromycin", "relevant": ["erythromycin#0"]}
+{"qid": "montelukast|prednisone|clean", "slice": "clean", "query": "Is prednisone safe while on montelukast?", "relevant": ["montelukast#0"]}
+{"qid": "montelukast|prednisone|typo", "slice": "typo", "query": "Is prdnisone safe while on montelukast?", "relevant": ["montelukast#0"]}
+{"qid": "sulfamethoxazole|glyburide|clean", "slice": "clean", "query": "sulfamethoxazole and glyburide interaction", "relevant": ["sulfamethoxazole#2"]}
+{"qid": "sulfamethoxazole|glyburide|typo", "slice": "typo", "query": "sulfamethoxazole and gyburide interaction", "relevant": ["sulfamethoxazole#2"]}
+{"qid": "warfarin|ramipril|clean", "slice": "clean", "query": "Can I take warfarin with ramipril?", "relevant": ["ramipril#4"]}
+{"qid": "warfarin|ramipril|typo", "slice": "typo", "query": "Can I take warfarin with ramiprl?", "relevant": ["ramipril#4"]}
+{"qid": "dapagliflozin|valsartan|clean", "slice": "clean", "query": "Is valsartan safe while on dapagliflozin?", "relevant": ["dapagliflozin#4", "dapagliflozin#6"]}
+{"qid": "dapagliflozin|valsartan|typo", "slice": "typo", "query": "Is vlsartan safe while on dapagliflozin?", "relevant": ["dapagliflozin#4", "dapagliflozin#6"]}
+{"qid": "venlafaxine|fluoxetine|clean", "slice": "clean", "query": "venlafaxine and fluoxetine interaction", "relevant": ["venlafaxine#9"]}
+{"qid": "venlafaxine|fluoxetine|typo", "slice": "typo", "query": "venlafaxine and fluoxtine interaction", "relevant": ["venlafaxine#9"]}
+{"qid": "warfarin|azathioprine|clean", "slice": "clean", "query": "Is azathioprine safe while on warfarin?", "relevant": ["azathioprine#1"]}
+{"qid": "warfarin|azathioprine|typo", "slice": "typo", "query": "Is azathoprine safe while on warfarin?", "relevant": ["azathioprine#1"]}
+{"qid": "phenytoin|doxycycline|clean", "slice": "clean", "query": "What happens if doxycycline is combined with phenytoin?", "relevant": ["doxycycline#0", "phenytoin#6"]}
+{"qid": "phenytoin|doxycycline|typo", "slice": "typo", "query": "What happens if doxyccline is combined with phenytoin?", "relevant": ["doxycycline#0", "phenytoin#6"]}
+{"qid": "valproic acid|lithium|clean", "slice": "clean", "query": "What happens if lithium is combined with valproic acid?", "relevant": ["valproic_acid#16"]}
+{"qid": "valproic acid|lithium|typo", "slice": "typo", "query": "What happens if litium is combined with valproic acid?", "relevant": ["valproic_acid#16"]}
+{"qid": "phenytoin|ticagrelor|clean", "slice": "clean", "query": "risk of using phenytoin together with ticagrelor", "relevant": ["phenytoin#6", "ticagrelor#1"]}
+{"qid": "phenytoin|ticagrelor|typo", "slice": "typo", "query": "risk of using phenytoin together with ticagrelr", "relevant": ["phenytoin#6", "ticagrelor#1"]}
+{"qid": "fentanyl|ritonavir|clean", "slice": "clean", "query": "risk of using fentanyl together with ritonavir", "relevant": ["fentanyl#1", "ritonavir#4", "ritonavir#5"]}
+{"qid": "fentanyl|ritonavir|typo", "slice": "typo", "query": "risk of using fentanyl together with ritonair", "relevant": ["fentanyl#1", "ritonavir#4", "ritonavir#5"]}
+{"qid": "mirtazapine|alprazolam|clean", "slice": "clean", "query": "Is alprazolam safe while on mirtazapine?", "relevant": ["mirtazapine#3"]}
+{"qid": "mirtazapine|alprazolam|typo", "slice": "typo", "query": "Is aprazolam safe while on mirtazapine?", "relevant": ["mirtazapine#3"]}
+{"qid": "tacrolimus|methylprednisolone|clean", "slice": "clean", "query": "Can I take tacrolimus with methylprednisolone?", "relevant": ["tacrolimus#6"]}
+{"qid": "tacrolimus|methylprednisolone|typo", "slice": "typo", "query": "Can I take tacrolimus with methylpredniolone?", "relevant": ["tacrolimus#6"]}
+{"qid": "hydrocodone|gabapentin|clean", "slice": "clean", "query": "Can I take hydrocodone with gabapentin?", "relevant": ["gabapentin#0", "gabapentin#2", "gabapentin#7", "gabapentin#8"]}
+{"qid": "hydrocodone|gabapentin|typo", "slice": "typo", "query": "Can I take hydrocodone with gabaentin?", "relevant": ["gabapentin#0", "gabapentin#2", "gabapentin#7", "gabapentin#8"]}
+{"qid": "amiodarone|fentanyl|clean", "slice": "clean", "query": "Can I take amiodarone with fentanyl?", "relevant": ["amiodarone#3"]}
+{"qid": "amiodarone|fentanyl|typo", "slice": "typo", "query": "Can I take amiodarone with fentayl?", "relevant": ["amiodarone#3"]}
+{"qid": "acetaminophen|tramadol|clean", "slice": "clean", "query": "acetaminophen and tramadol interaction", "relevant": ["acetaminophen#5"]}
+{"qid": "acetaminophen|tramadol|typo", "slice": "typo", "query": "acetaminophen and tramdol interaction", "relevant": ["acetaminophen#5"]}
+{"qid": "itraconazole|isoniazid|clean", "slice": "clean", "query": "itraconazole and isoniazid interaction", "relevant": ["itraconazole#15"]}
+{"qid": "itraconazole|isoniazid|typo", "slice": "typo", "query": "itraconazole and isoiazid interaction", "relevant": ["itraconazole#15"]}
+{"qid": "itraconazole|rifampin|clean", "slice": "clean", "query": "Can I take itraconazole with rifampin?", "relevant": ["rifampin#6"]}
+{"qid": "itraconazole|rifampin|typo", "slice": "typo", "query": "Can I take itraconazole with rfampin?", "relevant": ["rifampin#6"]}
+{"qid": "levetiracetam|digoxin|clean", "slice": "clean", "query": "Can I take levetiracetam with digoxin?", "relevant": ["levetiracetam#0", "levetiracetam#3"]}
+{"qid": "levetiracetam|digoxin|typo", "slice": "typo", "query": "Can I take levetiracetam with digoin?", "relevant": ["levetiracetam#0", "levetiracetam#3"]}
+{"qid": "dronedarone|sirolimus|clean", "slice": "clean", "query": "dronedarone and sirolimus interaction", "relevant": ["dronedarone#1", "dronedarone#7"]}
+{"qid": "dronedarone|sirolimus|typo", "slice": "typo", "query": "dronedarone and siroimus interaction", "relevant": ["dronedarone#1", "dronedarone#7"]}
+{"qid": "clarithromycin|pioglitazone|clean", "slice": "clean", "query": "risk of using clarithromycin together with pioglitazone", "relevant": ["clarithromycin#11"]}
+{"qid": "clarithromycin|pioglitazone|typo", "slice": "typo", "query": "risk of using clarithromycin together with piogltazone", "relevant": ["clarithromycin#11"]}
+{"qid": "finasteride|propranolol|clean", "slice": "clean", "query": "finasteride and propranolol interaction", "relevant": ["finasteride#0"]}
+{"qid": "finasteride|propranolol|typo", "slice": "typo", "query": "finasteride and proprnolol interaction", "relevant": ["finasteride#0"]}
+{"qid": "glyburide|metformin|clean", "slice": "clean", "query": "glyburide and metformin interaction", "relevant": ["glyburide#2"]}
+{"qid": "glyburide|metformin|typo", "slice": "typo", "query": "glyburide and metfrmin interaction", "relevant": ["glyburide#2"]}
+{"qid": "theophylline|lansoprazole|clean", "slice": "clean", "query": "Can I take theophylline with lansoprazole?", "relevant": ["lansoprazole#3"]}
+{"qid": "theophylline|lansoprazole|typo", "slice": "typo", "query": "Can I take theophylline with lansopraole?", "relevant": ["lansoprazole#3"]}
+{"qid": "atorvastatin|itraconazole|clean", "slice": "clean", "query": "risk of using atorvastatin together with itraconazole", "relevant": ["atorvastatin#4", "itraconazole#9"]}
+{"qid": "atorvastatin|itraconazole|typo", "slice": "typo", "query": "risk of using atorvastatin together with itaconazole", "relevant": ["atorvastatin#4", "itraconazole#9"]}
+{"qid": "rifampin|tadalafil|clean", "slice": "clean", "query": "What happens if tadalafil is combined with rifampin?", "relevant": ["tadalafil#0", "tadalafil#6", "tadalafil#7"]}
+{"qid": "rifampin|tadalafil|typo", "slice": "typo", "query": "What happens if tdalafil is combined with rifampin?", "relevant": ["tadalafil#0", "tadalafil#6", "tadalafil#7"]}
+{"qid": "nortriptyline|fluoxetine|clean", "slice": "clean", "query": "Is fluoxetine safe while on nortriptyline?", "relevant": ["nortriptyline#2", "nortriptyline#3"]}
+{"qid": "nortriptyline|fluoxetine|typo", "slice": "typo", "query": "Is floxetine safe while on nortriptyline?", "relevant": ["nortriptyline#2", "nortriptyline#3"]}
+{"qid": "warfarin|metronidazole|clean", "slice": "clean", "query": "Can I take warfarin with metronidazole?", "relevant": ["metronidazole#0", "warfarin#3"]}
+{"qid": "warfarin|metronidazole|typo", "slice": "typo", "query": "Can I take warfarin with metrondazole?", "relevant": ["metronidazole#0", "warfarin#3"]}
+{"qid": "valproic acid|lorazepam|clean", "slice": "clean", "query": "What happens if lorazepam is combined with valproic acid?", "relevant": ["valproic_acid#17"]}
+{"qid": "valproic acid|lorazepam|typo", "slice": "typo", "query": "What happens if loraepam is combined with valproic acid?", "relevant": ["valproic_acid#17"]}
+{"qid": "finasteride|warfarin|clean", "slice": "clean", "query": "risk of using finasteride together with warfarin", "relevant": ["finasteride#0"]}
+{"qid": "finasteride|warfarin|typo", "slice": "typo", "query": "risk of using finasteride together with wafarin", "relevant": ["finasteride#0"]}
+{"qid": "sildenafil|erythromycin|clean", "slice": "clean", "query": "sildenafil and erythromycin interaction", "relevant": ["erythromycin#5", "sildenafil#0", "sildenafil#3", "sildenafil#4"]}
+{"qid": "sildenafil|erythromycin|typo", "slice": "typo", "query": "sildenafil and erythromcin interaction", "relevant": ["erythromycin#5", "sildenafil#0", "sildenafil#3", "sildenafil#4"]}
+{"qid": "venlafaxine|aripiprazole|clean", "slice": "clean", "query": "risk of using venlafaxine together with aripiprazole", "relevant": ["aripiprazole#3"]}
+{"qid": "venlafaxine|aripiprazole|typo", "slice": "typo", "query": "risk of using venlafaxine together with aripiprazoe", "relevant": ["aripiprazole#3"]}
+{"qid": "digoxin|erythromycin|clean", "slice": "clean", "query": "What happens if erythromycin is combined with digoxin?", "relevant": ["digoxin#2", "erythromycin#2"]}
+{"qid": "digoxin|erythromycin|typo", "slice": "typo", "query": "What happens if erythromycn is combined with digoxin?", "relevant": ["digoxin#2", "erythromycin#2"]}
+{"qid": "theophylline|colchicine|clean", "slice": "clean", "query": "theophylline and colchicine interaction", "relevant": ["colchicine#5", "colchicine#6"]}
+{"qid": "theophylline|colchicine|typo", "slice": "typo", "query": "theophylline and colchicie interaction", "relevant": ["colchicine#5", "colchicine#6"]}
+{"qid": "clozapine|glimepiride|clean", "slice": "clean", "query": "What happens if glimepiride is combined with clozapine?", "relevant": ["glimepiride#2"]}
+{"qid": "clozapine|glimepiride|typo", "slice": "typo", "query": "What happens if gliepiride is combined with clozapine?", "relevant": ["glimepiride#2"]}
+{"qid": "metronidazole|lithium|clean", "slice": "clean", "query": "What happens if lithium is combined with metronidazole?", "relevant": ["lithium#0", "metronidazole#1"]}
+{"qid": "metronidazole|lithium|typo", "slice": "typo", "query": "What happens if lithim is combined with metronidazole?", "relevant": ["lithium#0", "metronidazole#1"]}
+{"qid": "erythromycin|clozapine|clean", "slice": "clean", "query": "What happens if clozapine is combined with erythromycin?", "relevant": ["clozapine#2", "clozapine#4"]}
+{"qid": "erythromycin|clozapine|typo", "slice": "typo", "query": "What happens if clozpine is combined with erythromycin?", "relevant": ["clozapine#2", "clozapine#4"]}
+{"qid": "metoprolol|paroxetine|clean", "slice": "clean", "query": "metoprolol and paroxetine interaction", "relevant": ["metoprolol#1", "paroxetine#3"]}
+{"qid": "metoprolol|paroxetine|typo", "slice": "typo", "query": "metoprolol and paroetine interaction", "relevant": ["metoprolol#1", "paroxetine#3"]}
+{"qid": "rifampin|fluconazole|clean", "slice": "clean", "query": "risk of using rifampin together with fluconazole", "relevant": ["fluconazole#33", "fluconazole#4", "fluconazole#5", "rifampin#6"]}
+{"qid": "rifampin|fluconazole|typo", "slice": "typo", "query": "risk of using rifampin together with fluonazole", "relevant": ["fluconazole#33", "fluconazole#4", "fluconazole#5", "rifampin#6"]}
+{"qid": "prasugrel|warfarin|clean", "slice": "clean", "query": "prasugrel and warfarin interaction", "relevant": ["prasugrel#0", "warfarin#4"]}
+{"qid": "prasugrel|warfarin|typo", "slice": "typo", "query": "prasugrel and warfarn interaction", "relevant": ["prasugrel#0", "warfarin#4"]}
+{"qid": "sirolimus|fluconazole|clean", "slice": "clean", "query": "risk of using sirolimus together with fluconazole", "relevant": ["fluconazole#34", "sirolimus#3"]}
+{"qid": "sirolimus|fluconazole|typo", "slice": "typo", "query": "risk of using sirolimus together with fluconzole", "relevant": ["fluconazole#34", "sirolimus#3"]}
+{"qid": "furosemide|cyclosporine|clean", "slice": "clean", "query": "What happens if cyclosporine is combined with furosemide?", "relevant": ["furosemide#3"]}
+{"qid": "furosemide|cyclosporine|typo", "slice": "typo", "query": "What happens if cyclsporine is combined with furosemide?", "relevant": ["furosemide#3"]}
+{"qid": "levothyroxine|dexamethasone|clean", "slice": "clean", "query": "Can I take levothyroxine with dexamethasone?", "relevant": ["levothyroxine#17", "levothyroxine#6"]}
+{"qid": "levothyroxine|dexamethasone|typo", "slice": "typo", "query": "Can I take levothyroxine with dexmethasone?", "relevant": ["levothyroxine#17", "levothyroxine#6"]}
+{"qid": "metoclopramide|pramipexole|clean", "slice": "clean", "query": "Can I take metoclopramide with pramipexole?", "relevant": ["pramipexole#0"]}
+{"qid": "metoclopramide|pramipexole|typo", "slice": "typo", "query": "Can I take metoclopramide with prampexole?", "relevant": ["pramipexole#0"]}
+{"qid": "ritonavir|phenytoin|clean", "slice": "clean", "query": "ritonavir and phenytoin interaction", "relevant": ["phenytoin#3", "phenytoin#6", "phenytoin#7", "ritonavir#9"]}
+{"qid": "ritonavir|phenytoin|typo", "slice": "typo", "query": "ritonavir and phenyton interaction", "relevant": ["phenytoin#3", "phenytoin#6", "phenytoin#7", "ritonavir#9"]}
+{"qid": "estradiol|amoxicillin|clean", "slice": "clean", "query": "What happens if amoxicillin is combined with estradiol?", "relevant": ["amoxicillin#2"]}
+{"qid": "estradiol|amoxicillin|typo", "slice": "typo", "query": "What happens if amoxicilin is combined with estradiol?", "relevant": ["amoxicillin#2"]}
+{"qid": "erythromycin|colchicine|clean", "slice": "clean", "query": "Can I take erythromycin with colchicine?", "relevant": ["erythromycin#0", "erythromycin#6", "erythromycin#7"]}
+{"qid": "erythromycin|colchicine|typo", "slice": "typo", "query": "Can I take erythromycin with cochicine?", "relevant": ["erythromycin#0", "erythromycin#6", "erythromycin#7"]}
+{"qid": "sirolimus|enalapril|clean", "slice": "clean", "query": "Is enalapril safe while on sirolimus?", "relevant": ["enalapril#5"]}
+{"qid": "sirolimus|enalapril|typo", "slice": "typo", "query": "Is enalpril safe while on sirolimus?", "relevant": ["enalapril#5"]}
+{"qid": "tacrolimus|diltiazem|clean", "slice": "clean", "query": "Is diltiazem safe while on tacrolimus?", "relevant": ["tacrolimus#5"]}
+{"qid": "tacrolimus|diltiazem|typo", "slice": "typo", "query": "Is diltiazm safe while on tacrolimus?", "relevant": ["tacrolimus#5"]}
+{"qid": "fluconazole|nortriptyline|clean", "slice": "clean", "query": "fluconazole and nortriptyline interaction", "relevant": ["fluconazole#21"]}
+{"qid": "fluconazole|nortriptyline|typo", "slice": "typo", "query": "fluconazole and nortriptyine interaction", "relevant": ["fluconazole#21"]}
+{"qid": "pregabalin|valproic acid|clean", "slice": "clean", "query": "What happens if valproic acid is combined with pregabalin?", "relevant": ["pregabalin#0"]}
+{"qid": "pregabalin|valproic acid|typo", "slice": "typo", "query": "What happens if valproicacid is combined with pregabalin?", "relevant": ["pregabalin#0"]}
+{"qid": "voriconazole|tacrolimus|clean", "slice": "clean", "query": "What happens if tacrolimus is combined with voriconazole?", "relevant": ["tacrolimus#4", "voriconazole#14"]}
+{"qid": "voriconazole|tacrolimus|typo", "slice": "typo", "query": "What happens if tacrolius is combined with voriconazole?", "relevant": ["tacrolimus#4", "voriconazole#14"]}
+{"qid": "nifedipine|clopidogrel|clean", "slice": "clean", "query": "nifedipine and clopidogrel interaction", "relevant": ["nifedipine#7", "nifedipine#8"]}
+{"qid": "nifedipine|clopidogrel|typo", "slice": "typo", "query": "nifedipine and clopidorel interaction", "relevant": ["nifedipine#7", "nifedipine#8"]}
+{"qid": "dronedarone|tacrolimus|clean", "slice": "clean", "query": "risk of using dronedarone together with tacrolimus", "relevant": ["dronedarone#1", "dronedarone#7"]}
+{"qid": "dronedarone|tacrolimus|typo", "slice": "typo", "query": "risk of using dronedarone together with tacrolius", "relevant": ["dronedarone#1", "dronedarone#7"]}
+{"qid": "propranolol|rifampin|clean", "slice": "clean", "query": "risk of using propranolol together with rifampin", "relevant": ["rifampin#7"]}
+{"qid": "propranolol|rifampin|typo", "slice": "typo", "query": "risk of using propranolol together with riampin", "relevant": ["rifampin#7"]}
+{"qid": "linezolid|methadone|clean", "slice": "clean", "query": "Can I take linezolid with methadone?", "relevant": ["methadone#6"]}
+{"qid": "linezolid|methadone|typo", "slice": "typo", "query": "Can I take linezolid with methdone?", "relevant": ["methadone#6"]}
+{"qid": "theophylline|fluconazole|clean", "slice": "clean", "query": "What happens if fluconazole is combined with theophylline?", "relevant": ["fluconazole#10", "fluconazole#35", "fluconazole#9"]}
+{"qid": "theophylline|fluconazole|typo", "slice": "typo", "query": "What happens if flconazole is combined with theophylline?", "relevant": ["fluconazole#10", "fluconazole#35", "fluconazole#9"]}
+{"qid": "voriconazole|warfarin|clean", "slice": "clean", "query": "voriconazole and warfarin interaction", "relevant": ["voriconazole#16", "warfarin#3"]}
+{"qid": "voriconazole|warfarin|typo", "slice": "typo", "query": "voriconazole and warfrin interaction", "relevant": ["voriconazole#16", "warfarin#3"]}
+{"qid": "cyclosporine|methylprednisolone|clean", "slice": "clean", "query": "cyclosporine and methylprednisolone interaction", "relevant": ["cyclosporine#21", "cyclosporine#8"]}
+{"qid": "cyclosporine|methylprednisolone|typo", "slice": "typo", "query": "cyclosporine and methylprenisolone interaction", "relevant": ["cyclosporine#21", "cyclosporine#8"]}
+{"qid": "sotalol|verapamil|clean", "slice": "clean", "query": "Is verapamil safe while on sotalol?", "relevant": ["sotalol#1"]}
+{"qid": "sotalol|verapamil|typo", "slice": "typo", "query": "Is veraamil safe while on sotalol?", "relevant": ["sotalol#1"]}
+{"qid": "meloxicam|itraconazole|clean", "slice": "clean", "query": "Is itraconazole safe while on meloxicam?", "relevant": ["itraconazole#12"]}
+{"qid": "meloxicam|itraconazole|typo", "slice": "typo", "query": "Is itraconazle safe while on meloxicam?", "relevant": ["itraconazole#12"]}
+{"qid": "azithromycin|pravastatin|clean", "slice": "clean", "query": "azithromycin and pravastatin interaction", "relevant": ["pravastatin#1", "pravastatin#4"]}
+{"qid": "azithromycin|pravastatin|typo", "slice": "typo", "query": "azithromycin and pravasatin interaction", "relevant": ["pravastatin#1", "pravastatin#4"]}
+{"qid": "haloperidol|zolpidem|clean", "slice": "clean", "query": "Is zolpidem safe while on haloperidol?", "relevant": ["zolpidem#2"]}
+{"qid": "haloperidol|zolpidem|typo", "slice": "typo", "query": "Is zolpdem safe while on haloperidol?", "relevant": ["zolpidem#2"]}
+{"qid": "fentanyl|itraconazole|clean", "slice": "clean", "query": "Can I take fentanyl with itraconazole?", "relevant": ["itraconazole#2"]}
+{"qid": "fentanyl|itraconazole|typo", "slice": "typo", "query": "Can I take fentanyl with iraconazole?", "relevant": ["itraconazole#2"]}
+{"qid": "omeprazole|esomeprazole|clean", "slice": "clean", "query": "omeprazole and esomeprazole interaction", "relevant": ["esomeprazole#5"]}
+{"qid": "omeprazole|esomeprazole|typo", "slice": "typo", "query": "omeprazole and esoeprazole interaction", "relevant": ["esomeprazole#5"]}
+{"qid": "clozapine|diphenhydramine|clean", "slice": "clean", "query": "clozapine and diphenhydramine interaction", "relevant": ["clozapine#3"]}
+{"qid": "clozapine|diphenhydramine|typo", "slice": "typo", "query": "clozapine and diphenhydamine interaction", "relevant": ["clozapine#3"]}
+{"qid": "ritonavir|amitriptyline|clean", "slice": "clean", "query": "risk of using ritonavir together with amitriptyline", "relevant": ["ritonavir#9"]}
+{"qid": "ritonavir|amitriptyline|typo", "slice": "typo", "query": "risk of using ritonavir together with amitriptline", "relevant": ["ritonavir#9"]}
+{"qid": "lithium|mirtazapine|clean", "slice": "clean", "query": "Is mirtazapine safe while on lithium?", "relevant": ["mirtazapine#1"]}
+{"qid": "lithium|mirtazapine|typo", "slice": "typo", "query": "Is mirtazapie safe while on lithium?", "relevant": ["mirtazapine#1"]}
+{"qid": "gabapentin|buprenorphine|clean", "slice": "clean", "query": "What happens if buprenorphine is combined with gabapentin?", "relevant": ["gabapentin#0", "gabapentin#2"]}
+{"qid": "gabapentin|buprenorphine|typo", "slice": "typo", "query": "What happens if buprenorpine is combined with gabapentin?", "relevant": ["gabapentin#0", "gabapentin#2"]}
+{"qid": "ketoconazole|digoxin|clean", "slice": "clean", "query": "Is digoxin safe while on ketoconazole?", "relevant": ["digoxin#3"]}
+{"qid": "ketoconazole|digoxin|typo", "slice": "typo", "query": "Is dioxin safe while on ketoconazole?", "relevant": ["digoxin#3"]}
+{"qid": "acetaminophen|linezolid|clean", "slice": "clean", "query": "acetaminophen and linezolid interaction", "relevant": ["acetaminophen#5", "acetaminophen#6"]}
+{"qid": "acetaminophen|linezolid|typo", "slice": "typo", "query": "acetaminophen and lineolid interaction", "relevant": ["acetaminophen#5", "acetaminophen#6"]}
+{"qid": "itraconazole|pantoprazole|clean", "slice": "clean", "query": "Can I take itraconazole with pantoprazole?", "relevant": ["pantoprazole#3"]}
+{"qid": "itraconazole|pantoprazole|typo", "slice": "typo", "query": "Can I take itraconazole with pantoprazoe?", "relevant": ["pantoprazole#3"]}
+{"qid": "lovastatin|colchicine|clean", "slice": "clean", "query": "Can I take lovastatin with colchicine?", "relevant": ["colchicine#1", "lovastatin#3"]}
+{"qid": "lovastatin|colchicine|typo", "slice": "typo", "query": "Can I take lovastatin with colchcine?", "relevant": ["colchicine#1", "lovastatin#3"]}
+{"qid": "verapamil|lovastatin|clean", "slice": "clean", "query": "Is lovastatin safe while on verapamil?", "relevant": ["lovastatin#1", "verapamil#1"]}
+{"qid": "verapamil|lovastatin|typo", "slice": "typo", "query": "Is lvastatin safe while on verapamil?", "relevant": ["lovastatin#1", "verapamil#1"]}
+{"qid": "itraconazole|carbamazepine|clean", "slice": "clean", "query": "Is carbamazepine safe while on itraconazole?", "relevant": ["carbamazepine#1", "carbamazepine#5", "itraconazole#15", "itraconazole#3"]}
+{"qid": "itraconazole|carbamazepine|typo", "slice": "typo", "query": "Is carbamaepine safe while on itraconazole?", "relevant": ["carbamazepine#1", "carbamazepine#5", "itraconazole#15", "itraconazole#3"]}
+{"qid": "tadalafil|warfarin|clean", "slice": "clean", "query": "What happens if warfarin is combined with tadalafil?", "relevant": ["tadalafil#8"]}
+{"qid": "tadalafil|warfarin|typo", "slice": "typo", "query": "What happens if warfain is combined with tadalafil?", "relevant": ["tadalafil#8"]}
+{"qid": "theophylline|prednisone|clean", "slice": "clean", "query": "theophylline and prednisone interaction", "relevant": ["theophylline#9"]}
+{"qid": "theophylline|prednisone|typo", "slice": "typo", "query": "theophylline and prednsone interaction", "relevant": ["theophylline#9"]}
+{"qid": "carbamazepine|clarithromycin|clean", "slice": "clean", "query": "risk of using carbamazepine together with clarithromycin", "relevant": ["carbamazepine#1", "clarithromycin#0", "clarithromycin#3"]}
+{"qid": "carbamazepine|clarithromycin|typo", "slice": "typo", "query": "risk of using carbamazepine together with clarthromycin", "relevant": ["carbamazepine#1", "clarithromycin#0", "clarithromycin#3"]}
+{"qid": "phenytoin|quetiapine|clean", "slice": "clean", "query": "Is quetiapine safe while on phenytoin?", "relevant": ["phenytoin#7", "quetiapine#0", "quetiapine#1", "quetiapine#2"]}
+{"qid": "phenytoin|quetiapine|typo", "slice": "typo", "query": "Is quetiapie safe while on phenytoin?", "relevant": ["phenytoin#7", "quetiapine#0", "quetiapine#1", "quetiapine#2"]}
+{"qid": "voriconazole|rifampin|clean", "slice": "clean", "query": "voriconazole and rifampin interaction", "relevant": ["voriconazole#1"]}
+{"qid": "voriconazole|rifampin|typo", "slice": "typo", "query": "voriconazole and rfampin interaction", "relevant": ["voriconazole#1"]}
+{"qid": "diclofenac|lithium|clean", "slice": "clean", "query": "diclofenac and lithium interaction", "relevant": ["diclofenac#4", "diclofenac#5"]}
+{"qid": "diclofenac|lithium|typo", "slice": "typo", "query": "diclofenac and lithum interaction", "relevant": ["diclofenac#4", "diclofenac#5"]}
+{"qid": "aripiprazole|rifampin|clean", "slice": "clean", "query": "aripiprazole and rifampin interaction", "relevant": ["aripiprazole#1"]}
+{"qid": "aripiprazole|rifampin|typo", "slice": "typo", "query": "aripiprazole and riampin interaction", "relevant": ["aripiprazole#1"]}
+{"qid": "nifedipine|erythromycin|clean", "slice": "clean", "query": "Is erythromycin safe while on nifedipine?", "relevant": ["nifedipine#1"]}
+{"qid": "nifedipine|erythromycin|typo", "slice": "typo", "query": "Is erythromcin safe while on nifedipine?", "relevant": ["nifedipine#1"]}
+{"qid": "itraconazole|verapamil|clean", "slice": "clean", "query": "risk of using itraconazole together with verapamil", "relevant": ["itraconazole#7"]}
+{"qid": "itraconazole|verapamil|typo", "slice": "typo", "query": "risk of using itraconazole together with verapail", "relevant": ["itraconazole#7"]}
+{"qid": "erythromycin|acetaminophen|clean", "slice": "clean", "query": "Is acetaminophen safe while on erythromycin?", "relevant": ["acetaminophen#0"]}
+{"qid": "erythromycin|acetaminophen|typo", "slice": "typo", "query": "Is acetamnophen safe while on erythromycin?", "relevant": ["acetaminophen#0"]}
+{"qid": "diazepam|ketoconazole|clean", "slice": "clean", "query": "diazepam and ketoconazole interaction", "relevant": ["diazepam#2"]}
+{"qid": "diazepam|ketoconazole|typo", "slice": "typo", "query": "diazepam and ketocnazole interaction", "relevant": ["diazepam#2"]}
+{"qid": "hydrocodone|tramadol|clean", "slice": "clean", "query": "What happens if tramadol is combined with hydrocodone?", "relevant": ["hydrocodone#5"]}
+{"qid": "hydrocodone|tramadol|typo", "slice": "typo", "query": "What happens if tramdol is combined with hydrocodone?", "relevant": ["hydrocodone#5"]}
+{"qid": "bupropion|paroxetine|clean", "slice": "clean", "query": "Is paroxetine safe while on bupropion?", "relevant": ["bupropion#0", "bupropion#3"]}
+{"qid": "bupropion|paroxetine|typo", "slice": "typo", "query": "Is proxetine safe while on bupropion?", "relevant": ["bupropion#0", "bupropion#3"]}
+{"qid": "sertraline|sotalol|clean", "slice": "clean", "query": "What happens if sotalol is combined with sertraline?", "relevant": ["sertraline#5"]}
+{"qid": "sertraline|sotalol|typo", "slice": "typo", "query": "What happens if sotlol is combined with sertraline?", "relevant": ["sertraline#5"]}
+{"qid": "tacrolimus|amiodarone|clean", "slice": "clean", "query": "What happens if amiodarone is combined with tacrolimus?", "relevant": ["tacrolimus#5"]}
+{"qid": "tacrolimus|amiodarone|typo", "slice": "typo", "query": "What happens if amiodaone is combined with tacrolimus?", "relevant": ["tacrolimus#5"]}
+{"qid": "clopidogrel|apixaban|clean", "slice": "clean", "query": "Is apixaban safe while on clopidogrel?", "relevant": ["apixaban#3"]}
+{"qid": "clopidogrel|apixaban|typo", "slice": "typo", "query": "Is apixaan safe while on clopidogrel?", "relevant": ["apixaban#3"]}
+{"qid": "amiodarone|clozapine|clean", "slice": "clean", "query": "What happens if clozapine is combined with amiodarone?", "relevant": ["clozapine#4"]}
+{"qid": "amiodarone|clozapine|typo", "slice": "typo", "query": "What happens if clzapine is combined with amiodarone?", "relevant": ["clozapine#4"]}
+{"qid": "phenytoin|warfarin|clean", "slice": "clean", "query": "Is warfarin safe while on phenytoin?", "relevant": ["phenytoin#2", "phenytoin#6", "warfarin#3"]}
+{"qid": "phenytoin|warfarin|typo", "slice": "typo", "query": "Is wrfarin safe while on phenytoin?", "relevant": ["phenytoin#2", "phenytoin#6", "warfarin#3"]}
+{"qid": "ritonavir|ketoconazole|clean", "slice": "clean", "query": "risk of using ritonavir together with ketoconazole", "relevant": ["ritonavir#10"]}
+{"qid": "ritonavir|ketoconazole|typo", "slice": "typo", "query": "risk of using ritonavir together with ketocoazole", "relevant": ["ritonavir#10"]}
+{"qid": "mirtazapine|ritonavir|clean", "slice": "clean", "query": "mirtazapine and ritonavir interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "mirtazapine|ritonavir|typo", "slice": "typo", "query": "mirtazapine and ritonvir interaction", "relevant": ["mirtazapine#2"]}
+{"qid": "itraconazole|tacrolimus|clean", "slice": "clean", "query": "risk of using itraconazole together with tacrolimus", "relevant": ["itraconazole#8", "tacrolimus#4"]}
+{"qid": "itraconazole|tacrolimus|typo", "slice": "typo", "query": "risk of using itraconazole together with tcrolimus", "relevant": ["itraconazole#8", "tacrolimus#4"]}
+{"qid": "gabapentin|levetiracetam|clean", "slice": "clean", "query": "gabapentin and levetiracetam interaction", "relevant": ["levetiracetam#1"]}
+{"qid": "gabapentin|levetiracetam|typo", "slice": "typo", "query": "gabapentin and leetiracetam interaction", "relevant": ["levetiracetam#1"]}
+{"qid": "ketorolac|warfarin|clean", "slice": "clean", "query": "What happens if warfarin is combined with ketorolac?", "relevant": ["warfarin#4"]}
+{"qid": "ketorolac|warfarin|typo", "slice": "typo", "query": "What happens if warfain is combined with ketorolac?", "relevant": ["warfarin#4"]}
+{"qid": "pantoprazole|mycophenolate mofetil|clean", "slice": "clean", "query": "pantoprazole and mycophenolate mofetil interaction", "relevant": ["mycophenolate_mofetil#2", "pantoprazole#3"]}
+{"qid": "pantoprazole|mycophenolate mofetil|typo", "slice": "typo", "query": "pantoprazole and mycophenlate mofetil interaction", "relevant": ["mycophenolate_mofetil#2", "pantoprazole#3"]}
+{"qid": "erythromycin|buprenorphine|clean", "slice": "clean", "query": "Is buprenorphine safe while on erythromycin?", "relevant": ["buprenorphine#2"]}
+{"qid": "erythromycin|buprenorphine|typo", "slice": "typo", "query": "Is buprenrphine safe while on erythromycin?", "relevant": ["buprenorphine#2"]}
+{"qid": "phenytoin|rifampin|clean", "slice": "clean", "query": "phenytoin and rifampin interaction", "relevant": ["phenytoin#3", "phenytoin#6", "rifampin#5"]}
+{"qid": "phenytoin|rifampin|typo", "slice": "typo", "query": "phenytoin and rifapin interaction", "relevant": ["phenytoin#3", "phenytoin#6", "rifampin#5"]}
+{"qid": "levothyroxine|phenytoin|clean", "slice": "clean", "query": "levothyroxine and phenytoin interaction", "relevant": ["levothyroxine#15", "levothyroxine#4"]}
+{"qid": "levothyroxine|phenytoin|typo", "slice": "typo", "query": "levothyroxine and phenyoin interaction", "relevant": ["levothyroxine#15", "levothyroxine#4"]}
+{"qid": "prednisone|warfarin|clean", "slice": "clean", "query": "risk of using prednisone together with warfarin", "relevant": ["prednisone#1", "prednisone#7", "warfarin#3"]}
+{"qid": "prednisone|warfarin|typo", "slice": "typo", "query": "risk of using prednisone together with wrfarin", "relevant": ["prednisone#1", "prednisone#7", "warfarin#3"]}
+{"qid": "cetirizine|erythromycin|clean", "slice": "clean", "query": "risk of using cetirizine together with erythromycin", "relevant": ["cetirizine#0"]}
+{"qid": "cetirizine|erythromycin|typo", "slice": "typo", "query": "risk of using cetirizine together with erythomycin", "relevant": ["cetirizine#0"]}
+{"qid": "ritonavir|atorvastatin|clean", "slice": "clean", "query": "ritonavir and atorvastatin interaction", "relevant": ["atorvastatin#2", "atorvastatin#3", "ritonavir#18", "ritonavir#19"]}
+{"qid": "ritonavir|atorvastatin|typo", "slice": "typo", "query": "ritonavir and atorvastain interaction", "relevant": ["atorvastatin#2", "atorvastatin#3", "ritonavir#18", "ritonavir#19"]}
+{"qid": "phenytoin|hydrocodone|clean", "slice": "clean", "query": "Is hydrocodone safe while on phenytoin?", "relevant": ["hydrocodone#2"]}
+{"qid": "phenytoin|hydrocodone|typo", "slice": "typo", "query": "Is hyrocodone safe while on phenytoin?", "relevant": ["hydrocodone#2"]}
+{"qid": "cyclosporine|naproxen|clean", "slice": "clean", "query": "What happens if naproxen is combined with cyclosporine?", "relevant": ["cyclosporine#19", "cyclosporine#6", "naproxen#7", "naproxen#8"]}
+{"qid": "cyclosporine|naproxen|typo", "slice": "typo", "query": "What happens if naprxen is combined with cyclosporine?", "relevant": ["cyclosporine#19", "cyclosporine#6", "naproxen#7", "naproxen#8"]}
+{"qid": "linezolid|buprenorphine|clean", "slice": "clean", "query": "linezolid and buprenorphine interaction", "relevant": ["buprenorphine#7"]}
+{"qid": "linezolid|buprenorphine|typo", "slice": "typo", "query": "linezolid and buprenorhine interaction", "relevant": ["buprenorphine#7"]}
+{"qid": "valproic acid|rifampin|clean", "slice": "clean", "query": "Can I take valproic acid with rifampin?", "relevant": ["valproic_acid#0", "valproic_acid#6"]}
+{"qid": "valproic acid|rifampin|typo", "slice": "typo", "query": "Can I take valproic acid with rifapin?", "relevant": ["valproic_acid#0", "valproic_acid#6"]}
+{"qid": "mirtazapine|acetaminophen|clean", "slice": "clean", "query": "mirtazapine and acetaminophen interaction", "relevant": ["acetaminophen#5"]}
+{"qid": "mirtazapine|acetaminophen|typo", "slice": "typo", "query": "mirtazapine and acetaminphen interaction", "relevant": ["acetaminophen#5"]}
+{"qid": "simvastatin|gemfibrozil|clean", "slice": "clean", "query": "simvastatin and gemfibrozil interaction", "relevant": ["gemfibrozil#0", "gemfibrozil#5", "simvastatin#2", "simvastatin#6"]}
+{"qid": "simvastatin|gemfibrozil|typo", "slice": "typo", "query": "simvastatin and gemfibrozl interaction", "relevant": ["gemfibrozil#0", "gemfibrozil#5", "simvastatin#2", "simvastatin#6"]}
+{"qid": "atenolol|tamsulosin|clean", "slice": "clean", "query": "Can I take atenolol with tamsulosin?", "relevant": ["tamsulosin#5"]}
+{"qid": "atenolol|tamsulosin|typo", "slice": "typo", "query": "Can I take atenolol with tamulosin?", "relevant": ["tamsulosin#5"]}
+{"qid": "amiodarone|lovastatin|clean", "slice": "clean", "query": "Is lovastatin safe while on amiodarone?", "relevant": ["amiodarone#2", "lovastatin#1"]}
+{"qid": "amiodarone|lovastatin|typo", "slice": "typo", "query": "Is lovastatn safe while on amiodarone?", "relevant": ["amiodarone#2", "lovastatin#1"]}
+{"qid": "alprazolam|fluoxetine|clean", "slice": "clean", "query": "Is fluoxetine safe while on alprazolam?", "relevant": ["fluoxetine#1", "fluoxetine#11"]}
+{"qid": "alprazolam|fluoxetine|typo", "slice": "typo", "query": "Is fluoxeine safe while on alprazolam?", "relevant": ["fluoxetine#1", "fluoxetine#11"]}
+{"qid": "ritonavir|metoprolol|clean", "slice": "clean", "query": "Can I take ritonavir with metoprolol?", "relevant": ["ritonavir#15"]}
+{"qid": "ritonavir|metoprolol|typo", "slice": "typo", "query": "Can I take ritonavir with metprolol?", "relevant": ["ritonavir#15"]}
+{"qid": "omeprazole|theophylline|clean", "slice": "clean", "query": "Can I take omeprazole with theophylline?", "relevant": ["theophylline#9"]}
+{"qid": "omeprazole|theophylline|typo", "slice": "typo", "query": "Can I take omeprazole with teophylline?", "relevant": ["theophylline#9"]}
+{"qid": "albuterol|theophylline|clean", "slice": "clean", "query": "What happens if theophylline is combined with albuterol?", "relevant": ["theophylline#9"]}
+{"qid": "albuterol|theophylline|typo", "slice": "typo", "query": "What happens if thophylline is combined with albuterol?", "relevant": ["theophylline#9"]}
+{"qid": "dabigatran|verapamil|clean", "slice": "clean", "query": "Is verapamil safe while on dabigatran?", "relevant": ["dabigatran#1"]}
+{"qid": "dabigatran|verapamil|typo", "slice": "typo", "query": "Is verapaml safe while on dabigatran?", "relevant": ["dabigatran#1"]}
+{"qid": "methotrexate|pantoprazole|clean", "slice": "clean", "query": "Can I take methotrexate with pantoprazole?", "relevant": ["pantoprazole#2", "pantoprazole#3"]}
+{"qid": "methotrexate|pantoprazole|typo", "slice": "typo", "query": "Can I take methotrexate with pantprazole?", "relevant": ["pantoprazole#2", "pantoprazole#3"]}
+{"qid": "carbamazepine|trazodone|clean", "slice": "clean", "query": "carbamazepine and trazodone interaction", "relevant": ["carbamazepine#1", "carbamazepine#5", "trazodone#3"]}
+{"qid": "carbamazepine|trazodone|typo", "slice": "typo", "query": "carbamazepine and traodone interaction", "relevant": ["carbamazepine#1", "carbamazepine#5", "trazodone#3"]}
+{"qid": "risperidone|amitriptyline|clean", "slice": "clean", "query": "What happens if amitriptyline is combined with risperidone?", "relevant": ["risperidone#0", "risperidone#2"]}
+{"qid": "risperidone|amitriptyline|typo", "slice": "typo", "query": "What happens if amitrityline is combined with risperidone?", "relevant": ["risperidone#0", "risperidone#2"]}
+{"qid": "sertraline|amitriptyline|clean", "slice": "clean", "query": "risk of using sertraline together with amitriptyline", "relevant": ["amitriptyline#2"]}
+{"qid": "sertraline|amitriptyline|typo", "slice": "typo", "query": "risk of using sertraline together with amitriptyine", "relevant": ["amitriptyline#2"]}
+{"qid": "aripiprazole|lorazepam|clean", "slice": "clean", "query": "aripiprazole and lorazepam interaction", "relevant": ["aripiprazole#2", "aripiprazole#3"]}
+{"qid": "aripiprazole|lorazepam|typo", "slice": "typo", "query": "aripiprazole and lorzepam interaction", "relevant": ["aripiprazole#2", "aripiprazole#3"]}
+{"qid": "tramadol|erythromycin|clean", "slice": "clean", "query": "Is erythromycin safe while on tramadol?", "relevant": ["tramadol#4"]}
+{"qid": "tramadol|erythromycin|typo", "slice": "typo", "query": "Is erythomycin safe while on tramadol?", "relevant": ["tramadol#4"]}
+{"qid": "clarithromycin|nifedipine|clean", "slice": "clean", "query": "What happens if nifedipine is combined with clarithromycin?", "relevant": ["clarithromycin#9", "nifedipine#1"]}
+{"qid": "clarithromycin|nifedipine|typo", "slice": "typo", "query": "What happens if nifedpine is combined with clarithromycin?", "relevant": ["clarithromycin#9", "nifedipine#1"]}
+{"qid": "mirtazapine|hydrocodone|clean", "slice": "clean", "query": "Is hydrocodone safe while on mirtazapine?", "relevant": ["hydrocodone#5"]}
+{"qid": "mirtazapine|hydrocodone|typo", "slice": "typo", "query": "Is hydrocoone safe while on mirtazapine?", "relevant": ["hydrocodone#5"]}
+{"qid": "theophylline|propranolol|clean", "slice": "clean", "query": "What happens if propranolol is combined with theophylline?", "relevant": ["theophylline#7"]}
+{"qid": "theophylline|propranolol|typo", "slice": "typo", "query": "What happens if propranoll is combined with theophylline?", "relevant": ["theophylline#7"]}
+{"qid": "warfarin|montelukast|clean", "slice": "clean", "query": "warfarin and montelukast interaction", "relevant": ["montelukast#0", "warfarin#3"]}
+{"qid": "warfarin|montelukast|typo", "slice": "typo", "query": "warfarin and montelukst interaction", "relevant": ["montelukast#0", "warfarin#3"]}
+{"qid": "ezetimibe|fenofibrate|clean", "slice": "clean", "query": "What happens if fenofibrate is combined with ezetimibe?", "relevant": ["ezetimibe#1", "ezetimibe#2"]}
+{"qid": "ezetimibe|fenofibrate|typo", "slice": "typo", "query": "What happens if fenoibrate is combined with ezetimibe?", "relevant": ["ezetimibe#1", "ezetimibe#2"]}
+{"qid": "lansoprazole|ketoconazole|clean", "slice": "clean", "query": "What happens if ketoconazole is combined with lansoprazole?", "relevant": ["lansoprazole#3"]}
+{"qid": "lansoprazole|ketoconazole|typo", "slice": "typo", "query": "What happens if ketconazole is combined with lansoprazole?", "relevant": ["lansoprazole#3"]}
+{"qid": "dexamethasone|erythromycin|clean", "slice": "clean", "query": "Can I take dexamethasone with erythromycin?", "relevant": ["dexamethasone#3"]}
+{"qid": "dexamethasone|erythromycin|typo", "slice": "typo", "query": "Can I take dexamethasone with eythromycin?", "relevant": ["dexamethasone#3"]}
+{"qid": "trazodone|dabigatran|clean", "slice": "clean", "query": "risk of using trazodone together with dabigatran", "relevant": ["trazodone#2"]}
+{"qid": "trazodone|dabigatran|typo", "slice": "typo", "query": "risk of using trazodone together with dabigatan", "relevant": ["trazodone#2"]}
+{"qid": "glyburide|phenytoin|clean", "slice": "clean", "query": "Can I take glyburide with phenytoin?", "relevant": ["glyburide#1"]}
+{"qid": "glyburide|phenytoin|typo", "slice": "typo", "query": "Can I take glyburide with phentoin?", "relevant": ["glyburide#1"]}
+{"qid": "trimethoprim|digoxin|clean", "slice": "clean", "query": "Can I take trimethoprim with digoxin?", "relevant": ["digoxin#3", "trimethoprim#1"]}
+{"qid": "trimethoprim|digoxin|typo", "slice": "typo", "query": "Can I take trimethoprim with dgoxin?", "relevant": ["digoxin#3", "trimethoprim#1"]}
+{"qid": "warfarin|tamsulosin|clean", "slice": "clean", "query": "Is tamsulosin safe while on warfarin?", "relevant": ["tamsulosin#4", "tamsulosin#5"]}
+{"qid": "warfarin|tamsulosin|typo", "slice": "typo", "query": "Is tmsulosin safe while on warfarin?", "relevant": ["tamsulosin#4", "tamsulosin#5"]}
+{"qid": "fluconazole|glyburide|clean", "slice": "clean", "query": "risk of using fluconazole together with glyburide", "relevant": ["fluconazole#11", "fluconazole#13", "fluconazole#30"]}
+{"qid": "fluconazole|glyburide|typo", "slice": "typo", "query": "risk of using fluconazole together with glybuide", "relevant": ["fluconazole#11", "fluconazole#13", "fluconazole#30"]}
+{"qid": "warfarin|dabigatran|clean", "slice": "clean", "query": "warfarin and dabigatran interaction", "relevant": ["warfarin#4"]}
+{"qid": "warfarin|dabigatran|typo", "slice": "typo", "query": "warfarin and daigatran interaction", "relevant": ["warfarin#4"]}
+{"qid": "doxycycline|carbamazepine|clean", "slice": "clean", "query": "Is carbamazepine safe while on doxycycline?", "relevant": ["carbamazepine#5", "doxycycline#0"]}
+{"qid": "doxycycline|carbamazepine|typo", "slice": "typo", "query": "Is carbamazepie safe while on doxycycline?", "relevant": ["carbamazepine#5", "doxycycline#0"]}
+{"qid": "paroxetine|warfarin|clean", "slice": "clean", "query": "Can I take paroxetine with warfarin?", "relevant": ["paroxetine#2", "paroxetine#3", "paroxetine#4", "warfarin#4"]}
+{"qid": "paroxetine|warfarin|typo", "slice": "typo", "query": "Can I take paroxetine with warfarn?", "relevant": ["paroxetine#2", "paroxetine#3", "paroxetine#4", "warfarin#4"]}
+{"qid": "warfarin|clopidogrel|clean", "slice": "clean", "query": "Can I take warfarin with clopidogrel?", "relevant": ["clopidogrel#0", "clopidogrel#4", "warfarin#4"]}
+{"qid": "warfarin|clopidogrel|typo", "slice": "typo", "query": "Can I take warfarin with clopidorel?", "relevant": ["clopidogrel#0", "clopidogrel#4", "warfarin#4"]}
+{"qid": "phenytoin|rivaroxaban|clean", "slice": "clean", "query": "Can I take phenytoin with rivaroxaban?", "relevant": ["phenytoin#6", "rivaroxaban#2"]}
+{"qid": "phenytoin|rivaroxaban|typo", "slice": "typo", "query": "Can I take phenytoin with rivaroaban?", "relevant": ["phenytoin#6", "rivaroxaban#2"]}
+{"qid": "medroxyprogesterone|rifampin|clean", "slice": "clean", "query": "medroxyprogesterone and rifampin interaction", "relevant": ["medroxyprogesterone#1"]}
+{"qid": "medroxyprogesterone|rifampin|typo", "slice": "typo", "query": "medroxyprogesterone and rifmpin interaction", "relevant": ["medroxyprogesterone#1"]}
+{"qid": "ciprofloxacin|glyburide|clean", "slice": "clean", "query": "What happens if glyburide is combined with ciprofloxacin?", "relevant": ["glyburide#1"]}
+{"qid": "ciprofloxacin|glyburide|typo", "slice": "typo", "query": "What happens if glyburie is combined with ciprofloxacin?", "relevant": ["glyburide#1"]}
+{"qid": "carvedilol|amiodarone|clean", "slice": "clean", "query": "Is amiodarone safe while on carvedilol?", "relevant": ["carvedilol#0", "carvedilol#4"]}
+{"qid": "carvedilol|amiodarone|typo", "slice": "typo", "query": "Is aiodarone safe while on carvedilol?", "relevant": ["carvedilol#0", "carvedilol#4"]}
+{"qid": "prednisone|phenytoin|clean", "slice": "clean", "query": "Is phenytoin safe while on prednisone?", "relevant": ["prednisone#11", "prednisone#3", "prednisone#4", "prednisone#5", "prednisone#9"]}
+{"qid": "prednisone|phenytoin|typo", "slice": "typo", "query": "Is phenyoin safe while on prednisone?", "relevant": ["prednisone#11", "prednisone#3", "prednisone#4", "prednisone#5", "prednisone#9"]}
+{"qid": "erythromycin|risperidone|clean", "slice": "clean", "query": "Can I take erythromycin with risperidone?", "relevant": ["risperidone#0", "risperidone#2"]}
+{"qid": "erythromycin|risperidone|typo", "slice": "typo", "query": "Can I take erythromycin with risperidne?", "relevant": ["risperidone#0", "risperidone#2"]}
+{"qid": "ketoconazole|ticagrelor|clean", "slice": "clean", "query": "Can I take ketoconazole with ticagrelor?", "relevant": ["ticagrelor#1"]}
+{"qid": "ketoconazole|ticagrelor|typo", "slice": "typo", "query": "Can I take ketoconazole with tiagrelor?", "relevant": ["ticagrelor#1"]}
+{"qid": "isoniazid|ketoconazole|clean", "slice": "clean", "query": "Is ketoconazole safe while on isoniazid?", "relevant": ["isoniazid#2"]}
+{"qid": "isoniazid|ketoconazole|typo", "slice": "typo", "query": "Is ketoconazoe safe while on isoniazid?", "relevant": ["isoniazid#2"]}
+{"qid": "mycophenolate mofetil|sulfamethoxazole|clean", "slice": "clean", "query": "Is sulfamethoxazole safe while on mycophenolate mofetil?", "relevant": ["mycophenolate_mofetil#3"]}
+{"qid": "mycophenolate mofetil|sulfamethoxazole|typo", "slice": "typo", "query": "Is sulfametoxazole safe while on mycophenolate mofetil?", "relevant": ["mycophenolate_mofetil#3"]}
+{"qid": "dronedarone|diltiazem|clean", "slice": "clean", "query": "Is diltiazem safe while on dronedarone?", "relevant": ["dronedarone#6"]}
+{"qid": "dronedarone|diltiazem|typo", "slice": "typo", "query": "Is diltizem safe while on dronedarone?", "relevant": ["dronedarone#6"]}
+{"qid": "carbamazepine|sertraline|clean", "slice": "clean", "query": "carbamazepine and sertraline interaction", "relevant": ["carbamazepine#5"]}
+{"qid": "carbamazepine|sertraline|typo", "slice": "typo", "query": "carbamazepine and sertralie interaction", "relevant": ["carbamazepine#5"]}
+{"qid": "risperidone|venlafaxine|clean", "slice": "clean", "query": "risk of using risperidone together with venlafaxine", "relevant": ["venlafaxine#11"]}
+{"qid": "risperidone|venlafaxine|typo", "slice": "typo", "query": "risk of using risperidone together with velafaxine", "relevant": ["venlafaxine#11"]}
+{"qid": "verapamil|colchicine|clean", "slice": "clean", "query": "Is colchicine safe while on verapamil?", "relevant": ["colchicine#4"]}
+{"qid": "verapamil|colchicine|typo", "slice": "typo", "query": "Is colcicine safe while on verapamil?", "relevant": ["colchicine#4"]}
+{"qid": "aspirin|sertraline|clean", "slice": "clean", "query": "Can I take aspirin with sertraline?", "relevant": ["sertraline#3"]}
+{"qid": "aspirin|sertraline|typo", "slice": "typo", "query": "Can I take aspirin with sertralne?", "relevant": ["sertraline#3"]}
+{"qid": "mycophenolate mofetil|esomeprazole|clean", "slice": "clean", "query": "Can I take mycophenolate mofetil with esomeprazole?", "relevant": ["esomeprazole#5"]}
+{"qid": "mycophenolate mofetil|esomeprazole|typo", "slice": "typo", "query": "Can I take mycophenolate mofetil with esmeprazole?", "relevant": ["esomeprazole#5"]}
+{"qid": "terbinafine|cyclosporine|clean", "slice": "clean", "query": "Can I take terbinafine with cyclosporine?", "relevant": ["cyclosporine#9", "terbinafine#0", "terbinafine#2", "terbinafine#3"]}
+{"qid": "terbinafine|cyclosporine|typo", "slice": "typo", "query": "Can I take terbinafine with cycosporine?", "relevant": ["cyclosporine#9", "terbinafine#0", "terbinafine#2", "terbinafine#3"]}
+{"qid": "ondansetron|methotrexate|clean", "slice": "clean", "query": "What happens if methotrexate is combined with ondansetron?", "relevant": ["ondansetron#2"]}
+{"qid": "ondansetron|methotrexate|typo", "slice": "typo", "query": "What happens if methotrexae is combined with ondansetron?", "relevant": ["ondansetron#2"]}
+{"qid": "terbinafine|ketoconazole|clean", "slice": "clean", "query": "terbinafine and ketoconazole interaction", "relevant": ["terbinafine#3"]}
+{"qid": "terbinafine|ketoconazole|typo", "slice": "typo", "query": "terbinafine and ktoconazole interaction", "relevant": ["terbinafine#3"]}
+{"qid": "cyclobenzaprine|bupropion|clean", "slice": "clean", "query": "cyclobenzaprine and bupropion interaction", "relevant": ["cyclobenzaprine#0"]}
+{"qid": "cyclobenzaprine|bupropion|typo", "slice": "typo", "query": "cyclobenzaprine and bupropon interaction", "relevant": ["cyclobenzaprine#0"]}
+{"qid": "simvastatin|voriconazole|clean", "slice": "clean", "query": "What happens if voriconazole is combined with simvastatin?", "relevant": ["simvastatin#2"]}
+{"qid": "simvastatin|voriconazole|typo", "slice": "typo", "query": "What happens if voriconazle is combined with simvastatin?", "relevant": ["simvastatin#2"]}

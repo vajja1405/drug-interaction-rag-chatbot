@@ -42,3 +42,7 @@ tenacity==9.0.0
 
 # Optional cache backend used when REDIS_URL is configured
 redis==5.2.1
+
+# Observability
+prometheus-client==0.21.1
+rank-bm25==0.2.2

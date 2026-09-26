@@ -9,6 +9,8 @@
 frontend/dist
 frontend/tsconfig.tsbuildinfo
 data
+!data/benchmark/label_passages.jsonl
+!data/benchmark/passage_embeddings.npy
 models/saved
 work
 outputs
