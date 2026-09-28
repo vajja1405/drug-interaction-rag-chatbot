@@ -6,16 +6,21 @@ retries transient failures with backoff, records a trajectory step, and can inje
   search_label_evidence  hybrid search over FDA label passages, filtered to cross-mentions of the pair
   get_patient_context    long-term patient memory (current medications, recent reviews)
   record_medications     write the reconciled medication list back to memory
-  request_human_review   open a pharmacist review ticket (idempotent per case)
+  request_human_review   open a pharmacist review ticket (idempotent per case) and, when a webhook is
+                         configured (AGENT_ESCALATION_WEBHOOK, e.g. the n8n workflow in integrations/n8n),
+                         notify it; a failed notification never blocks the ticket
 """
 from __future__ import annotations
 
 import difflib
+import os
 import re
 import time
 import uuid
 from dataclasses import dataclass, field
 from typing import Any, Callable
+
+import httpx
 
 from observability import span
 
@@ -112,11 +117,12 @@ class Step:
 class ToolRegistry:
     def __init__(self, catalog, searcher, memory, review_queue=None, faults: FaultPlan | None = None,
                  max_retries: int = 2, backoff_s: float = 0.05, search_k: int = 8,
-                 label_drugs: set[str] | None = None):
+                 label_drugs: set[str] | None = None, escalation_webhook: str | None = None):
         self.catalog, self.searcher, self.memory = catalog, searcher, memory
         self.review_queue = review_queue if review_queue is not None else {}
         self.faults = faults or FaultPlan()
         self.max_retries, self.backoff_s, self.search_k = max_retries, backoff_s, search_k
+        self.escalation_webhook = escalation_webhook or os.environ.get("AGENT_ESCALATION_WEBHOOK")
         self.label_drugs = label_drugs if label_drugs is not None else {p["drug"] for p in searcher.passages}
         self._ingredients = sorted(catalog.ingredients)
         self._common = sorted(self.label_drugs | set(BRANDS))
@@ -221,5 +227,20 @@ class ToolRegistry:
             return self.review_queue[case_id]
         ticket = {"ticket_id": f"RV-{uuid.uuid4().hex[:8]}", "case_id": case_id, "reasons": reasons,
                   "priority": priority, "status": "open"}
+        if self.escalation_webhook:
+            ticket["notified"] = self._notify(ticket)
         self.review_queue[case_id] = ticket
         return ticket
+
+    def _notify(self, ticket: dict) -> dict:
+        """POST the ticket to the routing webhook (n8n). Only ids, priority and reasons leave the agent."""
+        try:
+            r = httpx.post(self.escalation_webhook, json=ticket, timeout=5)
+            r.raise_for_status()
+            try:
+                body = r.json()
+            except ValueError:
+                body = {}
+            return {"ok": True, "status": r.status_code, "route": body.get("routed")}
+        except httpx.HTTPError as exc:
+            return {"ok": False, "error": type(exc).__name__}

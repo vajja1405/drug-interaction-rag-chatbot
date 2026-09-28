@@ -1,0 +1,178 @@
+{
+  "name": "Pharmacist escalation routing",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "pharmacist-escalation",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "d1635246-f494-5f7d-8758-7e08af1f2ec3",
+      "name": "Escalation webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "e9dc4edc-5fe4-58ac-91ef-0e1529f2d718"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "e1bd0ab8-4f4a-597a-9cb3-1449648631f8",
+              "leftValue": "={{ $json.body.priority }}",
+              "rightValue": "urgent",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e0f83966-4fa8-52b9-a3e6-ef87dc41a21f",
+      "name": "Urgent?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.N8N_NOTIFY_URL }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ channel: 'pharmacist-urgent', ticket: $('Escalation webhook').item.json.body.ticket_id, case: $('Escalation webhook').item.json.body.case_id, reasons: $('Escalation webhook').item.json.body.reasons }) }}",
+        "options": {}
+      },
+      "id": "114d5c0e-557a-5c44-ad5c-14000206d20b",
+      "name": "Page on-call pharmacist",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.N8N_NOTIFY_URL }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ channel: 'pharmacist-review-queue', ticket: $('Escalation webhook').item.json.body.ticket_id, case: $('Escalation webhook').item.json.body.case_id, reasons: $('Escalation webhook').item.json.body.reasons }) }}",
+        "options": {}
+      },
+      "id": "2cafa84e-8784-5ea0-a6d1-00bf10249ff5",
+      "name": "Add to review digest",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ routed: 'urgent' }) }}",
+        "options": {}
+      },
+      "id": "3e6cda1f-7f36-5668-b59d-16c79105fd59",
+      "name": "Respond urgent",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ routed: 'routine' }) }}",
+        "options": {}
+      },
+      "id": "91d60ef7-9ae3-5233-aa5f-342664c9d429",
+      "name": "Respond routine",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        120
+      ]
+    }
+  ],
+  "connections": {
+    "Escalation webhook": {
+      "main": [
+        [
+          {
+            "node": "Urgent?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Urgent?": {
+      "main": [
+        [
+          {
+            "node": "Page on-call pharmacist",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add to review digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Page on-call pharmacist": {
+      "main": [
+        [
+          {
+            "node": "Respond urgent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add to review digest": {
+      "main": [
+        [
+          {
+            "node": "Respond routine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "id": "PharmEscRouting01"
+}

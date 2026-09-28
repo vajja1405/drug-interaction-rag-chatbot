@@ -125,6 +125,9 @@ judge: REVISE → proposer (≤2)   ESCALATE → review ticket → human_review 
   builder that keeps partner-drug and risk sentences under a token budget, tagged with passage ids.
 - **Tools and MCP.** Five tools with validation, retries, backoff and fault injection; an MCP server
   (FastMCP) exposes the read tools and the review workflow. API: `/api/v4/agent/reviews`.
+- **Escalation routing (n8n).** With `AGENT_ESCALATION_WEBHOOK` set, each review ticket is posted to an
+  n8n workflow that pages the on-call pharmacist for urgent cases and queues routine ones
+  ([integrations/n8n](integrations/n8n)); verified end to end on n8n 2.40.7. Only ticket metadata leaves the agent.
 
 **Trajectory evaluation**: 127 scenarios with ground truth the agent never sees (curated pairs, controls,
 misspellings, brand names, unidentifiable drugs, injected tool faults, prompt injections, patient-memory

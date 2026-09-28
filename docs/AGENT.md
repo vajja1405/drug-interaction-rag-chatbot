@@ -70,6 +70,12 @@ ibuprofen" is checked against warfarin and metformin already on file. `ContextBu
 prompt under a token budget: only sentences that name the partner drug or its class, or carry risk
 language, ranked and cut at the budget, each tagged with its passage id so citations can be verified.
 
+## Escalation routing (n8n)
+`request_human_review` posts each new ticket (ticket id, case id, priority, reasons; no patient data) to
+`AGENT_ESCALATION_WEBHOOK` when it is set. `integrations/n8n/escalation-routing.json` routes urgent cases to
+the on-call pharmacist channel and routine cases to the review digest, and replies with the route, which is
+stored on the ticket. A failed notification is recorded and never blocks the review.
+
 ## Tools and MCP
 `ToolRegistry` wraps five tools with argument validation, retries with exponential backoff, fault
 injection for tests, and a trajectory record per call. `agent/mcp_server.py` exposes the read tools, the

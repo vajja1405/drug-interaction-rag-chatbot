@@ -259,3 +259,38 @@ def test_severity_floor_policies():
     v1 = start_case(build_agent(tools(), llm(prop=proposer(sev="moderate")),
                                 AgentConfig(max_revisions=0, severity_floor="contraindication")), "c16", "warfarin with aspirin")
     assert v1["status"] == "released"
+
+
+def test_escalations_are_posted_to_the_routing_webhook_and_failures_do_not_block():
+    import http.server
+    import json as _json
+    import threading
+    received = []
+
+    class Hook(http.server.BaseHTTPRequestHandler):
+        def do_POST(self):
+            received.append(_json.loads(self.rfile.read(int(self.headers["Content-Length"]))))
+            body = _json.dumps({"routed": "urgent" if received[-1]["priority"] == "urgent" else "routine"}).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *a):
+            pass
+
+    srv = http.server.HTTPServer(("127.0.0.1", 0), Hook)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    try:
+        t = ToolRegistry(FakeCatalog(), FakeSearcher(), PatientMemory(), backoff_s=0,
+                         escalation_webhook=f"http://127.0.0.1:{srv.server_port}/webhook/pharmacist-escalation")
+        r = start_case(build_agent(t, llm(), AgentConfig()), "w1", "warfarin with aspirin")
+        ticket = r["review_request"]["ticket"]
+        assert received and received[0]["case_id"] == "w1" and received[0]["priority"] == "urgent"
+        assert ticket["notified"] == {"ok": True, "status": 200, "route": "urgent"}
+    finally:
+        srv.shutdown()
+    down = ToolRegistry(FakeCatalog(), FakeSearcher(), PatientMemory(), backoff_s=0,
+                        escalation_webhook="http://127.0.0.1:9/unreachable")
+    r = start_case(build_agent(down, llm(), AgentConfig()), "w2", "warfarin with aspirin")
+    assert r["status"] == "awaiting_review" and r["review_request"]["ticket"]["notified"]["ok"] is False
