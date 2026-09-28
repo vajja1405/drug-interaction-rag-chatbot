@@ -102,7 +102,7 @@ right escalation decision, full pair coverage, every citation grounded and no un
 
 ```
 python -m agent.eval.run --configs rules,agent,single_pass --out docs/benchmarks/agent-trajectory-2026-09-27.json
-python -m agent.eval.run --configs agent_raw,agent_v1_floor --categories curated_pair,multi_drug,memory \
+python -m agent.eval.run --configs agent_raw,agent_v1_floor --categories curated_pair \
     --out docs/benchmarks/agent-ablations-2026-09-27.json
 python -m agent.eval.report
 ```

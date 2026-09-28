@@ -2,6 +2,7 @@
 Trajectory evaluation: run every scenario through the agent and score the path, not just the answer.
 
   python -m agent.eval.run --configs rules,agent,single_pass --out docs/benchmarks/agent-trajectory-2026-09-27.json
+  (rows are cached per scenario in .eval-cache/, so an interrupted run resumes where it stopped)
 
 Configs
   rules          rule-based planner and severity; deterministic critic (no model)
@@ -149,6 +150,9 @@ def summarize(rows: list[dict]) -> dict:
         "evidence_recall": round(sum(r["evidence_found"] for r in rows) / max(1, sum(r["evidence_oracle"] for r in rows)), 3),
         "grounded_findings": round(sum(r["findings_grounded"] for r in rows) / max(1, sum(r["findings_cited"] for r in rows)), 3),
         "unsafe_claims": sum(len(r["unsafe_claims"]) for r in rows),
+        "released_without_review_ungrounded_or_unsafe": sum(
+            r["status"] == "released" and (r["findings_grounded"] < r["findings_cited"] or bool(r["unsafe_claims"]))
+            for r in rows),
         "extraction_accuracy": rate([r["extraction_correct"] for r in rows]),
         "tool_selection_accuracy": rate([r["tool_selection_correct"] for r in rows]),
         "invalid_calls": sum(r["invalid_calls"] for r in rows), "unnecessary_calls": sum(r["unnecessary_calls"] for r in rows),
@@ -182,6 +186,7 @@ def main() -> None:
     ap.add_argument("--categories", default="")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--out", default="docs/benchmarks/agent-trajectory.json")
+    ap.add_argument("--cache", default=".eval-cache", help="per-scenario rows, so an interrupted run resumes")
     args = ap.parse_args()
 
     from langgraph.checkpoint.sqlite import SqliteSaver
@@ -205,10 +210,18 @@ def main() -> None:
     report = json.loads(out_path.read_text()) if out_path.exists() else {"configs": {}}
     llm = OllamaClient()
     tmp = tempfile.mkdtemp()
+    Path(args.cache).mkdir(exist_ok=True)
     for name in args.configs.split(","):
+        cache = Path(args.cache) / f"{name}.jsonl"
+        done = {}
+        if cache.exists():
+            done = {r["id"]: r for r in map(json.loads, cache.read_text().splitlines())}
         rows = []
         saver = SqliteSaver(sqlite3.connect(os.path.join(tmp, f"{name}.sqlite"), check_same_thread=False))
         for i, s in enumerate(scenarios):
+            if s["id"] in done:
+                rows.append(done[s["id"]])
+                continue
             mem = PatientMemory()
             if s["seed"] and s["seed"]["medications"]:
                 mem.seed(s["seed"]["patient_id"], s["seed"]["medications"])
@@ -225,6 +238,8 @@ def main() -> None:
             row = score(s, r["state"], r["result"], resumed_ok, by_id, label_drugs)
             row["latency_s"] = round(latency, 2)
             rows.append(row)
+            with cache.open("a") as f:
+                f.write(json.dumps(row) + "\n")
             print(f"[{name}] {i + 1}/{len(scenarios)} {s['id']:20} esc={row['escalated']!s:5} truth={row['escalate_truth']!s:5} "
                   f"ok={row['task_success']!s:5} {latency:5.1f}s", flush=True)
         report["configs"][name] = {"summary": summarize(rows), "model": "rules" if name in LLM_FREE else llm.name,

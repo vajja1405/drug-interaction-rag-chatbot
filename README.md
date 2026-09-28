@@ -103,6 +103,66 @@ Label review sends selected concept identifiers to the server and NLM services. 
 
 The hosted RAG configuration bounds inference at one concurrent uncached analysis, 50 uncached analyses/process/UTC day, 1,800 output tokens and 40 seconds per attempt. A JSON attempt can fall back to one text attempt. Process-local counters reset on restart and are not billing ceilings. Provider availability/credits and Space startup can affect availability. The browser-only backup uses 35 local research records and makes no server or LLM calls.
 
+## Agentic track: stateful clinical evidence agent (September 27, 2026)
+
+`agent/` adds a **LangGraph** agent on top of the evidence search: it reads a free-text request, resolves
+medications to RxNorm, retrieves label evidence for every pair, drafts cited findings, critiques them, and
+decides under an explicit policy whether it may release the result or must hand the case to a pharmacist.
+Architecture, state, policy and design decisions: **[docs/AGENT.md](docs/AGENT.md)**.
+
+```
+intake (planner LLM, injection screen) → patient memory → RxNorm resolve → label-scoped hybrid retrieval
+  → evidence validation (query-expansion retry) → proposer → critic (deterministic + LLM) → judge
+judge: REVISE → proposer (≤2)   ESCALATE → review ticket → human_review [interrupt, SQLite checkpoint]   PASS → finalize
+```
+
+- **Proposer → critic → judge.** Citations must be passages retrieved for that pair; risk concepts in a
+  summary must appear in the cited text; no "safe to take together" claims; serious-harm label language
+  forces severity *high*. Failed checks go back to the proposer with the critic's feedback.
+- **Human in the loop.** Escalations open an idempotent ticket and pause at `interrupt()`; the case
+  resumes from its checkpoint when a pharmacist approves, overrides or rejects, even after a restart.
+- **Memory and context.** SQLite patient memory (written only after release or approval) and a context
+  builder that keeps partner-drug and risk sentences under a token budget, tagged with passage ids.
+- **Tools and MCP.** Five tools with validation, retries, backoff and fault injection; an MCP server
+  (FastMCP) exposes the read tools and the review workflow. API: `/api/v4/agent/reviews`.
+
+**Trajectory evaluation**: 127 scenarios with ground truth the agent never sees (curated pairs, controls,
+misspellings, brand names, unidentifiable drugs, injected tool faults, prompt injections, patient-memory
+follow-ups, multi-drug reconciliations). Llama 3.2 3B via Ollama on an Apple M3 CPU.
+
+| | Rules only | Single pass (LLM) | Proposer → critic → judge |
+|---|---|---|---|
+| Task success | **0.827** | 0.740 | 0.772 |
+| Escalation recall / precision | 0.855 / **0.855** | 0.855 / 0.783 | **0.882** / 0.788 |
+| Curated Severe pairs rated high | 0.673 | 0.636 | 0.673 |
+| Medication extraction from free text | 0.906 | **0.984** | **0.984** |
+| Findings with grounded citations | 1.000 | 0.955 | 0.978 |
+| Ungrounded or unsafe findings released without review | 0 | **1** | 0 |
+| Invalid / unnecessary tool calls | 0 / 0 | 0 / 0 | 0 / 0 |
+| Escalations resumed from checkpoint | 100% | 100% | 100% |
+| Cases revised by the critic loop | – | – | 18% |
+| Latency p50 / p95 (CPU) | 0.2 s / 1.1 s | 23 s / 60 s | 25 s / 213 s |
+
+The critic loop fixed 4 scenarios that single pass got wrong and broke none. Evidence in the prompt: all
+retrieved top-k passages would average 1,727 tokens per case; cross-mention filtering leaves 495 and
+sentence compression 362 (−79%). Full table, per-category results and ablations:
+[docs/benchmarks/agent-trajectory-2026-09-27.md](docs/benchmarks/agent-trajectory-2026-09-27.md).
+
+What the numbers say:
+- **The model helps where language matters.** The planner extracts medications from free text better
+  than dictionary rules (0.984 vs 0.906; unknown and misspelled names), and the critic loop raises
+  escalation recall and grounding over a single pass.
+- **Deterministic guardrails still carry safety.** Rules alone score highest on task success here: the 3B
+  model over-escalates relative to the curated labels (e.g. NSAID + ACE-inhibitor renal warnings rated
+  high) and, like the rules, misses Severe pairs whose labels use mild wording (fluconazole + warfarin).
+  The single pass released one ungrounded finding; the full graph released none.
+- **Honest limits.** Severity ground truth is a small set of curated research fixtures, not clinical
+  adjudication; one policy change (v1 → v2 severity floor) was made after the first run and both are
+  reported in [the results](docs/benchmarks/agent-trajectory-2026-09-27.md).
+
+Reproduce: `python -m agent.eval.run --configs rules,agent,single_pass` then `python -m agent.eval.report`.
+Tests: `tests/test_clinical_agent.py` (18, scripted model, in CI).
+
 ## Production AI track (September 26, 2026)
 
 The label-review app and research chatbot stay as they were. This track adds the pieces a team would need to
