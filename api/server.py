@@ -61,6 +61,7 @@ from cache_identity import pair_cache_key, evidence_version
 from medication_review.service import ReviewService
 from api.review import router as review_router
 from api.evidence import router as evidence_router
+from api.agent_api import router as agent_router
 from observability import metrics_endpoint, metrics_middleware, setup_tracing
 
 # ── Logging ───────────────────────────────────────────────────────────────────
@@ -156,6 +157,7 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.include_router(review_router)
 app.include_router(evidence_router)
+app.include_router(agent_router)
 app.middleware("http")(metrics_middleware)
 app.add_route("/metrics", metrics_endpoint, include_in_schema=False)
 setup_tracing(app)

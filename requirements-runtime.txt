@@ -4,7 +4,7 @@ uvicorn[standard]==0.32.1
 
 # LangChain ecosystem
 langchain==0.3.9
-langchain-core==0.3.21
+langchain-core==0.3.63
 langchain-openai==0.2.11
 
 # OpenAI-compatible client
@@ -46,3 +46,8 @@ redis==5.2.1
 # Observability
 prometheus-client==0.21.1
 rank-bm25==0.2.2
+
+# Agent orchestration and tool interface
+langgraph==0.2.76
+langgraph-checkpoint-sqlite==2.0.11
+mcp==1.6.0

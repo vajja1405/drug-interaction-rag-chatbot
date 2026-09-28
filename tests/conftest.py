@@ -15,11 +15,7 @@ os.environ["OPENAI_API_KEY"] = "sk-test-dummy"
 from config import settings
 from api.server import app
 
-@pytest.fixture(autouse=True)
-def mock_openai_llm():
-    """Globally mocks ChatOpenAI to return a deterministic JSON blob."""
-    mock_response = MagicMock()
-    mock_response.content = '''```json
+MOCK_LLM_JSON = '''```json
 {
   "pairs": [
     {
@@ -37,14 +33,20 @@ def mock_openai_llm():
   "monitoring_priorities": ["Monitor A", "Monitor B"]
 }
 ```'''
-    
+
+
+@pytest.fixture(autouse=True)
+def mock_openai_llm():
+    """Replaces ChatOpenAI with LangChain's FakeListChatModel returning a deterministic JSON blob.
+
+    A real Runnable test double (rather than MagicMock) keeps `prompt | llm | parser` chains
+    working on current langchain-core, which LangGraph requires (>= 0.3.23)."""
+    from langchain_core.language_models.fake_chat_models import FakeListChatModel
+    content = MOCK_LLM_JSON
     with patch("chatbot.interaction_agent.ChatOpenAI") as mock_chat:
-        # The agent instantiates ChatOpenAI, then .invoke() is called
-        mock_instance = MagicMock()
-        mock_instance.invoke.return_value = mock_response
-        mock_instance.stream.return_value = iter([mock_response])
-        mock_chat.return_value = mock_instance
+        mock_chat.side_effect = lambda *a, **k: FakeListChatModel(responses=[content] * 50)
         yield mock_chat
+
 
 @pytest.fixture
 def client():

@@ -48,6 +48,23 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: pytest tests/test_hybrid_search.py tests/test_model_router.py --noconftest -v --tb=short
 
+  agent:
+    name: LangGraph agent + MCP tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install agent dependencies (no model downloads, no LLM)
+        run: >-
+          pip install pytest numpy rank-bm25 httpx prometheus-client fastapi==0.115.5
+          langgraph==0.2.76 langgraph-checkpoint-sqlite==2.0.11 mcp==1.6.0
+      - name: Run graph, tool, memory, MCP and API tests with a scripted model
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: pytest tests/test_clinical_agent.py --noconftest -v --tb=short
+
   infrastructure:
     name: Kubernetes + Terraform validation
     runs-on: ubuntu-latest

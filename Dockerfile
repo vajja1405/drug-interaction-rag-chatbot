@@ -25,6 +25,7 @@ COPY data_pipeline/ data_pipeline/
 COPY medication_review/ medication_review/
 COPY search/ search/
 COPY inference/ inference/
+COPY agent/ agent/
 COPY config.py cache.py cache_identity.py hosting_limits.py build_index.py observability.py ./
 COPY data/benchmark/label_passages.jsonl data/benchmark/passage_embeddings.npy data/benchmark/
 # Build only repository fixtures. No user data or API secret enters the image.

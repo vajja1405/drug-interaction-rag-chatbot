@@ -85,6 +85,7 @@ class HybridSearcher:
 
     def __post_init__(self) -> None:
         self._bm25 = BM25Okapi([tokenize(p["text"]) for p in self.passages])
+        self._drug = np.array([p["drug"] for p in self.passages])
         if self.embeddings is None:
             self.embeddings = self._embed([p["text"] for p in self.passages])
 
@@ -93,32 +94,39 @@ class HybridSearcher:
         v = np.asarray(self.encoder.encode(texts, normalize_embeddings=True), dtype=np.float32)
         return v / np.clip(np.linalg.norm(v, axis=1, keepdims=True), 1e-12, None)
 
-    def bm25_rank(self, query: str, n: int) -> list[int]:
+    def _mask(self, scores: np.ndarray, drugs) -> np.ndarray:
+        """Metadata filter: restrict ranking to passages from the given labels."""
+        if drugs:
+            scores = np.where(np.isin(self._drug, list(drugs)), scores, -np.inf)
+        return scores
+
+    def bm25_rank(self, query: str, n: int, drugs=None) -> list[int]:
         t0 = time.perf_counter()
-        scores = self._bm25.get_scores(tokenize(query))
+        scores = self._mask(self._bm25.get_scores(tokenize(query)), drugs)
         order = [int(i) for i in np.argsort(-scores)[:n] if scores[i] > 0]
         self.last_timings.bm25_ms = (time.perf_counter() - t0) * 1000
         return order
 
-    def dense_rank(self, query: str, n: int) -> list[int]:
+    def dense_rank(self, query: str, n: int, drugs=None) -> list[int]:
         t0 = time.perf_counter()
         q = self._embed([query])[0]
-        order = [int(i) for i in np.argsort(-(self.embeddings @ q))[:n]]
+        scores = self._mask(self.embeddings @ q, drugs)
+        order = [int(i) for i in np.argsort(-scores)[:n] if np.isfinite(scores[i])]
         self.last_timings.dense_ms = (time.perf_counter() - t0) * 1000
         return order
 
     # ── public API ─────────────────────────────────────────────────────────
-    def search(self, query: str, k: int = 10, mode: str = "hybrid_rerank") -> list[Hit]:
+    def search(self, query: str, k: int = 10, mode: str = "hybrid_rerank", drugs=None) -> list[Hit]:
         if mode not in MODES:
             raise ValueError(f"mode must be one of {MODES}")
         self.last_timings = SearchTimings()
         if mode == "bm25":
-            ranked = [(i, 1.0 / r) for r, i in enumerate(self.bm25_rank(query, k), start=1)]
+            ranked = [(i, 1.0 / r) for r, i in enumerate(self.bm25_rank(query, k, drugs), start=1)]
         elif mode == "dense":
-            ranked = [(i, 1.0 / r) for r, i in enumerate(self.dense_rank(query, k), start=1)]
+            ranked = [(i, 1.0 / r) for r, i in enumerate(self.dense_rank(query, k, drugs), start=1)]
         else:
-            fused = rrf_fuse([self.bm25_rank(query, self.candidates),
-                              self.dense_rank(query, self.candidates)], k=self.rrf_k)
+            fused = rrf_fuse([self.bm25_rank(query, self.candidates, drugs),
+                              self.dense_rank(query, self.candidates, drugs)], k=self.rrf_k)
             if mode == "hybrid" or self.reranker is None:
                 ranked = fused[:k]
             else:
