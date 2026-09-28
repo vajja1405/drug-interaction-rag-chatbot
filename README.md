@@ -145,7 +145,10 @@ follow-ups, multi-drug reconciliations). Llama 3.2 3B via Ollama on an Apple M3 
 
 The critic loop fixed 4 scenarios that single pass got wrong and broke none. Evidence in the prompt: all
 retrieved top-k passages would average 1,727 tokens per case; cross-mention filtering leaves 495 and
-sentence compression 362 (−79%). Full table, per-category results and ablations:
+sentence compression 362 (−79% in total, most of it from filtering). Ablations on the 35 curated pairs:
+full passages instead of compressed sentences scored 0.743 vs 0.686 task success (2 scenarios, within
+noise) at twice the latency, so compression buys speed and tokens rather than accuracy; the v1 severity
+floor scored 0.629 with escalation recall 0.773 vs 0.864 for v2. Full tables:
 [docs/benchmarks/agent-trajectory-2026-09-27.md](docs/benchmarks/agent-trajectory-2026-09-27.md).
 
 What the numbers say:

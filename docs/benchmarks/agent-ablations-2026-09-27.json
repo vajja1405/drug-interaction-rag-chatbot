@@ -1,0 +1,4351 @@
+{
+ "configs": {
+  "agent_raw": {
+   "summary": {
+    "scenarios": 35,
+    "task_success": 0.743,
+    "escalation_accuracy": 0.743,
+    "escalation_precision": 0.76,
+    "escalation_recall": 0.864,
+    "false_escalations": 6,
+    "missed_escalations": 3,
+    "severe_pair_recall": 0.588,
+    "evidence_recall": 1.0,
+    "grounded_findings": 0.952,
+    "unsafe_claims": 0,
+    "released_without_review_ungrounded_or_unsafe": 0,
+    "extraction_accuracy": 0.971,
+    "tool_selection_accuracy": 0.971,
+    "invalid_calls": 0,
+    "unnecessary_calls": 0,
+    "tool_calls": 124,
+    "retry_rate": 0.0,
+    "fault_recovery": null,
+    "resume_success": 1.0,
+    "mean_steps": 10.17,
+    "revision_rate": 0.343,
+    "latency_p50_s": 52.12,
+    "latency_p95_s": 197.23,
+    "mean_prompt_tokens": 1414.2,
+    "mean_output_tokens": 144.1,
+    "context_tokens_mean": 450.6,
+    "evidence_tokens_mean": 450.6,
+    "naive_topk_tokens_mean": 1485.9,
+    "by_category": {
+     "curated_pair": {
+      "n": 35,
+      "task_success": 0.743,
+      "escalation_accuracy": 0.743
+     }
+    }
+   },
+   "model": "ollama:llama3.2",
+   "rows": [
+    {
+     "id": "curated_pair-01",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2845,
+     "output_tokens": 211,
+     "proposer_prompt_tokens": [
+      685,
+      718
+     ],
+     "context_tokens": 496,
+     "evidence_tokens": 496,
+     "naive_context_tokens": 1846,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "The label warns of increased bleeding risk when these drugs are used concomitantly with warfarin.",
+       "citations": [
+        "warfarin#4"
+       ]
+      }
+     ],
+     "latency_s": 150.02
+    },
+    {
+     "id": "curated_pair-02",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2105,
+     "output_tokens": 205,
+     "proposer_prompt_tokens": [
+      501,
+      535
+     ],
+     "context_tokens": 310,
+     "evidence_tokens": 310,
+     "naive_context_tokens": 1862,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "The label warns of increased bleeding risk when these drugs are used concomitantly with warfarin.",
+       "citations": [
+        "warfarin#4"
+       ]
+      }
+     ],
+     "latency_s": 121.14
+    },
+    {
+     "id": "curated_pair-03",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 102,
+     "output_tokens": 25,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "metformin",
+        "warfarin"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 10.3
+    },
+    {
+     "id": "curated_pair-04",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "model_unavailable"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": false,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 16,
+     "revisions": 2,
+     "resumed_ok": true,
+     "prompt_tokens": 2468,
+     "output_tokens": 457,
+     "proposer_prompt_tokens": [
+      522,
+      583
+     ],
+     "context_tokens": 330,
+     "evidence_tokens": 330,
+     "naive_context_tokens": 448,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 789.75
+    },
+    {
+     "id": "curated_pair-05",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 934,
+     "output_tokens": 126,
+     "proposer_prompt_tokens": [
+      419
+     ],
+     "context_tokens": 226,
+     "evidence_tokens": 226,
+     "naive_context_tokens": 966,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "metformin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring for hypoglycemia if the dosage of butalbital, aspirin, and caffeine capsules exceeds the maximum recommended daily dosage.",
+       "citations": [
+        "aspirin#1"
+       ]
+      }
+     ],
+     "latency_s": 72.91
+    },
+    {
+     "id": "curated_pair-06",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 102,
+     "output_tokens": 28,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "metformin"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 29.36
+    },
+    {
+     "id": "curated_pair-07",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 11,
+     "revisions": 1,
+     "resumed_ok": null,
+     "prompt_tokens": 2697,
+     "output_tokens": 224,
+     "proposer_prompt_tokens": [
+      635,
+      710
+     ],
+     "context_tokens": 441,
+     "evidence_tokens": 441,
+     "naive_context_tokens": 1137,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "lisinopril"
+       ],
+       "severity": "moderate",
+       "summary": "Monitor renal function periodically in patients receiving lisinopril and NSAID therapy.",
+       "citations": [
+        "lisinopril#0",
+        "lisinopril#2"
+       ]
+      }
+     ],
+     "latency_s": 228.46
+    },
+    {
+     "id": "curated_pair-08",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 11,
+     "revisions": 1,
+     "resumed_ok": null,
+     "prompt_tokens": 1639,
+     "output_tokens": 218,
+     "proposer_prompt_tokens": [
+      384,
+      420
+     ],
+     "context_tokens": 191,
+     "evidence_tokens": 191,
+     "naive_context_tokens": 1362,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "lisinopril",
+        "metformin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring serum potassium frequently due to the risk of hyperkalemia when using potassium-sparing diuretics, but this is not a direct interaction with metformin. [lisinopril#1]",
+       "citations": [
+        "lisinopril#1"
+       ]
+      }
+     ],
+     "latency_s": 127.4
+    },
+    {
+     "id": "curated_pair-09",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1363,
+     "output_tokens": 129,
+     "proposer_prompt_tokens": [
+      634
+     ],
+     "context_tokens": 440,
+     "evidence_tokens": 440,
+     "naive_context_tokens": 1280,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "lisinopril"
+       ],
+       "severity": "high",
+       "summary": "Coadministration may result in deterioration of renal function, including possible acute renal failure, in patients with compromised renal function, elderly, or volume-depleted.",
+       "citations": [
+        "lisinopril#2"
+       ]
+      }
+     ],
+     "latency_s": 92.36
+    },
+    {
+     "id": "curated_pair-10",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 107,
+     "output_tokens": 25,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "lisinopril",
+        "warfarin"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 19.09
+    },
+    {
+     "id": "curated_pair-11",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1888,
+     "output_tokens": 136,
+     "proposer_prompt_tokens": [
+      895
+     ],
+     "context_tokens": 708,
+     "evidence_tokens": 708,
+     "naive_context_tokens": 1545,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "amiodarone",
+        "simvastatin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of amiodarone increases the risk of myopathy and rhabdomyolysis with simvastatin. [simvastatin#3]",
+       "citations": [
+        "simvastatin#3"
+       ]
+      }
+     ],
+     "latency_s": 81.8
+    },
+    {
+     "id": "curated_pair-12",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1389,
+     "output_tokens": 119,
+     "proposer_prompt_tokens": [
+      652
+     ],
+     "context_tokens": 456,
+     "evidence_tokens": 456,
+     "naive_context_tokens": 1443,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "clopidogrel",
+        "omeprazole"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of omeprazole reduces plasma concentrations of clopidogrel and platelet inhibition.",
+       "citations": [
+        "clopidogrel#2"
+       ]
+      }
+     ],
+     "latency_s": 74.81
+    },
+    {
+     "id": "curated_pair-13",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 103,
+     "output_tokens": 28,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "methotrexate"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 15.01
+    },
+    {
+     "id": "curated_pair-14",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1189,
+     "output_tokens": 154,
+     "proposer_prompt_tokens": [
+      534
+     ],
+     "context_tokens": 338,
+     "evidence_tokens": 338,
+     "naive_context_tokens": 1277,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "amiodarone",
+        "digoxin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of amiodarone and digoxin can lead to increased risk of Torsade de Pointes and potentiation of amiodarone's effects, resulting in bradycardia, sinus arrest, and AV block. [amiodarone#0]",
+       "citations": [
+        "amiodarone#0"
+       ]
+      }
+     ],
+     "latency_s": 84.25
+    },
+    {
+     "id": "curated_pair-15",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 1406,
+     "output_tokens": 208,
+     "proposer_prompt_tokens": [
+      326,
+      359
+     ],
+     "context_tokens": 135,
+     "evidence_tokens": 135,
+     "naive_context_tokens": 1172,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "fluoxetine",
+        "tramadol"
+       ],
+       "severity": "high",
+       "summary": "The label warns of serious harm from respiratory depression when taking fluoxetine and tramadol together.",
+       "citations": [
+        "tramadol#2"
+       ]
+      }
+     ],
+     "latency_s": 117.63
+    },
+    {
+     "id": "curated_pair-16",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "insufficient_evidence"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 102,
+     "output_tokens": 29,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "lisinopril",
+        "potassium chloride"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 11.78
+    },
+    {
+     "id": "curated_pair-17",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1575,
+     "output_tokens": 125,
+     "proposer_prompt_tokens": [
+      742
+     ],
+     "context_tokens": 569,
+     "evidence_tokens": 569,
+     "naive_context_tokens": 1791,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "amiodarone",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Amiodarone is an inducer of CYP2C9, which can decrease warfarin levels, increasing the risk of bleeding.",
+       "citations": [
+        "warfarin#3"
+       ]
+      }
+     ],
+     "latency_s": 52.12
+    },
+    {
+     "id": "curated_pair-18",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2492,
+     "output_tokens": 405,
+     "proposer_prompt_tokens": [
+      586,
+      654
+     ],
+     "context_tokens": 397,
+     "evidence_tokens": 397,
+     "naive_context_tokens": 994,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "lithium"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of ibuprofen and lithium may increase serum lithium concentrations, and reduce lithium dosage based on serum lithium concentration and clinical response.",
+       "citations": [
+        "lithium#0",
+        "lithium#1"
+       ]
+      }
+     ],
+     "latency_s": 127.98
+    },
+    {
+     "id": "curated_pair-19",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 4856,
+     "output_tokens": 246,
+     "proposer_prompt_tokens": [
+      1162,
+      1264
+     ],
+     "context_tokens": 968,
+     "evidence_tokens": 968,
+     "naive_context_tokens": 1393,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "clopidogrel"
+       ],
+       "severity": "high",
+       "summary": "Coadministration of clopidogrel and other antiplatelet agents increases the risk of bleeding due to an additive effect.",
+       "citations": [
+        "clopidogrel#0",
+        "clopidogrel#2",
+        "clopidogrel#3",
+        "clopidogrel#4",
+        "clopidogrel#5"
+       ]
+      }
+     ],
+     "latency_s": 183.85
+    },
+    {
+     "id": "curated_pair-20",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "unresolved_medication"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 104,
+     "output_tokens": 23,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 5.59
+    },
+    {
+     "id": "curated_pair-21",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 101,
+     "output_tokens": 26,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "nitroglycerin",
+        "sildenafil"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 4.93
+    },
+    {
+     "id": "curated_pair-22",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 914,
+     "output_tokens": 137,
+     "proposer_prompt_tokens": [
+      405
+     ],
+     "context_tokens": 217,
+     "evidence_tokens": 217,
+     "naive_context_tokens": 1628,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "fluconazole",
+        "warfarin"
+       ],
+       "severity": "moderate",
+       "summary": "Bleeding events have been reported in association with increases in prothrombin time in patients receiving fluconazole concurrently with warfarin. Careful monitoring of prothrombin time is recommended.",
+       "citations": [
+        "fluconazole#24"
+       ]
+      }
+     ],
+     "latency_s": 49.19
+    },
+    {
+     "id": "curated_pair-23",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2835,
+     "output_tokens": 309,
+     "proposer_prompt_tokens": [
+      660,
+      692
+     ],
+     "context_tokens": 464,
+     "evidence_tokens": 464,
+     "naive_context_tokens": 1696,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "atorvastatin",
+        "clarithromycin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant administration of atorvastatin with clarithromycin may increase atorvastatin plasma levels due to inhibition of CYP3A4 and/or transporters.",
+       "citations": [
+        "atorvastatin#4"
+       ]
+      }
+     ],
+     "latency_s": 127.9
+    },
+    {
+     "id": "curated_pair-24",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 1883,
+     "output_tokens": 110,
+     "proposer_prompt_tokens": [
+      902
+     ],
+     "context_tokens": 706,
+     "evidence_tokens": 706,
+     "naive_context_tokens": 1453,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "metoprolol",
+        "verapamil"
+       ],
+       "severity": "moderate",
+       "summary": "Concomitant use may decrease metoprolol and propranolol clearance.",
+       "citations": [
+        "verapamil#5"
+       ]
+      }
+     ],
+     "latency_s": 48.81
+    },
+    {
+     "id": "curated_pair-25",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 3548,
+     "output_tokens": 257,
+     "proposer_prompt_tokens": [
+      852,
+      889
+     ],
+     "context_tokens": 675,
+     "evidence_tokens": 675,
+     "naive_context_tokens": 1862,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "ciprofloxacin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of ciprofloxacin and warfarin may increase the risk of bleeding.",
+       "citations": [
+        "ciprofloxacin#0",
+        "warfarin#3"
+       ]
+      }
+     ],
+     "latency_s": 111.07
+    },
+    {
+     "id": "curated_pair-26",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 5,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 15,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2418,
+     "output_tokens": 306,
+     "proposer_prompt_tokens": [
+      551,
+      609
+     ],
+     "context_tokens": 358,
+     "evidence_tokens": 358,
+     "naive_context_tokens": 2718,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "rifampin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of clopidogrel and rifampin should be discouraged due to increased active metabolite exposure and risk of bleeding.",
+       "citations": [
+        "rifampin#5"
+       ]
+      }
+     ],
+     "latency_s": 77.81
+    },
+    {
+     "id": "curated_pair-27",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 104,
+     "output_tokens": 28,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "potassium chloride",
+        "spironolactone"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 5.15
+    },
+    {
+     "id": "curated_pair-28",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 103,
+     "output_tokens": 27,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "furosemide",
+        "gentamicin"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 4.56
+    },
+    {
+     "id": "curated_pair-29",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "critic_issues_unresolved",
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 16,
+     "revisions": 2,
+     "resumed_ok": true,
+     "prompt_tokens": 5013,
+     "output_tokens": 383,
+     "proposer_prompt_tokens": [
+      798,
+      863,
+      833
+     ],
+     "context_tokens": 602,
+     "evidence_tokens": 602,
+     "naive_context_tokens": 1611,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "sertraline",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of sertraline and warfarin increases the risk of serotonin syndrome, and the label advises discontinuation of sertraline hydrochloride and/or concomitant serotonergic drugs if serotonin syndrome occurs.",
+       "citations": [
+        "5.2"
+       ]
+      }
+     ],
+     "latency_s": 135.81
+    },
+    {
+     "id": "curated_pair-30",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 1119,
+     "output_tokens": 127,
+     "proposer_prompt_tokens": [
+      513
+     ],
+     "context_tokens": 320,
+     "evidence_tokens": 320,
+     "naive_context_tokens": 1650,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "azithromycin",
+        "warfarin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring prothrombin time while patients are receiving azithromycin and oral anticoagulants concomitantly.",
+       "citations": [
+        "azithromycin#0"
+       ]
+      }
+     ],
+     "latency_s": 29.43
+    },
+    {
+     "id": "curated_pair-31",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "unresolved_medication"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 106,
+     "output_tokens": 30,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 4.43
+    },
+    {
+     "id": "curated_pair-32",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "fewer_than_two_medications"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": false,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": false,
+     "tool_calls": 1,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 99,
+     "output_tokens": 14,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 1.87
+    },
+    {
+     "id": "curated_pair-33",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1578,
+     "output_tokens": 118,
+     "proposer_prompt_tokens": [
+      746
+     ],
+     "context_tokens": 566,
+     "evidence_tokens": 566,
+     "naive_context_tokens": 1556,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "phenytoin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Warfarin may increase or decrease PT/INR responses when coadministered with phenytoin.",
+       "citations": [
+        "phenytoin#6"
+       ]
+      }
+     ],
+     "latency_s": 40.2
+    },
+    {
+     "id": "curated_pair-34",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "unresolved_medication"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 104,
+     "output_tokens": 27,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 6.59
+    },
+    {
+     "id": "curated_pair-35",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 106,
+     "output_tokens": 24,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "phenelzine",
+        "tramadol"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 7.07
+    }
+   ]
+  },
+  "agent_v1_floor": {
+   "summary": {
+    "scenarios": 35,
+    "task_success": 0.629,
+    "escalation_accuracy": 0.657,
+    "escalation_precision": 0.708,
+    "escalation_recall": 0.773,
+    "false_escalations": 7,
+    "missed_escalations": 5,
+    "severe_pair_recall": 0.471,
+    "evidence_recall": 1.0,
+    "grounded_findings": 0.955,
+    "unsafe_claims": 0,
+    "released_without_review_ungrounded_or_unsafe": 0,
+    "extraction_accuracy": 0.971,
+    "tool_selection_accuracy": 0.971,
+    "invalid_calls": 0,
+    "unnecessary_calls": 0,
+    "tool_calls": 123,
+    "retry_rate": 0.0,
+    "fault_recovery": null,
+    "resume_success": 1.0,
+    "mean_steps": 9.6,
+    "revision_rate": 0.171,
+    "latency_p50_s": 26.35,
+    "latency_p95_s": 119.86,
+    "mean_prompt_tokens": 1114.4,
+    "mean_output_tokens": 134,
+    "context_tokens_mean": 359.1,
+    "evidence_tokens_mean": 450.6,
+    "naive_topk_tokens_mean": 1485.9,
+    "by_category": {
+     "curated_pair": {
+      "n": 35,
+      "task_success": 0.629,
+      "escalation_accuracy": 0.657
+     }
+    }
+   },
+   "model": "ollama:llama3.2",
+   "rows": [
+    {
+     "id": "curated_pair-01",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1206,
+     "output_tokens": 135,
+     "proposer_prompt_tokens": [
+      554
+     ],
+     "context_tokens": 365,
+     "evidence_tokens": 496,
+     "naive_context_tokens": 1846,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Aspirin is listed as an antiplatelet agent that can increase the risk of bleeding when used concomitantly with warfarin. [warfarin#4]",
+       "citations": [
+        "warfarin#4"
+       ]
+      }
+     ],
+     "latency_s": 40.38
+    },
+    {
+     "id": "curated_pair-02",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 1098,
+     "output_tokens": 111,
+     "proposer_prompt_tokens": [
+      508
+     ],
+     "context_tokens": 317,
+     "evidence_tokens": 310,
+     "naive_context_tokens": 1862,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "warfarin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring patients receiving ibuprofen with warfarin due to increased bleeding risk.",
+       "citations": [
+        "warfarin#4"
+       ]
+      }
+     ],
+     "latency_s": 31.93
+    },
+    {
+     "id": "curated_pair-03",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 102,
+     "output_tokens": 25,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "metformin",
+        "warfarin"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 8.2
+    },
+    {
+     "id": "curated_pair-04",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1169,
+     "output_tokens": 136,
+     "proposer_prompt_tokens": [
+      536
+     ],
+     "context_tokens": 344,
+     "evidence_tokens": 330,
+     "naive_context_tokens": 448,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "ibuprofen"
+       ],
+       "severity": "high",
+       "summary": "Aspirin should not be administered to patients with aspirin-sensitive asthma, and should be used with caution in patients with preexisting asthma. [ibuprofen#0]",
+       "citations": [
+        "ibuprofen#0"
+       ]
+      }
+     ],
+     "latency_s": 30.2
+    },
+    {
+     "id": "curated_pair-05",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 934,
+     "output_tokens": 126,
+     "proposer_prompt_tokens": [
+      419
+     ],
+     "context_tokens": 226,
+     "evidence_tokens": 226,
+     "naive_context_tokens": 966,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "metformin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring for hypoglycemia if the dosage of butalbital, aspirin, and caffeine capsules exceeds the maximum recommended daily dosage.",
+       "citations": [
+        "aspirin#1"
+       ]
+      }
+     ],
+     "latency_s": 25.89
+    },
+    {
+     "id": "curated_pair-06",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 102,
+     "output_tokens": 28,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "metformin"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 10.31
+    },
+    {
+     "id": "curated_pair-07",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1291,
+     "output_tokens": 120,
+     "proposer_prompt_tokens": [
+      602
+     ],
+     "context_tokens": 408,
+     "evidence_tokens": 441,
+     "naive_context_tokens": 1137,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "lisinopril"
+       ],
+       "severity": "high",
+       "summary": "Coadministration may result in deterioration of renal function, including possible acute renal failure, and monitor renal function periodically.",
+       "citations": [
+        "lisinopril#2"
+       ]
+      }
+     ],
+     "latency_s": 39.32
+    },
+    {
+     "id": "curated_pair-08",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 664,
+     "output_tokens": 129,
+     "proposer_prompt_tokens": [
+      285
+     ],
+     "context_tokens": 92,
+     "evidence_tokens": 191,
+     "naive_context_tokens": 1362,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "lisinopril",
+        "metformin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring the patient's serum potassium frequently and warns of an increased blood-glucose-lowering effect with risk of hypoglycemia.",
+       "citations": [
+        "lisinopril#1"
+       ]
+      }
+     ],
+     "latency_s": 25.13
+    },
+    {
+     "id": "curated_pair-09",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1299,
+     "output_tokens": 132,
+     "proposer_prompt_tokens": [
+      601
+     ],
+     "context_tokens": 407,
+     "evidence_tokens": 440,
+     "naive_context_tokens": 1280,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "lisinopril"
+       ],
+       "severity": "high",
+       "summary": "Coadministration may result in deterioration of renal function, including possible acute renal failure, in patients who are elderly, volume-depleted, or with compromised renal function.",
+       "citations": [
+        "lisinopril#2"
+       ]
+      }
+     ],
+     "latency_s": 33.57
+    },
+    {
+     "id": "curated_pair-10",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 107,
+     "output_tokens": 25,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "lisinopril",
+        "warfarin"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 5.8
+    },
+    {
+     "id": "curated_pair-11",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 16,
+     "revisions": 2,
+     "resumed_ok": true,
+     "prompt_tokens": 4869,
+     "output_tokens": 341,
+     "proposer_prompt_tokens": [
+      786,
+      823,
+      825
+     ],
+     "context_tokens": 593,
+     "evidence_tokens": 708,
+     "naive_context_tokens": 1545,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "amiodarone",
+        "simvastatin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of amiodarone increases the risk of rhabdomyolysis with simvastatin.",
+       "citations": [
+        "simvastatin#3"
+       ]
+      }
+     ],
+     "latency_s": 123.06
+    },
+    {
+     "id": "curated_pair-12",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2240,
+     "output_tokens": 257,
+     "proposer_prompt_tokens": [
+      524,
+      561
+     ],
+     "context_tokens": 328,
+     "evidence_tokens": 456,
+     "naive_context_tokens": 1443,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "clopidogrel",
+        "omeprazole"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of clopidogrel with omeprazole or esomeprazole results in reduced plasma concentrations of clopidogrel and a reduction in platelet inhibition.",
+       "citations": [
+        "clopidogrel#2",
+        "omeprazole#3"
+       ]
+      }
+     ],
+     "latency_s": 56.1
+    },
+    {
+     "id": "curated_pair-13",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 103,
+     "output_tokens": 28,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "methotrexate"
+       ],
+       "severity": "none_documented",
+       "summary": "No statement naming this pair or its drug classes was found in the retrieved FDA label sections.",
+       "citations": []
+      }
+     ],
+     "latency_s": 5.88
+    },
+    {
+     "id": "curated_pair-14",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 822,
+     "output_tokens": 129,
+     "proposer_prompt_tokens": [
+      362
+     ],
+     "context_tokens": 166,
+     "evidence_tokens": 338,
+     "naive_context_tokens": 1277,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "amiodarone",
+        "digoxin"
+       ],
+       "severity": "high",
+       "summary": "Amiodarone potentiates the electrophysiologic and hemodynamic effects of digoxin, resulting in bradycardia, sinus arrest, and AV block.",
+       "citations": [
+        "amiodarone#0"
+       ]
+      }
+     ],
+     "latency_s": 23.68
+    },
+    {
+     "id": "curated_pair-15",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 711,
+     "output_tokens": 133,
+     "proposer_prompt_tokens": [
+      303
+     ],
+     "context_tokens": 112,
+     "evidence_tokens": 135,
+     "naive_context_tokens": 1172,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "fluoxetine",
+        "tramadol"
+       ],
+       "severity": "moderate",
+       "summary": "The concomitant use of tramadol and fluoxetine may increase the plasma concentration of tramadol and result in greater levels of M1. Monitor patients at frequent intervals for adverse events including respiratory depression and sedation.",
+       "citations": [
+        "tramadol#2"
+       ]
+      }
+     ],
+     "latency_s": 26.35
+    },
+    {
+     "id": "curated_pair-16",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "insufficient_evidence"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 102,
+     "output_tokens": 29,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "lisinopril",
+        "potassium chloride"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 9.56
+    },
+    {
+     "id": "curated_pair-17",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1575,
+     "output_tokens": 125,
+     "proposer_prompt_tokens": [
+      742
+     ],
+     "context_tokens": 569,
+     "evidence_tokens": 569,
+     "naive_context_tokens": 1791,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "amiodarone",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Amiodarone is an inducer of CYP2C9, which can decrease warfarin levels, increasing the risk of bleeding.",
+       "citations": [
+        "warfarin#3"
+       ]
+      }
+     ],
+     "latency_s": 62.74
+    },
+    {
+     "id": "curated_pair-18",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 1491,
+     "output_tokens": 280,
+     "proposer_prompt_tokens": [
+      330,
+      357
+     ],
+     "context_tokens": 141,
+     "evidence_tokens": 397,
+     "naive_context_tokens": 994,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "ibuprofen",
+        "lithium"
+       ],
+       "severity": "high",
+       "summary": "May increase lithium serum concentrations due to decreased renal clearance and increased serum lithium concentrations.",
+       "citations": [
+        "lithium#1"
+       ]
+      }
+     ],
+     "latency_s": 67.69
+    },
+    {
+     "id": "curated_pair-19",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 13,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 3647,
+     "output_tokens": 418,
+     "proposer_prompt_tokens": [
+      825,
+      892
+     ],
+     "context_tokens": 631,
+     "evidence_tokens": 968,
+     "naive_context_tokens": 1393,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "aspirin",
+        "clopidogrel"
+       ],
+       "severity": "high",
+       "summary": "Coadministration of clopidogrel and NSAIDs increases the risk of gastrointestinal bleeding.",
+       "citations": [
+        "clopidogrel#0"
+       ]
+      }
+     ],
+     "latency_s": 118.49
+    },
+    {
+     "id": "curated_pair-20",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "unresolved_medication"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 104,
+     "output_tokens": 23,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 5.09
+    },
+    {
+     "id": "curated_pair-21",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 101,
+     "output_tokens": 26,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "nitroglycerin",
+        "sildenafil"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 3.02
+    },
+    {
+     "id": "curated_pair-22",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 758,
+     "output_tokens": 145,
+     "proposer_prompt_tokens": [
+      323
+     ],
+     "context_tokens": 131,
+     "evidence_tokens": 217,
+     "naive_context_tokens": 1628,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "fluconazole",
+        "warfarin"
+       ],
+       "severity": "moderate",
+       "summary": "Bleeding events have been reported in association with increases in prothrombin time in patients receiving fluconazole concurrently with warfarin. Careful monitoring of prothrombin time and dose adjustment of warfarin may be necessary.",
+       "citations": [
+        "fluconazole#24"
+       ]
+      }
+     ],
+     "latency_s": 23.65
+    },
+    {
+     "id": "curated_pair-23",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "critic_issues_unresolved",
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 16,
+     "revisions": 2,
+     "resumed_ok": true,
+     "prompt_tokens": 4630,
+     "output_tokens": 705,
+     "proposer_prompt_tokens": [
+      663,
+      811,
+      723
+     ],
+     "context_tokens": 467,
+     "evidence_tokens": 464,
+     "naive_context_tokens": 1696,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "atorvastatin",
+        "clarithromycin"
+       ],
+       "severity": "high",
+       "summary": "Contraindicated due to increased risk of toxicities from lipid-lowering agents",
+       "citations": [
+        "Lomitapide, Lovastatin, Simvastatin: Clarithromycin may increase the exposure of these drugs by inhibition of CYP3A metabolism, thereby increasing the risk of toxicities from these drugs [see Contraindications ( 4.5 ) and Warnings and Precautions ( 5.4 )"
+       ]
+      }
+     ],
+     "latency_s": 158.57
+    },
+    {
+     "id": "curated_pair-24",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": false,
+     "escalation_correct": false,
+     "reasons": [],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 1176,
+     "output_tokens": 120,
+     "proposer_prompt_tokens": [
+      544
+     ],
+     "context_tokens": 348,
+     "evidence_tokens": 706,
+     "naive_context_tokens": 1453,
+     "task_success": false,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "metoprolol",
+        "verapamil"
+       ],
+       "severity": "moderate",
+       "summary": "Concomitant use may result in additive negative effects on heart rate, atrioventricular conduction and/or cardiac contractility.",
+       "citations": [
+        "verapamil#2"
+       ]
+      }
+     ],
+     "latency_s": 32.06
+    },
+    {
+     "id": "curated_pair-25",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1764,
+     "output_tokens": 142,
+     "proposer_prompt_tokens": [
+      830
+     ],
+     "context_tokens": 653,
+     "evidence_tokens": 675,
+     "naive_context_tokens": 1862,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "ciprofloxacin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Ciprofloxacin is associated with transient elevations in serum creatinine in patients receiving cyclosporine concomitantly, and may enhance the effects of warfarin and its derivatives.",
+       "citations": [
+        "ciprofloxacin#0"
+       ]
+      }
+     ],
+     "latency_s": 46.9
+    },
+    {
+     "id": "curated_pair-26",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 5,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 15,
+     "revisions": 1,
+     "resumed_ok": true,
+     "prompt_tokens": 2418,
+     "output_tokens": 306,
+     "proposer_prompt_tokens": [
+      551,
+      609
+     ],
+     "context_tokens": 358,
+     "evidence_tokens": 358,
+     "naive_context_tokens": 2718,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "rifampin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Concomitant use of clopidogrel and rifampin should be discouraged due to increased active metabolite exposure and risk of bleeding.",
+       "citations": [
+        "rifampin#5"
+       ]
+      }
+     ],
+     "latency_s": 110.01
+    },
+    {
+     "id": "curated_pair-27",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 104,
+     "output_tokens": 28,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "potassium chloride",
+        "spironolactone"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 7.89
+    },
+    {
+     "id": "curated_pair-28",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 103,
+     "output_tokens": 27,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "furosemide",
+        "gentamicin"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 10.36
+    },
+    {
+     "id": "curated_pair-29",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": true,
+     "escalation_correct": false,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1358,
+     "output_tokens": 119,
+     "proposer_prompt_tokens": [
+      635
+     ],
+     "context_tokens": 439,
+     "evidence_tokens": 602,
+     "naive_context_tokens": 1611,
+     "task_success": false,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "sertraline",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "The label warns of a serious risk of bleeding associated with the concomitant use of sertraline and warfarin.",
+       "citations": [
+        "sertraline#2"
+       ]
+      }
+     ],
+     "latency_s": 51.7
+    },
+    {
+     "id": "curated_pair-30",
+     "category": "curated_pair",
+     "escalate_truth": false,
+     "escalated": false,
+     "escalation_correct": true,
+     "reasons": [],
+     "truth_reasons": [],
+     "reason_recall": null,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": null,
+     "prompt_tokens": 995,
+     "output_tokens": 127,
+     "proposer_prompt_tokens": [
+      451
+     ],
+     "context_tokens": 255,
+     "evidence_tokens": 320,
+     "naive_context_tokens": 1650,
+     "task_success": true,
+     "status": "released",
+     "findings": [
+      {
+       "pair": [
+        "azithromycin",
+        "warfarin"
+       ],
+       "severity": "moderate",
+       "summary": "The label advises monitoring prothrombin time while patients are receiving azithromycin and oral anticoagulants concomitantly.",
+       "citations": [
+        "azithromycin#0"
+       ]
+      }
+     ],
+     "latency_s": 32.15
+    },
+    {
+     "id": "curated_pair-31",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "unresolved_medication"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 106,
+     "output_tokens": 30,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 4.32
+    },
+    {
+     "id": "curated_pair-32",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "fewer_than_two_medications"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 0.0,
+     "extraction_correct": false,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": false,
+     "tool_calls": 1,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 99,
+     "output_tokens": 14,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 2.57
+    },
+    {
+     "id": "curated_pair-33",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "high_severity_interaction"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 1,
+     "findings_grounded": 1,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 1,
+     "evidence_oracle": 1,
+     "evidence_found": 1,
+     "tools_called": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tools_expected": [
+      "resolve_medication",
+      "search_label_evidence"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 4,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 10,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 1546,
+     "output_tokens": 120,
+     "proposer_prompt_tokens": [
+      730
+     ],
+     "context_tokens": 550,
+     "evidence_tokens": 566,
+     "naive_context_tokens": 1556,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "phenytoin",
+        "warfarin"
+       ],
+       "severity": "high",
+       "summary": "Warfarin may increase or decrease PT/INR responses when coadministered with phenytoin.",
+       "citations": [
+        "phenytoin#6"
+       ]
+      }
+     ],
+     "latency_s": 43.32
+    },
+    {
+     "id": "curated_pair-34",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "unresolved_medication"
+     ],
+     "truth_reasons": [
+      "unresolved_medication"
+     ],
+     "reason_recall": 1.0,
+     "extraction_correct": true,
+     "pairs_expected": 0,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 0,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 104,
+     "output_tokens": 27,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [],
+     "latency_s": 7.1
+    },
+    {
+     "id": "curated_pair-35",
+     "category": "curated_pair",
+     "escalate_truth": true,
+     "escalated": true,
+     "escalation_correct": true,
+     "reasons": [
+      "insufficient_evidence"
+     ],
+     "truth_reasons": [
+      "high_severity_interaction",
+      "insufficient_evidence"
+     ],
+     "reason_recall": 0.5,
+     "extraction_correct": true,
+     "pairs_expected": 1,
+     "coverage": true,
+     "findings_cited": 0,
+     "findings_grounded": 0,
+     "unsafe_claims": [],
+     "severe_pairs": 1,
+     "severe_rated_high": 0,
+     "evidence_oracle": 0,
+     "evidence_found": 0,
+     "tools_called": [
+      "resolve_medication"
+     ],
+     "tools_expected": [
+      "resolve_medication"
+     ],
+     "tool_selection_correct": true,
+     "tool_calls": 3,
+     "invalid_calls": 0,
+     "unnecessary_calls": 0,
+     "retries": 0,
+     "failed_calls": 0,
+     "steps": 8,
+     "revisions": 0,
+     "resumed_ok": true,
+     "prompt_tokens": 106,
+     "output_tokens": 24,
+     "proposer_prompt_tokens": [],
+     "context_tokens": null,
+     "evidence_tokens": null,
+     "naive_context_tokens": 0,
+     "task_success": true,
+     "status": "approved_by_reviewer",
+     "findings": [
+      {
+       "pair": [
+        "phenelzine",
+        "tramadol"
+       ],
+       "severity": "insufficient_evidence",
+       "summary": "No FDA label for at least one of these drugs is in the evidence corpus.",
+       "citations": []
+      }
+     ],
+     "latency_s": 5.06
+    }
+   ]
+  }
+ },
+ "generated": "2026-09-28 02:04",
+ "scenario_count": 35
+}
